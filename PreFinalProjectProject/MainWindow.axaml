@@ -1,0 +1,22 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="PreFinalProjectProject.MainWindow"
+        Title="PreFinalProjectProject">
+    
+    <StackPanel HorizontalAlignment="Center">
+        <Border Margin="10" 
+                CornerRadius="10" Background="#1f1e33" 
+                Padding="10">
+            <TextBlock FontSize="30">Let's try finding your precise location and finding the weather there!</TextBlock>
+        </Border>
+        <StackPanel>
+            <Button HorizontalAlignment="Center"
+                    Background="#ABCDEF" CornerRadius="5" Padding="10" Click="GetTheWeather">
+                <TextBlock FontSize="25">GAMING!!!</TextBlock>
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</Window>
