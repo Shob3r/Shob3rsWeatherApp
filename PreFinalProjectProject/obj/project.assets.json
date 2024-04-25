@@ -5385,11 +5385,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\a.pinter\\OneDrive - School District No. 36 (Surrey)\\Grade 11 Stuff\\Programming 12\\PreFinalProjectProject\\PreFinalProjectProject\\PreFinalProjectProject.csproj",
+      "projectUniqueName": "C:\\Users\\a.pinter\\OneDrive - School District No. 36 (Surrey)\\Grade 11 Stuff\\Programming 12\\Shob3rsWeatherApp\\PreFinalProjectProject\\PreFinalProjectProject.csproj",
       "projectName": "PreFinalProjectProject",
-      "projectPath": "C:\\Users\\a.pinter\\OneDrive - School District No. 36 (Surrey)\\Grade 11 Stuff\\Programming 12\\PreFinalProjectProject\\PreFinalProjectProject\\PreFinalProjectProject.csproj",
+      "projectPath": "C:\\Users\\a.pinter\\OneDrive - School District No. 36 (Surrey)\\Grade 11 Stuff\\Programming 12\\Shob3rsWeatherApp\\PreFinalProjectProject\\PreFinalProjectProject.csproj",
       "packagesPath": "C:\\Users\\a.pinter\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\a.pinter\\OneDrive - School District No. 36 (Surrey)\\Grade 11 Stuff\\Programming 12\\PreFinalProjectProject\\PreFinalProjectProject\\obj\\",
+      "outputPath": "C:\\Users\\a.pinter\\OneDrive - School District No. 36 (Surrey)\\Grade 11 Stuff\\Programming 12\\Shob3rsWeatherApp\\PreFinalProjectProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

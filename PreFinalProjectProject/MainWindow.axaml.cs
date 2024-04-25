@@ -1,3 +1,4 @@
+using System;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
@@ -11,6 +12,6 @@ public partial class MainWindow : Window
 
     private void GetTheWeather(object? sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        Console.WriteLine("GAMING");
     }
 }

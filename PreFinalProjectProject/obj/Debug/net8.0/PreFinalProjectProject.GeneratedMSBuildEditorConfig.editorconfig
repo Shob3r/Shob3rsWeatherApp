@@ -13,12 +13,12 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PreFinalProjectProject
-build_property.ProjectDir = C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\PreFinalProjectProject\PreFinalProjectProject\
+build_property.ProjectDir = C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[C:/Users/a.pinter/OneDrive - School District No. 36 (Surrey)/Grade 11 Stuff/Programming 12/PreFinalProjectProject/PreFinalProjectProject/App.axaml]
+[C:/Users/a.pinter/OneDrive - School District No. 36 (Surrey)/Grade 11 Stuff/Programming 12/Shob3rsWeatherApp/PreFinalProjectProject/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/a.pinter/OneDrive - School District No. 36 (Surrey)/Grade 11 Stuff/Programming 12/PreFinalProjectProject/PreFinalProjectProject/MainWindow.axaml]
+[C:/Users/a.pinter/OneDrive - School District No. 36 (Surrey)/Grade 11 Stuff/Programming 12/Shob3rsWeatherApp/PreFinalProjectProject/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
