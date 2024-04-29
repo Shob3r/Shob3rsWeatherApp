@@ -1,3 +1,5 @@
 {
-  "openWeatherKey": ""
+  "openWeatherKey": "",
+  "ipInfoKey": "",
+  "ipDataKey": ""
 }

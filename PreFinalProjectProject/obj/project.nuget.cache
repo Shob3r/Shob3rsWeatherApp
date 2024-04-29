@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "S/joBYpYqqd13fA4jVk/zLPsz1xTxto/W47mEmbabXixEjngR7HVa5uwnbvXKaU/pLwfRQ5Fax9H6WS6t7AtyQ==",
+  "dgSpecHash": "RfAqKdaYpIwYx1gRrYuEI8hKGbSbHD6jMfxQT0K3F6b0PUvl+J0rk5JCp6rKYZisvFqKMogb2BMuRuFa8mjiIg==",
   "success": true,
   "projectFilePath": "C:\\Users\\a.pinter\\OneDrive - School District No. 36 (Surrey)\\Grade 11 Stuff\\Programming 12\\Shob3rsWeatherApp\\PreFinalProjectProject\\PreFinalProjectProject.csproj",
   "expectedPackageFiles": [
@@ -25,6 +25,7 @@
     "C:\\Users\\a.pinter\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\7.3.0\\harfbuzzsharp.nativeassets.macos.7.3.0.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\harfbuzzsharp.nativeassets.webassembly\\7.3.0\\harfbuzzsharp.nativeassets.webassembly.7.3.0.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\7.3.0\\harfbuzzsharp.nativeassets.win32.7.3.0.nupkg.sha512",
+    "C:\\Users\\a.pinter\\.nuget\\packages\\ipdata\\2.0.1\\ipdata.2.0.1.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\ipinfo\\3.0.0\\ipinfo.3.0.0.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\microcom.runtime\\0.11.0\\microcom.runtime.0.11.0.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.0.0\\microsoft.codeanalysis.analyzers.3.0.0.nupkg.sha512",

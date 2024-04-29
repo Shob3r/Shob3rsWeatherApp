@@ -5,6 +5,7 @@ using Avalonia.Interactivity;
 namespace PreFinalProjectProject;
 public partial class MainWindow : Window
 {
+    private LocationData locationData = new LocationData();
     public MainWindow()
     {
         InitializeComponent();
@@ -12,6 +13,6 @@ public partial class MainWindow : Window
 
     private void GetTheWeather(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("GAMING");
+        Console.WriteLine(locationData.GetIpAddress());
     }
 }

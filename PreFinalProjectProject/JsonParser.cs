@@ -7,9 +7,9 @@ namespace PreFinalProjectProject;
 public class JsonParser
 { 
     private JObject parsedFileContents;
-    public JsonParser(string filePath)
+    public JsonParser()
     {
-        parsedFileContents = JObject.Parse(File.ReadAllText(filePath));
+        parsedFileContents = JObject.Parse(File.ReadAllText("../../../config.json"));
     }
 
     public T getDataByTag<T>(string tagName)

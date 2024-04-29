@@ -433,6 +433,22 @@
           }
         }
       },
+      "IpData/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/IpData.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/IpData.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
       "IPinfo/3.0.0": {
         "type": "package",
         "dependencies": {
@@ -2363,6 +2379,19 @@
         "runtimes/win-arm64/native/libHarfBuzzSharp.dll",
         "runtimes/win-x64/native/libHarfBuzzSharp.dll",
         "runtimes/win-x86/native/libHarfBuzzSharp.dll"
+      ]
+    },
+    "IpData/2.0.1": {
+      "sha512": "HCJxcRn+3dIp9inXcE2Nojuk8kYs0fanQDbFhKvn+MdeCaScPKPn+3YWFuZRTxhnpdYB4tob990oDUEE3IAKIg==",
+      "type": "package",
+      "path": "ipdata/2.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ipdata.2.0.1.nupkg.sha512",
+        "ipdata.nuspec",
+        "lib/netstandard2.0/IpData.dll",
+        "lib/netstandard2.0/IpData.pdb"
       ]
     },
     "IPinfo/3.0.0": {
@@ -5374,6 +5403,7 @@
       "Avalonia.Fonts.Inter >= 11.0.10",
       "Avalonia.Themes.Fluent >= 11.0.10",
       "IPinfo >= 3.0.0",
+      "IpData >= 2.0.1",
       "Newtonsoft.Json >= 13.0.3",
       "OpenWeatherMap.API >= 2.0.59"
     ]
@@ -5444,6 +5474,10 @@
           "IPinfo": {
             "target": "Package",
             "version": "[3.0.0, )"
+          },
+          "IpData": {
+            "target": "Package",
+            "version": "[2.0.1, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
