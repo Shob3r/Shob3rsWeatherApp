@@ -18,6 +18,10 @@
         <PackageReference Include="IpData" Version="2.0.1" />
         <PackageReference Include="IPinfo" Version="3.0.0" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-        <PackageReference Include="OpenWeatherMap.API" Version="2.0.59" />
+        <PackageReference Include="OpenWeatherAPI" Version="1.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Assets\" />
     </ItemGroup>
 </Project>

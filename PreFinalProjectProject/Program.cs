@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace PreFinalProjectProject;
+namespace shobersWeatherApp;
 
 class Program
 {

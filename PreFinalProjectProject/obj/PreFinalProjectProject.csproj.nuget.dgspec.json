@@ -75,9 +75,9 @@
               "target": "Package",
               "version": "[13.0.3, )"
             },
-            "OpenWeatherMap.API": {
+            "OpenWeatherAPI": {
               "target": "Package",
-              "version": "[2.0.59, )"
+              "version": "[1.0.2, )"
             }
           },
           "imports": [

@@ -159,16 +159,8 @@ C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Prog
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Scripting.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\Newtonsoft.Json.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\OpenWeatherMap.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\SkiaSharp.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\System.Drawing.Common.dll
@@ -178,7 +170,6 @@ C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Prog
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\System.Security.Permissions.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\System.Windows.Extensions.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\Tmds.DBus.Protocol.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\UnitsNet.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -231,15 +222,6 @@ C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Prog
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\ak\OpenWeatherMap.resources.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\de\OpenWeatherMap.resources.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\en\OpenWeatherMap.resources.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\fr\OpenWeatherMap.resources.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\it\OpenWeatherMap.resources.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\fr-CA\UnitsNet.resources.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\nb-NO\UnitsNet.resources.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\ru-RU\UnitsNet.resources.dll
-C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\zh-CN\UnitsNet.resources.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\runtimes\win-arm64\native\av_libglesv2.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\runtimes\win-x64\native\av_libglesv2.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\runtimes\win-x86\native\av_libglesv2.dll
@@ -284,3 +266,5 @@ C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Prog
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\obj\Debug\net8.0\PreFinal.8B030A19.Up2Date
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\obj\Debug\net8.0\PreFinalProjectProject.genruntimeconfig.cache
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\obj\Debug\net8.0\ref\PreFinalProjectProject.dll
+C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\IpData.dll
+C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\OpenWeatherAPI.dll

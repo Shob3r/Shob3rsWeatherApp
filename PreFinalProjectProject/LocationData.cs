@@ -1,55 +1,50 @@
 using System;
-using System.Net;
-using System.Net.Http;
-using System.Net.Sockets;
+using System.IO;
 using System.Threading.Tasks;
 using IpData;
+using IPinfo;
+using Shob3r.HttpUtils;
 
-namespace PreFinalProjectProject;
+namespace shobersWeatherApp;
 
 public class LocationData
 {
     private string? ipAddress;
-    private readonly string ipDataKey;
-
+    private readonly string ipDataKey, ipInfoKey;
+    public string latitude, longitude, city;
+    
     public LocationData()
     {
-        JsonParser parser = new JsonParser();
-        ipDataKey = parser.getDataByTag<string>("ipDataKey");
+        JsonParser configData = new JsonParser(File.ReadAllText("../../config.json"));
+        ipDataKey = configData.getDataByTag<string>("ipDataKey");
         
         // Async methods are so fun to deal with!
-        ipAddress = Task.Run(() => getHttpContent("https://api.ipify.org")).Result;
+        ipAddress = Task.Run(() => HttpUtils.getHttpContent("https://api.ipify.org")).Result;
     }
-
-    private async Task<string> getHttpContent(string url)
-    {
-        using var httpClient = new HttpClient();
-        try
-        {
-            var response = await httpClient.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-            string content = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(content);
-            
-            return content;
-        }
-        catch (HttpRequestException e)
-        {
-            Console.WriteLine(e);
-            return string.Empty;
-        }
-    }
-
-    private async Task setCoordinates()
+    
+    public async Task SetLocationData()
     {
         var client = new IpDataClient(ipDataKey);
         var ipInfo = await client.Lookup(ipAddress);
+        city = ipInfo.City ?? throw new InvalidOperationException();
+        latitude = ipInfo.Latitude.ToString() ?? throw new InvalidOperationException();
+        longitude = ipInfo.Longitude.ToString() ?? throw new InvalidOperationException();
         
-        Console.WriteLine($"Latitude: {ipInfo.Latitude}. Longitude: {ipInfo.Longitude}");
+        Console.WriteLine(city);
     }
-    
-    public string GetIpAddress()
+
+    public string getCity()
     {
-        return ipAddress;
+        return city;
+    }
+
+    public string getLatitude()
+    {
+        return latitude;
+    }
+
+    public string getLongitude()
+    {
+        return longitude;
     }
 }

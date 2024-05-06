@@ -2,15 +2,11 @@ using System;
 using System.IO;
 using Newtonsoft.Json.Linq;
 
-namespace PreFinalProjectProject;
+namespace shobersWeatherApp;
 
-public class JsonParser
+public class JsonParser(string contents)
 { 
-    private JObject parsedFileContents;
-    public JsonParser()
-    {
-        parsedFileContents = JObject.Parse(File.ReadAllText("../../../config.json"));
-    }
+    private JObject parsedFileContents = JObject.Parse(contents);
 
     public T getDataByTag<T>(string tagName)
     {
