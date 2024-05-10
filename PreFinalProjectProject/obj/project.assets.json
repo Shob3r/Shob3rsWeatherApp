@@ -335,6 +335,28 @@
           }
         }
       },
+      "FluentIcons.Avalonia/1.1.239": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia": "11.0.0",
+          "FluentIcons.Common": "[1.1.239]"
+        },
+        "compile": {
+          "lib/net6.0/FluentIcons.Avalonia.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/FluentIcons.Avalonia.dll": {}
+        }
+      },
+      "FluentIcons.Common/1.1.239": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/FluentIcons.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/FluentIcons.Common.dll": {}
+        }
+      },
       "HarfBuzzSharp/7.3.0": {
         "type": "package",
         "dependencies": {
@@ -806,6 +828,23 @@
         },
         "runtime": {
           "lib/netstandard2.0/OpenWeatherAPI.dll": {}
+        }
+      },
+      "OpenWeatherMap4NET/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2",
+          "System.Runtime.Caching": "4.5.0"
+        },
+        "compile": {
+          "lib/netcoreapp2.0/OpenWeatherMap4NET.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/OpenWeatherMap4NET.dll": {
+            "related": ".xml"
+          }
         }
       },
       "SkiaSharp/2.88.7": {
@@ -2037,6 +2076,36 @@
         "lib/netstandard2.0/Avalonia.X11.xml"
       ]
     },
+    "FluentIcons.Avalonia/1.1.239": {
+      "sha512": "bgu9YJfULnY5OsGJhzYNeYTupWGQmvvI7A9BoLqWta3DTLPEo/6peNWD5B5VXE/Tzw9VMP7qnBUrnvuNMTMYQw==",
+      "type": "package",
+      "path": "fluenticons.avalonia/1.1.239",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "README.md",
+        "fluenticons.avalonia.1.1.239.nupkg.sha512",
+        "fluenticons.avalonia.nuspec",
+        "lib/net6.0/FluentIcons.Avalonia.dll",
+        "lib/netstandard2.0/FluentIcons.Avalonia.dll"
+      ]
+    },
+    "FluentIcons.Common/1.1.239": {
+      "sha512": "oMycq1oS2Uw40rSwtMghBum5f3ONZJQfES+/az3p3BXbrSI3UmulKP/6m1FyhsjYB1IaSYuzJLtHjytPAI3Jxw==",
+      "type": "package",
+      "path": "fluenticons.common/1.1.239",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "README.md",
+        "fluenticons.common.1.1.239.nupkg.sha512",
+        "fluenticons.common.nuspec",
+        "lib/netstandard2.0/FluentIcons.Common.dll",
+        "lib/netstandard2.1/FluentIcons.Common.dll"
+      ]
+    },
     "HarfBuzzSharp/7.3.0": {
       "sha512": "OrQLaxtZMIeS2yHSUtsKzeSdk9CPaCpyJ/JCs+wLfRGatjE8MLUS6LGj6vdbGRxqRavcXs79C9O3oWe6FJR0JQ==",
       "type": "package",
@@ -2688,6 +2757,19 @@
         "lib/netstandard2.0/OpenWeatherAPI.dll",
         "openweatherapi.1.0.2.nupkg.sha512",
         "openweatherapi.nuspec"
+      ]
+    },
+    "OpenWeatherMap4NET/1.0.5": {
+      "sha512": "wg64gKt4N/q9wEBnBBR8jVt3OXS/v4sRpjdhklCbeJNp5A+nczfTIx2oOAxdOlley8GAyH66YVdFcH2MaU+wdg==",
+      "type": "package",
+      "path": "openweathermap4net/1.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp2.0/OpenWeatherMap4NET.dll",
+        "lib/netcoreapp2.0/OpenWeatherMap4NET.xml",
+        "openweathermap4net.1.0.5.nupkg.sha512",
+        "openweathermap4net.nuspec"
       ]
     },
     "SkiaSharp/2.88.7": {
@@ -5017,10 +5099,12 @@
       "Avalonia.Diagnostics >= 11.0.10",
       "Avalonia.Fonts.Inter >= 11.0.10",
       "Avalonia.Themes.Fluent >= 11.0.10",
+      "FluentIcons.Avalonia >= 1.1.239",
       "IPinfo >= 3.0.0",
       "IpData >= 2.0.1",
       "Newtonsoft.Json >= 13.0.3",
-      "OpenWeatherAPI >= 1.0.2"
+      "OpenWeatherAPI >= 1.0.2",
+      "OpenWeatherMap4NET >= 1.0.5"
     ]
   },
   "packageFolders": {
@@ -5086,6 +5170,10 @@
             "target": "Package",
             "version": "[11.0.10, )"
           },
+          "FluentIcons.Avalonia": {
+            "target": "Package",
+            "version": "[1.1.239, )"
+          },
           "IPinfo": {
             "target": "Package",
             "version": "[3.0.0, )"
@@ -5101,6 +5189,10 @@
           "OpenWeatherAPI": {
             "target": "Package",
             "version": "[1.0.2, )"
+          },
+          "OpenWeatherMap4NET": {
+            "target": "Package",
+            "version": "[1.0.5, )"
           }
         },
         "imports": [

@@ -13,10 +13,12 @@
           "Avalonia.Diagnostics": "11.0.10",
           "Avalonia.Fonts.Inter": "11.0.10",
           "Avalonia.Themes.Fluent": "11.0.10",
+          "FluentIcons.Avalonia": "1.1.239",
           "IPinfo": "3.0.0",
           "IpData": "2.0.1",
           "Newtonsoft.Json": "13.0.3",
-          "OpenWeatherAPI": "1.0.2"
+          "OpenWeatherAPI": "1.0.2",
+          "OpenWeatherMap4NET": "1.0.5"
         },
         "runtime": {
           "PreFinalProjectProject.dll": {}
@@ -258,6 +260,26 @@
           "lib/net6.0/Avalonia.X11.dll": {
             "assemblyVersion": "11.0.10.0",
             "fileVersion": "11.0.10.0"
+          }
+        }
+      },
+      "FluentIcons.Avalonia/1.1.239": {
+        "dependencies": {
+          "Avalonia": "11.0.10",
+          "FluentIcons.Common": "1.1.239"
+        },
+        "runtime": {
+          "lib/net6.0/FluentIcons.Avalonia.dll": {
+            "assemblyVersion": "1.1.239.0",
+            "fileVersion": "1.1.239.0"
+          }
+        }
+      },
+      "FluentIcons.Common/1.1.239": {
+        "runtime": {
+          "lib/netstandard2.1/FluentIcons.Common.dll": {
+            "assemblyVersion": "1.1.239.0",
+            "fileVersion": "1.1.239.0"
           }
         }
       },
@@ -632,6 +654,18 @@
           "lib/netstandard2.0/OpenWeatherAPI.dll": {
             "assemblyVersion": "1.0.2.0",
             "fileVersion": "1.0.2.0"
+          }
+        }
+      },
+      "OpenWeatherMap4NET/1.0.5": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "System.Runtime.Caching": "6.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/OpenWeatherMap4NET.dll": {
+            "assemblyVersion": "1.0.5.0",
+            "fileVersion": "1.0.5.0"
           }
         }
       },
@@ -1170,6 +1204,20 @@
       "path": "avalonia.x11/11.0.10",
       "hashPath": "avalonia.x11.11.0.10.nupkg.sha512"
     },
+    "FluentIcons.Avalonia/1.1.239": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bgu9YJfULnY5OsGJhzYNeYTupWGQmvvI7A9BoLqWta3DTLPEo/6peNWD5B5VXE/Tzw9VMP7qnBUrnvuNMTMYQw==",
+      "path": "fluenticons.avalonia/1.1.239",
+      "hashPath": "fluenticons.avalonia.1.1.239.nupkg.sha512"
+    },
+    "FluentIcons.Common/1.1.239": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oMycq1oS2Uw40rSwtMghBum5f3ONZJQfES+/az3p3BXbrSI3UmulKP/6m1FyhsjYB1IaSYuzJLtHjytPAI3Jxw==",
+      "path": "fluenticons.common/1.1.239",
+      "hashPath": "fluenticons.common.1.1.239.nupkg.sha512"
+    },
     "HarfBuzzSharp/7.3.0": {
       "type": "package",
       "serviceable": true,
@@ -1302,6 +1350,13 @@
       "sha512": "sha512-JGUrEgZJ4ePQS6S1lK5m4A/EgRZ+6GT8Ph2LnMBK+ih8Rlb+IzE9RoHedAfE+6hbVK081eoPv3nlSLAzsAof4Q==",
       "path": "openweatherapi/1.0.2",
       "hashPath": "openweatherapi.1.0.2.nupkg.sha512"
+    },
+    "OpenWeatherMap4NET/1.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wg64gKt4N/q9wEBnBBR8jVt3OXS/v4sRpjdhklCbeJNp5A+nczfTIx2oOAxdOlley8GAyH66YVdFcH2MaU+wdg==",
+      "path": "openweathermap4net/1.0.5",
+      "hashPath": "openweathermap4net.1.0.5.nupkg.sha512"
     },
     "SkiaSharp/2.88.7": {
       "type": "package",

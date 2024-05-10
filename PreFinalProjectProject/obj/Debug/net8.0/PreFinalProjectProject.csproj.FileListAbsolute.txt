@@ -268,3 +268,6 @@ C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Prog
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\obj\Debug\net8.0\ref\PreFinalProjectProject.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\IpData.dll
 C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\OpenWeatherAPI.dll
+C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\OpenWeatherMap4NET.dll
+C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\FluentIcons.Avalonia.dll
+C:\Users\a.pinter\OneDrive - School District No. 36 (Surrey)\Grade 11 Stuff\Programming 12\Shob3rsWeatherApp\PreFinalProjectProject\bin\Debug\net8.0\FluentIcons.Common.dll

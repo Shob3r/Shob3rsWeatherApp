@@ -2,7 +2,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Shob3r.HttpUtils
+namespace PreFinalProjectProject
 {
     public static class HttpUtils
     {

@@ -2,15 +2,13 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using IpData;
-using IPinfo;
-using Shob3r.HttpUtils;
 
-namespace shobersWeatherApp;
+namespace PreFinalProjectProject;
 
 public class LocationData
 {
     private string? ipAddress;
-    private readonly string ipDataKey, ipInfoKey;
+    private readonly string ipDataKey;
     public string latitude, longitude, city;
     
     public LocationData()
@@ -31,20 +29,5 @@ public class LocationData
         longitude = ipInfo.Longitude.ToString() ?? throw new InvalidOperationException();
         
         Console.WriteLine(city);
-    }
-
-    public string getCity()
-    {
-        return city;
-    }
-
-    public string getLatitude()
-    {
-        return latitude;
-    }
-
-    public string getLongitude()
-    {
-        return longitude;
     }
 }

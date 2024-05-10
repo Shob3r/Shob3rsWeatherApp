@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Dvm249+m1wU1Y4IcH/DDkBiYSz9Dr5htpshS4yO7Js0O8akdwrqgW1ynbAPWKb2p3JwJgtPnF9HqmLiP1yrrOA==",
+  "dgSpecHash": "ZjB1Ckb0Rv53nD/T2V6p989KJykujVyWS6vbBPqVRKcotyCPY1adh6GpiXKVBiPbL7gHbiYN0eY/2mBMn+m8kg==",
   "success": true,
   "projectFilePath": "C:\\Users\\a.pinter\\OneDrive - School District No. 36 (Surrey)\\Grade 11 Stuff\\Programming 12\\Shob3rsWeatherApp\\PreFinalProjectProject\\PreFinalProjectProject.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,8 @@
     "C:\\Users\\a.pinter\\.nuget\\packages\\avalonia.themes.simple\\11.0.10\\avalonia.themes.simple.11.0.10.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\avalonia.win32\\11.0.10\\avalonia.win32.11.0.10.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\avalonia.x11\\11.0.10\\avalonia.x11.11.0.10.nupkg.sha512",
+    "C:\\Users\\a.pinter\\.nuget\\packages\\fluenticons.avalonia\\1.1.239\\fluenticons.avalonia.1.1.239.nupkg.sha512",
+    "C:\\Users\\a.pinter\\.nuget\\packages\\fluenticons.common\\1.1.239\\fluenticons.common.1.1.239.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\harfbuzzsharp\\7.3.0\\harfbuzzsharp.7.3.0.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\harfbuzzsharp.nativeassets.linux\\7.3.0\\harfbuzzsharp.nativeassets.linux.7.3.0.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\7.3.0\\harfbuzzsharp.nativeassets.macos.7.3.0.nupkg.sha512",
@@ -39,6 +41,7 @@
     "C:\\Users\\a.pinter\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\openweatherapi\\1.0.2\\openweatherapi.1.0.2.nupkg.sha512",
+    "C:\\Users\\a.pinter\\.nuget\\packages\\openweathermap4net\\1.0.5\\openweathermap4net.1.0.5.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\skiasharp\\2.88.7\\skiasharp.2.88.7.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\skiasharp.nativeassets.linux\\2.88.7\\skiasharp.nativeassets.linux.2.88.7.nupkg.sha512",
     "C:\\Users\\a.pinter\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.7\\skiasharp.nativeassets.macos.2.88.7.nupkg.sha512",

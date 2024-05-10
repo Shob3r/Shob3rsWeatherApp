@@ -63,6 +63,10 @@
               "target": "Package",
               "version": "[11.0.10, )"
             },
+            "FluentIcons.Avalonia": {
+              "target": "Package",
+              "version": "[1.1.239, )"
+            },
             "IPinfo": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -78,6 +82,10 @@
             "OpenWeatherAPI": {
               "target": "Package",
               "version": "[1.0.2, )"
+            },
+            "OpenWeatherMap4NET": {
+              "target": "Package",
+              "version": "[1.0.5, )"
             }
           },
           "imports": [

@@ -2,19 +2,57 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ic="using:FluentIcons.Avalonia"
         mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="750"
-        x:Class="shobersWeatherApp.MainWindow"
+        x:Class="PreFinalProjectProject.MainWindow"
         Title="Shob3r's Weather App"
         TransparencyLevelHint="AcrylicBlur"
         Background="Transparent"
-        ExtendClientAreaToDecorationsHint="False">
+        ExtendClientAreaToDecorationsHint="True">
+ 
         
-        <StackPanel HorizontalAlignment="Center">
-                <TextBlock x:Name="cityText" Padding="15" FontSize="25">Weather In {CityName}</TextBlock>
-                <Image x:Name="weatherImage"></Image>
-                <StackPanel HorizontalAlignment="Center">
-                        <TextBlock x:Name="Tempurature">{weather}, {degrees} Degrees Celcius</TextBlock>
-                </StackPanel>
-        </StackPanel>
+        <Window.Styles>
+                <Style Selector="TextBlock.primaryText">
+                        <Setter Property="Foreground" Value="White"></Setter>
+                        <Setter Property="FontFamily" Value="{StaticResource Rubik-Light}"></Setter>
+                </Style>
+                
+                <Style Selector="TextBlock.mainHeader">
+                        <Setter Property="FontWeight" Value="Bold"></Setter>
+                        <Setter Property="FontSize" Value="40"></Setter>
+                </Style>
+        </Window.Styles>
         
+        <Panel>
+                <ExperimentalAcrylicBorder IsHitTestVisible="False">
+                        <ExperimentalAcrylicBorder.Material>
+                                <ExperimentalAcrylicMaterial
+                                        BackgroundSource="Digger"
+                                        TintColor="Black"
+                                        TintOpacity="0.85"
+                                        MaterialOpacity="0.85"/>
+                        </ExperimentalAcrylicBorder.Material>
+                </ExperimentalAcrylicBorder>
+                <Grid>
+                        <StackPanel HorizontalAlignment="Left">
+                                <Button Width="150" Height="50" Padding="10" Background="Black">
+                                        <Grid>
+                                                <ic:SymbolIcon Symbol="WeatherSunnyLow" HorizontalAlignment="Left" VerticalAlignment="Center"></ic:SymbolIcon>
+                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Text="example"></TextBlock>
+                                        </Grid>
+                                </Button>
+                        </StackPanel>
+                        
+                        <StackPanel HorizontalAlignment="Center">
+                                <TextBlock x:Name="cityText" Padding="15" Classes="primaryText mainHeader" HorizontalAlignment="Center">Weather In {CityName}</TextBlock>
+                                <StackPanel HorizontalAlignment="Center">
+                                        <TextBlock x:Name="weatherTesting" Classes="primaryText" Text="wacha"/>
+                                </StackPanel>
+                        
+                                <ic:SymbolIcon  Symbol="WeatherDrizzle" IsFilled="False" FontSize="100" x:Name="weatherIcon"></ic:SymbolIcon>
+                        </StackPanel>
+                </Grid>
+
+        </Panel>
 </Window>
+

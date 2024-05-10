@@ -1,8 +1,7 @@
 using System;
-using System.IO;
 using Newtonsoft.Json.Linq;
 
-namespace shobersWeatherApp;
+namespace PreFinalProjectProject;
 
 public class JsonParser(string contents)
 { 
@@ -12,6 +11,7 @@ public class JsonParser(string contents)
     {
         if (doesTagExist(tagName))
         { 
+            Console.WriteLine("Found tag " + tagName);
             JToken token = parsedFileContents.SelectToken(tagName) ?? throw new InvalidOperationException();
             if (token.Type != JTokenType.Null)
             {
@@ -19,7 +19,7 @@ public class JsonParser(string contents)
                 if (t != null) return t;
             }
         }
-
+        Console.WriteLine($"Did not find tag {tagName}");
         return default!;
     }
 
