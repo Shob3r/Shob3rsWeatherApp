@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreFinalProjectProject", "PreFinalProjectProject\PreFinalProjectProject.csproj", "{F81EF6DE-0DBD-4FB6-A807-075D139BA940}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shob3rsWeatherApp", "Shob3rsWeatherApp\Shob3rsWeatherApp.csproj", "{F81EF6DE-0DBD-4FB6-A807-075D139BA940}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
