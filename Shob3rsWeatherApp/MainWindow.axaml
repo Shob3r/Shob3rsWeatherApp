@@ -7,7 +7,9 @@
         x:Class="PreFinalProjectProject.MainWindow"
         Title="Shob3r's Weather App"
         Background="Black"
-        ExtendClientAreaToDecorationsHint="False">
+        MinWidth="1200"
+        MinHeight="750"
+        ExtendClientAreaToDecorationsHint="True">
         
         <Window.Styles>
                 <StyleInclude Source="ApplicationStyles.axaml"/>
@@ -27,22 +29,22 @@
                                 <StackPanel>
                                         <Button Click="openMainMenu" Classes="menuButton sideMenuItem">
                                                 <Grid ColumnDefinitions="Auto Auto">
-                                                        <ic:SymbolIcon Symbol="WeatherSunnyHigh" IsFilled="True" HorizontalAlignment="Right"/>
-                                                        <TextBlock Grid.Column="1" Text="test" TextAlignment="Left"/>
+                                                        <ic:SymbolIcon Classes="menuItemIcon" Symbol="WeatherSunnyHigh"/>
+                                                        <TextBlock Grid.Column="1" Classes="menuItemText" Text="test"/>
                                                 </Grid>
                                         </Button>
                                         
                                         <Button Click="openMainMenu" Classes="menuButton sideMenuItem">
                                                 <Grid ColumnDefinitions="Auto Auto">
-                                                        <ic:SymbolIcon Symbol="WeatherSunnyHigh" IsFilled="True" HorizontalAlignment="Right"/>
-                                                        <TextBlock Grid.Column="1" Text="test" TextAlignment="Left"/>
+                                                        <ic:SymbolIcon Classes="menuItemIcon" Symbol="WeatherSunnyHigh"/>
+                                                        <TextBlock Grid.Column="1" Classes="menuItemText" Text="test"/>
                                                 </Grid>
                                         </Button>
                                         
                                         <Button Click="openMainMenu" Classes="menuButton sideMenuItem">
                                                 <Grid ColumnDefinitions="Auto Auto">
-                                                        <ic:SymbolIcon Symbol="WeatherSunnyHigh" IsFilled="True" HorizontalAlignment="Right"/>
-                                                        <TextBlock Grid.Column="1" Text="test" TextAlignment="Left"/>
+                                                        <ic:SymbolIcon Classes="menuItemIcon" Symbol="WeatherSunnyHigh"/>
+                                                        <TextBlock Grid.Column="1" Classes="menuItemText" Text="test"/>
                                                 </Grid>
                                         </Button>
                                 </StackPanel>

@@ -1,4 +1,5 @@
 <Styles xmlns="https://github.com/avaloniaui"
+        xmlns:ic="using:FluentIcons.Avalonia"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <Style Selector="TextBlock.primaryText">
@@ -18,23 +19,39 @@
     </Style>
                 
     <Style Selector="SplitView.sideMenu">
-        <Setter Property="Padding" Value="5"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontFamily" Value="{StaticResource Rubik-Light}"/>
         <Setter Property="PanePlacement" Value="Left"/>
         <Setter Property="IsPaneOpen" Value="True"/>
         <Setter Property="DisplayMode" Value="Inline"/>
-        <Setter Property="PaneBackground" Value="#1e1e1e"/>
+        <Setter Property="PaneBackground" Value="#1b1b1b"/>
     </Style>
                 
     <Style Selector="Button.menuButton">
-        <Setter Property="Background" Value="#1f1e33"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Margin" Value="5 10"></Setter>
     </Style>
     
     <Style Selector="Button.sideMenuItem">
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Height" Value="60"/>
+        
+        <Style Selector="^:pointerover">
+            
+        </Style>
+    </Style>
+    
+    
+    
+    <Style Selector="ic|SymbolIcon.menuItemIcon">
+        <Setter Property="IsFilled" Value="True"/>
+        <Setter Property="FontSize" Value="35"/>
+    </Style>
+    
+    <Style Selector="TextBlock.menuItemText">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
     
 </Styles>

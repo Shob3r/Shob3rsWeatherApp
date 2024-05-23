@@ -1,7 +1,5 @@
 using System;
 using System.IO;
-using System.Reactive;
-using ReactiveUI;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
