@@ -6,53 +6,50 @@
         mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="750"
         x:Class="PreFinalProjectProject.MainWindow"
         Title="Shob3r's Weather App"
-        TransparencyLevelHint="AcrylicBlur"
-        Background="Transparent"
-        ExtendClientAreaToDecorationsHint="True">
- 
+        Background="Black"
+        ExtendClientAreaToDecorationsHint="False">
         
         <Window.Styles>
-                <Style Selector="TextBlock.primaryText">
-                        <Setter Property="Foreground" Value="White"></Setter>
-                        <Setter Property="FontFamily" Value="{StaticResource Rubik-Light}"></Setter>
-                </Style>
-                
-                <Style Selector="TextBlock.mainHeader">
-                        <Setter Property="FontWeight" Value="Bold"></Setter>
-                        <Setter Property="FontSize" Value="40"></Setter>
-                </Style>
+                <StyleInclude Source="ApplicationStyles.axaml"/>
         </Window.Styles>
         
         <Panel>
-                <ExperimentalAcrylicBorder IsHitTestVisible="False">
-                        <ExperimentalAcrylicBorder.Material>
-                                <ExperimentalAcrylicMaterial
-                                        BackgroundSource="Digger"
-                                        TintColor="Black"
-                                        TintOpacity="0.85"
-                                        MaterialOpacity="0.85"/>
-                        </ExperimentalAcrylicBorder.Material>
-                </ExperimentalAcrylicBorder>
-                <Grid>
-                        <StackPanel HorizontalAlignment="Left">
-                                <Button Width="150" Height="50" Padding="10" Background="Black">
-                                        <Grid>
-                                                <ic:SymbolIcon Symbol="WeatherSunnyLow" HorizontalAlignment="Left" VerticalAlignment="Center"></ic:SymbolIcon>
-                                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Text="example"></TextBlock>
-                                        </Grid>
-                                </Button>
-                        </StackPanel>
+                <SplitView Classes="sideMenu" Padding="2.5" x:Name="sideMenu">
+                        <Button Click="CloseMenu" Classes="menuButton" 
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="Left"
+                                Width="50"
+                                Height="50">
+                                <ic:SymbolIcon Symbol="List" IsFilled="True"/> 
+                        </Button>
                         
-                        <StackPanel HorizontalAlignment="Center">
-                                <TextBlock x:Name="cityText" Padding="15" Classes="primaryText mainHeader" HorizontalAlignment="Center">Weather In {CityName}</TextBlock>
-                                <StackPanel HorizontalAlignment="Center">
-                                        <TextBlock x:Name="weatherTesting" Classes="primaryText" Text="wacha"/>
+                        <SplitView.Pane>
+                                <StackPanel>
+                                        <Button Click="openMainMenu" Classes="menuButton sideMenuItem">
+                                                <Grid ColumnDefinitions="Auto Auto">
+                                                        <ic:SymbolIcon Symbol="WeatherSunnyHigh" IsFilled="True" HorizontalAlignment="Right"/>
+                                                        <TextBlock Grid.Column="1" Text="test" TextAlignment="Left"/>
+                                                </Grid>
+                                        </Button>
+                                        
+                                        <Button Click="openMainMenu" Classes="menuButton sideMenuItem">
+                                                <Grid ColumnDefinitions="Auto Auto">
+                                                        <ic:SymbolIcon Symbol="WeatherSunnyHigh" IsFilled="True" HorizontalAlignment="Right"/>
+                                                        <TextBlock Grid.Column="1" Text="test" TextAlignment="Left"/>
+                                                </Grid>
+                                        </Button>
+                                        
+                                        <Button Click="openMainMenu" Classes="menuButton sideMenuItem">
+                                                <Grid ColumnDefinitions="Auto Auto">
+                                                        <ic:SymbolIcon Symbol="WeatherSunnyHigh" IsFilled="True" HorizontalAlignment="Right"/>
+                                                        <TextBlock Grid.Column="1" Text="test" TextAlignment="Left"/>
+                                                </Grid>
+                                        </Button>
                                 </StackPanel>
-                        
-                                <ic:SymbolIcon  Symbol="WeatherDrizzle" IsFilled="False" FontSize="100" x:Name="weatherIcon"></ic:SymbolIcon>
-                        </StackPanel>
-                </Grid>
-
+                        </SplitView.Pane>
+                </SplitView>
         </Panel>
+
+        
 </Window>
 

@@ -1,0 +1,40 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Style Selector="TextBlock.primaryText">
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="FontFamily" Value="{StaticResource Rubik-Light}"></Setter>
+    </Style>
+                
+    <Style Selector="TextBlock.mainHeader">
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="FontSize" Value="40"></Setter>
+    </Style>
+                
+    <Style Selector="MenuItem.SidebarMenu">
+        <Setter Property="FontFamily" Value="{StaticResource Rubik-Light}"/>
+        <Setter Property="FontSize" Value="10"/>
+        <Setter Property="Margin" Value="10"/>
+    </Style>
+                
+    <Style Selector="SplitView.sideMenu">
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="{StaticResource Rubik-Light}"/>
+        <Setter Property="PanePlacement" Value="Left"/>
+        <Setter Property="IsPaneOpen" Value="True"/>
+        <Setter Property="DisplayMode" Value="Inline"/>
+        <Setter Property="PaneBackground" Value="#1e1e1e"/>
+    </Style>
+                
+    <Style Selector="Button.menuButton">
+        <Setter Property="Background" Value="#1f1e33"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Margin" Value="5 10"></Setter>
+    </Style>
+    
+    <Style Selector="Button.sideMenuItem">
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    </Style>
+    
+</Styles>

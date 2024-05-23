@@ -21,6 +21,7 @@
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="OpenWeatherAPI" Version="1.0.2" />
         <PackageReference Include="OpenWeatherMap4NET" Version="1.0.5" />
+        <PackageReference Include="ReactiveUI" Version="20.1.1" />
     </ItemGroup>
 
     <ItemGroup>

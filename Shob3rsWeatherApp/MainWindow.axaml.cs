@@ -1,51 +1,25 @@
 using System;
 using System.IO;
-using System.Threading.Tasks;
-using Avalonia;
+using System.Reactive;
+using ReactiveUI;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using OpenWeatherMap;
-using OpenWeatherMap.Util;
 
 namespace PreFinalProjectProject;
 public partial class MainWindow : Window
 {
     private LocationData locationData = new LocationData();
     private JsonParser openWeatherMapKey = new JsonParser(File.ReadAllText("../../../config.json"));
-    private Task setContentTask;
+    
     
     public MainWindow()
     {
         InitializeComponent();
-#if DEBUG
-        this.AttachDevTools();
-#endif
-        setContentTask = setContent();
-    }
-    
-    private async Task setContent()
-    {
-        await locationData.SetLocationData();
-        cityText.Text = $"Weather in {locationData.city}:";
-
-        var openWeatherMap = new OpenWeatherMapService(new OpenWeatherMapOptions()
-        {
-            ApiKey = openWeatherMapKey.getDataByTag<string>("openWeatherKey")
-        });
-        RequestOptions.Default.Unit = UnitType.Metric;
-        
-        var weatherData = await openWeatherMap.GetCurrentWeatherAsync(locationData.city);
-        weatherTesting.Text = $"{(int) weatherData.Temperature.Value} Degrees Celsius.";
     }
 
-    public void setCityText()
+    public void CloseMenu(object message)
     {
-        
-    }
-
-    public void setWeatherText()
-    {
-        
+        Console.WriteLine(message);
     }
     
     private int toCelsius(float kelvin)
@@ -59,10 +33,25 @@ public partial class MainWindow : Window
         int celsius = toCelsius(kelvin);
         return (int)Math.Round((double)(celsius * (9 / 5) + 32));
     }
-    
+
+    private void ToggleMenu()
+    {
+        
+    }
     protected override async void OnLoaded(RoutedEventArgs routedEventArgs)
     {
-        await setContentTask;
+        
         base.OnLoaded(routedEventArgs);
+    }
+
+
+    private void CloseMenu(object? sender, RoutedEventArgs e)
+    {
+        sideMenu.IsPaneOpen = !sideMenu.IsPaneOpen;
+    }
+
+    private void openMainMenu(object? sender, RoutedEventArgs e)
+    {
+        Console.WriteLine("Clicked!");
     }
 }
