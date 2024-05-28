@@ -1,7 +1,7 @@
 using System;
 using Newtonsoft.Json.Linq;
 
-namespace PreFinalProjectProject;
+namespace Shob3rsWeatherApp;
 
 public class JsonParser(string contents)
 { 

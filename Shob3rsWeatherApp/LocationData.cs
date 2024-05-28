@@ -3,13 +3,13 @@ using System.IO;
 using System.Threading.Tasks;
 using IpData;
 
-namespace PreFinalProjectProject;
+namespace Shob3rsWeatherApp;
 
 public class LocationData
 {
     private string? ipAddress;
     private readonly string ipDataKey;
-    public string latitude, longitude, city;
+    private string city;
     
     public LocationData()
     {
@@ -25,9 +25,6 @@ public class LocationData
         var client = new IpDataClient(ipDataKey);
         var ipInfo = await client.Lookup(ipAddress);
         city = ipInfo.City ?? throw new InvalidOperationException();
-        latitude = ipInfo.Latitude.ToString() ?? throw new InvalidOperationException();
-        longitude = ipInfo.Longitude.ToString() ?? throw new InvalidOperationException();
-        
         Console.WriteLine(city);
     }
 }

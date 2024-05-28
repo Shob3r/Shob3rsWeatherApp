@@ -2,9 +2,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ic="using:FluentIcons.Avalonia"
+        xmlns:ic="using:FluentIcons.Avalonia" 
         mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="750"
-        x:Class="PreFinalProjectProject.MainWindow"
+        x:Class="Shob3rsWeatherApp.MainWindow"
         Title="Shob3r's Weather App"
         Background="Black"
         MinWidth="1200"
@@ -15,13 +15,14 @@
                 <StyleInclude Source="ApplicationStyles.axaml"/>
         </Window.Styles>
         
-        <Panel>
+        <Grid ColumnDefinitions="Auto,*">
+
                 <SplitView Classes="sideMenu" Padding="2.5" x:Name="sideMenu">
                         <Button Click="CloseMenu" Classes="menuButton" 
                                 VerticalAlignment="Top" 
                                 HorizontalAlignment="Left"
-                                Width="50"
-                                Height="50">
+                                Width="35"
+                                Height="35">
                                 <ic:SymbolIcon Symbol="List" IsFilled="True"/> 
                         </Button>
                         
@@ -34,14 +35,14 @@
                                                 </Grid>
                                         </Button>
                                         
-                                        <Button Click="openMainMenu" Classes="menuButton sideMenuItem">
+                                        <Button Click="openWeatherSearch" Classes="menuButton sideMenuItem">
                                                 <Grid ColumnDefinitions="Auto Auto">
                                                         <ic:SymbolIcon Classes="menuItemIcon" Symbol="WeatherSunnyHigh"/>
                                                         <TextBlock Grid.Column="1" Classes="menuItemText" Text="test"/>
                                                 </Grid>
                                         </Button>
                                         
-                                        <Button Click="openMainMenu" Classes="menuButton sideMenuItem">
+                                        <Button Click="openSettingsMenu" Classes="menuButton sideMenuItem">
                                                 <Grid ColumnDefinitions="Auto Auto">
                                                         <ic:SymbolIcon Classes="menuItemIcon" Symbol="WeatherSunnyHigh"/>
                                                         <TextBlock Grid.Column="1" Classes="menuItemText" Text="test"/>
@@ -50,8 +51,13 @@
                                 </StackPanel>
                         </SplitView.Pane>
                 </SplitView>
-        </Panel>
-
+                
+                <Grid Grid.Column="1" Grid.RowDefinitions="Auto, Auto, Auto">
+                        <TextBlock x:Name="greeting" FontFamily="Rubik-Light" Text="This is the greeting text" Padding="15" Margin="10"/>
+                        <TextBlock Grid.Row="1" x:Name="weatherRightNow" Text="This is the weather" Padding="15" Margin="10"></TextBlock>
+                </Grid>
+                
+        </Grid>
+                
         
 </Window>
-
