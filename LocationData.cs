@@ -13,7 +13,7 @@ public class LocationData
     
     public LocationData()
     {
-        JsonParser configData = new JsonParser(File.ReadAllText("../../config.json"));
+        JsonParser configData = new JsonParser(File.ReadAllText("../../../config.json"));
         ipDataKey = configData.getDataByTag<string>("ipDataKey");
         
         // Async methods are so fun to deal with!

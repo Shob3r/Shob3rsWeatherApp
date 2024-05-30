@@ -9,17 +9,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.10"/>
-        <PackageReference Include="Avalonia.Desktop" Version="11.0.10"/>
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.10"/>
-        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.10"/>
+        <PackageReference Include="Avalonia" Version="11.1.0-beta2" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.1.0-beta2" />
+        <PackageReference Include="Avalonia.ReactiveUI" Version="11.1.0-beta2" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.0-beta2" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.1.0-beta2" />
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.10"/>
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.0-beta2" />
         <PackageReference Include="FluentIcons.Avalonia" Version="1.1.240" />
         <PackageReference Include="IpData" Version="2.0.1" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="OpenWeatherAPI" Version="1.0.2" />
         <PackageReference Include="OpenWeatherMap4NET" Version="1.0.5" />
+        <PackageReference Include="ReactiveUI" Version="20.1.1" />
     </ItemGroup>
 
     <ItemGroup>

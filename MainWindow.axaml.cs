@@ -3,8 +3,8 @@ using System.IO;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
-namespace Shob3rsWeatherApp;
 
+namespace Shob3rsWeatherApp;
 public partial class MainWindow : Window
 {
     private LocationData locationData = new LocationData();
@@ -19,25 +19,24 @@ public partial class MainWindow : Window
     
     private void openMainMenu(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Clicked!");
+        
     }
 
     private void openWeatherSearch(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        
     }
 
     private void openSettingsMenu(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        
     }
     
     private void setMainPageContent()
     {
         greeting.Text = $"Good {getTime()} {Environment.UserName}";
     }
-
-
+    
     private string getTime()
     {
         var currentTime = DateTime.Now;
@@ -45,15 +44,12 @@ public partial class MainWindow : Window
         
         Console.WriteLine(currentHour);
 
-        if (currentHour >= 6 && currentHour < 12)
+        return currentHour switch
         {
-            return "Morning";
-        }
-        if (currentHour >= 12 && currentHour < 19)
-        {
-            return "Afternoon";
-        }
-        return "Evening";
+            >= 6 and < 12 => "Morning",
+            >= 12 and < 19 => "Afternoon",
+            _ => "Evening"
+        };
     }
     
     private int toCelsius(float kelvin)

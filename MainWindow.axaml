@@ -30,33 +30,37 @@
                                 <StackPanel>
                                         <Button Click="openMainMenu" Classes="menuButton sideMenuItem">
                                                 <Grid ColumnDefinitions="Auto Auto">
-                                                        <ic:SymbolIcon Classes="menuItemIcon" Symbol="WeatherSunnyHigh"/>
-                                                        <TextBlock Grid.Column="1" Classes="menuItemText" Text="test"/>
+                                                        <ic:SymbolIcon Classes="menuItemIcon" Symbol="WeatherSunny"/>
+                                                        <TextBlock Grid.Column="1" Classes="menuItemText" Text="Weather Here"/>
                                                 </Grid>
                                         </Button>
                                         
                                         <Button Click="openWeatherSearch" Classes="menuButton sideMenuItem">
                                                 <Grid ColumnDefinitions="Auto Auto">
-                                                        <ic:SymbolIcon Classes="menuItemIcon" Symbol="WeatherSunnyHigh"/>
-                                                        <TextBlock Grid.Column="1" Classes="menuItemText" Text="test"/>
+                                                        <ic:SymbolIcon Classes="menuItemIcon" Symbol="GlobeLocation"/>
+                                                        <TextBlock Grid.Column="1" Classes="menuItemText" Text="Weather Search"/>
                                                 </Grid>
                                         </Button>
                                         
                                         <Button Click="openSettingsMenu" Classes="menuButton sideMenuItem">
                                                 <Grid ColumnDefinitions="Auto Auto">
-                                                        <ic:SymbolIcon Classes="menuItemIcon" Symbol="WeatherSunnyHigh"/>
-                                                        <TextBlock Grid.Column="1" Classes="menuItemText" Text="test"/>
+                                                        <ic:SymbolIcon Classes="menuItemIcon" Symbol="Settings"/>
+                                                        <TextBlock Grid.Column="1" Classes="menuItemText" Text="Settings"/>
                                                 </Grid>
                                         </Button>
                                 </StackPanel>
                         </SplitView.Pane>
                 </SplitView>
                 
-                <Grid Grid.Column="1" Grid.RowDefinitions="Auto, Auto, Auto">
+                <Grid x:Name="mainContent" Grid.Column="1" Grid.RowDefinitions="Auto, Auto, Auto">
+                        <ContentControl>
+                                
+                        </ContentControl>
                         <TextBlock x:Name="greeting" FontFamily="Rubik-Light" Text="This is the greeting text" Padding="15" Margin="10"/>
-                        <TextBlock Grid.Row="1" x:Name="weatherRightNow" Text="This is the weather" Padding="15" Margin="10"></TextBlock>
+                        <TextBlock Grid.Row="1" x:Name="weatherRightNow" Text="This is the weather" Padding="15" Margin="10"/>
                 </Grid>
                 
+
         </Grid>
                 
         
