@@ -1,1 +1,4 @@
-.idea
+.idea/
+config.json
+bin/
+obj/
