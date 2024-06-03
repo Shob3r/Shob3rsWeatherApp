@@ -19,12 +19,11 @@
         <PackageReference Include="FluentIcons.Avalonia" Version="1.1.240" />
         <PackageReference Include="IpData" Version="2.0.1" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-        <PackageReference Include="OpenWeatherAPI" Version="1.0.2" />
-        <PackageReference Include="OpenWeatherMap4NET" Version="1.0.5" />
         <PackageReference Include="ReactiveUI" Version="20.1.1" />
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="app\ReactiveData\" />
       <Folder Include="Assets\Fonts\" />
       <Folder Include="Assets\Images\" />
     </ItemGroup>
