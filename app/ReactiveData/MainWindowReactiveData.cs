@@ -8,7 +8,7 @@ namespace Shob3rsWeatherApp;
 public class MainWindowReactiveData : ReactiveObject
 {
     private LocationInformation locationInfo = new LocationInformation();
-    
+    private OpenWeatherMapData openWeatherMapData = new OpenWeatherMapData();
     
     // MVVM works in strange ways
     private string? _UserName;

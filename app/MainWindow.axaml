@@ -18,7 +18,7 @@
                 <StyleInclude Source="ApplicationStyles.axaml"/>
         </Window.Styles>
         
-        <Grid ColumnDefinitions="Auto,*">
+        <Grid ColumnDefinitions="Auto,*" DataContext="{ Binding mainWindowReactiveData }">
 
                 <SplitView Classes="sideMenu" Padding="2.5" x:Name="sideMenu">
                         <Button Click="CloseMenu" Classes="menuButton" 
@@ -55,9 +55,9 @@
                         </SplitView.Pane>
                 </SplitView>
                 
-                <Grid x:Name="mainContent" Grid.Column="1" Grid.RowDefinitions="Auto, Auto, Auto" DataContext="{ Binding mainWindowReactiveData }">
+                <Grid x:Name="mainContent" Grid.Column="1" Grid.RowDefinitions="Auto, Auto, Auto">
                         <TextBlock x:Name="greeting" FontFamily="Rubik-Light" Text="{Binding UserName}" Padding="15" Margin="10"/>
-                        <TextBlock Grid.Row="1" x:Name="weatherRightNow" Text="This is the weather" Padding="15" Margin="10"/>
+                        <TextBlock Grid.Row="1" x:Name="weatherRightNow" Text="{Binding CurrentTemp}" Padding="15" Margin="10"/>
                 </Grid>
         </Grid>
 </Window>
