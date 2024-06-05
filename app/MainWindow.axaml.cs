@@ -1,14 +1,17 @@
 using System;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
 namespace Shob3rsWeatherApp;
 public partial class MainWindow : Window
 {
+    OpenWeatherMapData openWeatherMapData;
     public MainWindow()
     {
         InitializeComponent();
         setMainPageContent();
+        openWeatherMapData = new OpenWeatherMapData();
     }
     
     private void setMainPageContent()
@@ -34,5 +37,11 @@ public partial class MainWindow : Window
     private void CloseMenu(object? sender, RoutedEventArgs e)
     {
         sideMenu.IsPaneOpen = !sideMenu.IsPaneOpen;
+    }
+
+    private void refreshWeatherData(object? sender, RoutedEventArgs e)
+    {
+        Console.WriteLine("Refreshing Weather Data......");
+        Task.Run(() => openWeatherMapData.setWeatherData());
     }
 }

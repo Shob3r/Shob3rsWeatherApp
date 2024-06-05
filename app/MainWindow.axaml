@@ -58,6 +58,12 @@
                 <Grid x:Name="mainContent" Grid.Column="1" Grid.RowDefinitions="Auto, Auto, Auto">
                         <TextBlock x:Name="greeting" FontFamily="Rubik-Light" Text="{Binding UserName}" Padding="15" Margin="10"/>
                         <TextBlock Grid.Row="1" x:Name="weatherRightNow" Text="{Binding CurrentTemp}" Padding="15" Margin="10"/>
+                        <Button Grid.Row="2" Classes="menuButton" Click="refreshWeatherData">
+                                <Grid ColumnDefinitions="Auto, Auto">
+                                        <ic:SymbolIcon Symbol="ArrowClockwise"/>
+                                        <TextBlock Grid.Column="1" Text="Refresh"/>
+                                </Grid>
+                        </Button>
                 </Grid>
         </Grid>
 </Window>

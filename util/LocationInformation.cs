@@ -7,8 +7,9 @@ namespace Shob3rsWeatherApp;
 
 public class LocationInformation
 {
-    private float? latitude, longitude;
-    private string? currentCity, publicIpAddress;
+    public float? latitude, longitude;
+    public string? currentCity, publicIpAddress;
+    public IpDataClient client;
     
     public LocationInformation()
     {
@@ -16,8 +17,8 @@ public class LocationInformation
         {
             var jsonParser = new JsonParser(File.ReadAllText("../../../config.json"));
             publicIpAddress = Task.Run(() => HttpUtils.getHttpContent("https://api.ipify.org")).Result;
+            client = new IpDataClient(jsonParser.getDataByTag<string>("ipDataKey"));
             
-            Task.Run(() => setLocationData(new IpDataClient(jsonParser.getDataByTag<string>("ipDataKey")), publicIpAddress));
         }
         catch (FileNotFoundException e)
         {
@@ -26,31 +27,11 @@ public class LocationInformation
         }
     }
 
-    private async Task setLocationData(IpDataClient client, string ipAddress)
+    public async Task setLocationData()
     {
-        var fullIpInformation = await client.Lookup(ipAddress);
+        var fullIpInformation = await client.Lookup(publicIpAddress);
         currentCity = fullIpInformation.City;
         latitude = (float) fullIpInformation.Latitude!;
         longitude = (float) fullIpInformation.Longitude!;
-    }
-    
-    public float getLatitude()
-    {
-        return latitude ?? throw new NullReferenceException();
-    }
-
-    public float getLongitude()
-    {
-        return longitude ?? throw new NullReferenceException();
-    }
-
-    public string? getCity()
-    {
-        return currentCity;
-    }
-
-    public string? getIpAddress()
-    {
-        return publicIpAddress;
     }
 }
