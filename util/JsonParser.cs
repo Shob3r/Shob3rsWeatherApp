@@ -7,11 +7,12 @@ public class JsonParser(string contents)
 { 
     private JObject parsedFileContents = JObject.Parse(contents);
 
-    public T getDataByTag<T>(string tagName)
+    public T getDataByTag<T>(string tagName, bool enableDebug = false)
     {
         if (doesTagExist(tagName))
-        { 
-            Console.WriteLine("Found tag " + tagName);
+        {
+            if(enableDebug) Console.WriteLine("Found tag " + tagName);
+            
             JToken token = parsedFileContents.SelectToken(tagName) ?? throw new InvalidOperationException();
             if (token.Type != JTokenType.Null)
             {
@@ -19,13 +20,13 @@ public class JsonParser(string contents)
                 if (t != null) return t;
             }
         }
-        Console.WriteLine($"Did not find tag {tagName}");
+        Console.WriteLine($"WARNING: Did not find tag {tagName}");
         return default!;
     }
 
     private bool doesTagExist(string tagName)
     {
-        string fileContents = parsedFileContents.ToString();
-        return fileContents.Contains(tagName);
+        JToken? token = parsedFileContents.SelectToken(tagName);
+        return token != null && token.Type != JTokenType.Null;
     }
 }
