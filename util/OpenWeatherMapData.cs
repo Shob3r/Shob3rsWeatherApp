@@ -2,8 +2,6 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
-using OpenWeatherMap;
-using OpenWeatherMap.Util;
 
 namespace Shob3rsWeatherApp;
 

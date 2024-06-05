@@ -61,7 +61,7 @@
                         <Button Grid.Row="2" Classes="menuButton" Click="refreshWeatherData">
                                 <Grid ColumnDefinitions="Auto, Auto">
                                         <ic:SymbolIcon Symbol="ArrowClockwise"/>
-                                        <TextBlock Grid.Column="1" Text="Refresh"/>
+                                        <TextBlock Grid.Column="1" Text="{Binding City}"/>
                                 </Grid>
                         </Button>
                 </Grid>

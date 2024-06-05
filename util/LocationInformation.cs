@@ -7,9 +7,10 @@ namespace Shob3rsWeatherApp;
 
 public class LocationInformation
 {
+    private IpDataClient client;
+    
     public float? latitude, longitude;
     public string? currentCity, publicIpAddress;
-    public IpDataClient client;
     
     public LocationInformation()
     {

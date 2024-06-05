@@ -9,6 +9,11 @@ public class MainWindowReactiveData : ReactiveObject
 {
     private LocationInformation locationInfo = new LocationInformation();
     private OpenWeatherMapData openWeatherMapData = new OpenWeatherMapData();
+
+    public MainWindowReactiveData()
+    {
+        Task.Run(() => locationInfo.setLocationData());
+    }
     
     // MVVM works in strange ways
     private string? _UserName;
@@ -37,5 +42,17 @@ public class MainWindowReactiveData : ReactiveObject
     private string getCurrentTemperature()
     {
         return "";
+    }
+
+    public string? _City;
+
+    public string? City
+    {
+        get => _City;
+        set
+        {
+            _City = value;
+            this.RaiseAndSetIfChanged(ref _City, $"Refresh Data In {locationInfo.currentCity}");
+        }
     }
 }
