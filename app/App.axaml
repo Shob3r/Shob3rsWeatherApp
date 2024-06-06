@@ -9,8 +9,6 @@
     </Application.Styles>
     
     <Application.Resources>
-        
         <FontFamily x:Key="Rubik-Light">avares://Shob3rsWeatherApp/Assets/Fonts/Rubik/Rubik-Light.ttf</FontFamily>
-        
     </Application.Resources>
 </Application>

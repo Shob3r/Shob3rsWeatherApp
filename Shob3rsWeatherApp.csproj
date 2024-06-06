@@ -23,7 +23,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="app\ReactiveData\" />
       <Folder Include="Assets\Fonts\" />
       <Folder Include="Assets\Images\" />
     </ItemGroup>

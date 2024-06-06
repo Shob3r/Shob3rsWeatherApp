@@ -7,24 +7,27 @@ namespace Shob3rsWeatherApp;
 public partial class MainWindow : Window
 {
     OpenWeatherMapData openWeatherMapData;
+    private Task setContentTask;
     public MainWindow()
     {
-        InitializeComponent();
-        setMainPageContent();
         openWeatherMapData = new OpenWeatherMapData();
+        InitializeComponent();
+        setContentTask = setMenuContent();
+    }
+
+    private async Task setMenuContent()
+    {
+        await openWeatherMapData.setWeatherData();
+        greeting.Text = $"Good {getTime()}, {Environment.UserName}";
+        weatherRightNow.Text = $"{openWeatherMapData.tempNow}\u00b0";
     }
     
-    private void setMainPageContent()
-    {
-        greeting.Text = $"Good {getTime()} {Environment.UserName}";
-    }
+    
     
     private string getTime()
     {
         var currentTime = DateTime.Now;
         int currentHour = currentTime.Hour;
-        
-        Console.WriteLine(currentHour);
 
         return currentHour switch
         {
@@ -42,6 +45,6 @@ public partial class MainWindow : Window
     private void refreshWeatherData(object? sender, RoutedEventArgs e)
     {
         Console.WriteLine("Refreshing Weather Data......");
-        Task.Run(() => openWeatherMapData.setWeatherData());
+        Task.Run(setMenuContent);
     }
 }

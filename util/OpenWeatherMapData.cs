@@ -15,12 +15,10 @@ public class OpenWeatherMapData
     private readonly string customCityName;
     private readonly bool isUserAmerican;
     private readonly string openWeatherMapKey;
-
-
+    
     public OpenWeatherMapData(string cityName = "")
     {
         customCityName = cityName;
-        
         JsonParser weatherMapKeyGetter = new JsonParser(File.ReadAllText("../../../config.json"));
         openWeatherMapKey = weatherMapKeyGetter.getDataByTag<string>("openWeatherKey");
 

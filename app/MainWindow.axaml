@@ -7,7 +7,6 @@
         mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="750"
         x:Class="Shob3rsWeatherApp.MainWindow"
         x:CompileBindings="True"
-        x:DataType="Shob3rsWeahterApp:MainWindowViewModel"
         Title="Shob3r's Weather App"
         Background="Black"
         MinWidth="1200"
@@ -18,7 +17,7 @@
                 <StyleInclude Source="ApplicationStyles.axaml"/>
         </Window.Styles>
         
-        <Grid ColumnDefinitions="Auto,*" DataContext="{ Binding mainWindowReactiveData }">
+        <Grid ColumnDefinitions="Auto,*">
 
                 <SplitView Classes="sideMenu" Padding="2.5" x:Name="sideMenu">
                         <Button Click="CloseMenu" Classes="menuButton" 
@@ -56,12 +55,12 @@
                 </SplitView>
                 
                 <Grid x:Name="mainContent" Grid.Column="1" Grid.RowDefinitions="Auto, Auto, Auto">
-                        <TextBlock x:Name="greeting" FontFamily="Rubik-Light" Text="{Binding UserName}" Padding="15" Margin="10"/>
-                        <TextBlock Grid.Row="1" x:Name="weatherRightNow" Text="{Binding CurrentTemp}" Padding="15" Margin="10"/>
-                        <Button Grid.Row="2" Classes="menuButton" Click="refreshWeatherData">
+                        <TextBlock x:Name="greeting" FontFamily="Rubik-Light" Text="Good Morning Username" Padding="15" Margin="10"/>
+                        <TextBlock Grid.Row="1" x:Name="weatherRightNow" Classes="temperature" Text="nil"/>
+                        <Button Grid.Row="0" Classes="menuButton" Click="refreshWeatherData" HorizontalAlignment="Right">
                                 <Grid ColumnDefinitions="Auto, Auto">
                                         <ic:SymbolIcon Symbol="ArrowClockwise"/>
-                                        <TextBlock Grid.Column="1" Text="{Binding City}"/>
+                                        <TextBlock Grid.Column="1" Text="Refresh Weather Data"/>
                                 </Grid>
                         </Button>
                 </Grid>
