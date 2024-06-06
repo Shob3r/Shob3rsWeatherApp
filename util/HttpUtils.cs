@@ -2,7 +2,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Shob3rsWeatherApp;
+namespace Shob3rsWeatherApp.Util;
 
     public static class HttpUtils
     {
