@@ -8,7 +8,7 @@ namespace Shob3rsWeatherApp;
 
 public class OpenWeatherMapData
 {
-    public string? sunsetTime, sunriseTime;
+    public string? sunsetTime, sunriseTime, tempUnit;
     public int tempNow, feelsLike, minimumTemp, maximumTemp;
     public float airPressure, windSpeed;
 
@@ -24,6 +24,7 @@ public class OpenWeatherMapData
 
         CultureInfo currentCulture = CultureInfo.CurrentCulture;
         isUserAmerican = currentCulture.Name.Equals("en_US", StringComparison.InvariantCultureIgnoreCase);
+        tempUnit = isUserAmerican ? "F" : "C";
         Task.Run(setWeatherData);
     }
 

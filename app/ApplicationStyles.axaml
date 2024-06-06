@@ -24,13 +24,13 @@
         <Setter Property="PanePlacement" Value="Left"/>
         <Setter Property="IsPaneOpen" Value="True"/>
         <Setter Property="DisplayMode" Value="Inline"/>
-        <Setter Property="PaneBackground" Value="#1b1b1b"/>
+        <Setter Property="PaneBackground" Value="#080808"/>
     </Style>
                 
     <Style Selector="Button.menuButton">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Margin" Value="5 10"></Setter>
+        <Setter Property="Margin" Value="5 3"></Setter>
     </Style>
     
     <Style Selector="Button.sideMenuItem">
@@ -42,6 +42,7 @@
         <Setter Property="FontSize" Value="25"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="IsFilled" Value="False"/>
+        <Setter Property="Margin" Value="3"/>
     </Style>
     
     <Style Selector="TextBlock.menuItemText">

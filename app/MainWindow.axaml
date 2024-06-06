@@ -56,7 +56,13 @@
                 
                 <Grid x:Name="mainContent" Grid.Column="1" Grid.RowDefinitions="Auto, Auto, Auto">
                         <TextBlock x:Name="greeting" FontFamily="Rubik-Light" Text="Good Morning Username" Padding="15" Margin="10"/>
-                        <TextBlock Grid.Row="1" x:Name="weatherRightNow" Classes="temperature" Text="nil"/>
+                        
+                        <StackPanel Grid.Row="1">
+                                <Image Margin="20" Height="300" Width="250"></Image>
+                                <TextBlock x:Name="weatherRightNow" Classes="temperature" Text="nil"/>
+                        </StackPanel>
+                        
+                        
                         <Button Grid.Row="0" Classes="menuButton" Click="refreshWeatherData" HorizontalAlignment="Right">
                                 <Grid ColumnDefinitions="Auto, Auto">
                                         <ic:SymbolIcon Symbol="ArrowClockwise"/>

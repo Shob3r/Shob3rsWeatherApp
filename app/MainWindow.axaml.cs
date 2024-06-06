@@ -17,12 +17,12 @@ public partial class MainWindow : Window
 
     private async Task setMenuContent()
     {
+        // I would use MVVM if it wasn't so stupid in the way it worked, this is the primitive way of dealing with this stuff
+        
         await openWeatherMapData.setWeatherData();
         greeting.Text = $"Good {getTime()}, {Environment.UserName}";
-        weatherRightNow.Text = $"{openWeatherMapData.tempNow}\u00b0";
+        weatherRightNow.Text = $"{openWeatherMapData.tempNow}\u00b0{openWeatherMapData.tempUnit}";
     }
-    
-    
     
     private string getTime()
     {
