@@ -11,6 +11,7 @@ public partial class MainWindow : Window
 {
     private readonly OpenWeatherMapData openWeatherMapData;
     private Task setContentTask;
+    private int value = 0; 
     public MainWindow()
     {
         openWeatherMapData = new OpenWeatherMapData();
@@ -21,14 +22,13 @@ public partial class MainWindow : Window
     private async Task setMenuContent()
     {
         TextInfo textInfo = new CultureInfo("en-CA", false).TextInfo;
-        // I would use MVVM if it wasn't so stupid in the way it worked, this is the primitive way of dealing with this stuff
-        
         await openWeatherMapData.setWeatherData();
         greeting.Text = $"Good {getTime()}, {Environment.UserName}";
         weatherRightNow.Text = $"{openWeatherMapData.tempNow}\u00b0{openWeatherMapData.tempUnit}";
         weatherImage.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName()}.png")));
-        if (openWeatherMapData.detailedWeatherDescription != null)
-            weatherDescription.Text = textInfo.ToTitleCase(openWeatherMapData.detailedWeatherDescription);
+        if (openWeatherMapData.detailedWeatherDescription != null) weatherDescription.Text = textInfo.ToTitleCase(openWeatherMapData.detailedWeatherDescription);
+        value++;
+        testTextBlock.Text = value.ToString();
     }
 
     private string getWeatherImageName()
@@ -80,7 +80,6 @@ public partial class MainWindow : Window
 
     private void refreshWeatherData(object? sender, RoutedEventArgs e)
     {
-        Console.WriteLine("Refreshing Weather Data......");
-        Task.Run(setMenuContent);
+        setContentTask = setMenuContent();
     }
 }

@@ -15,10 +15,13 @@ public class OpenWeatherMapData
     private string customCityName;
     private readonly bool isUserAmerican;
     private readonly string openWeatherMapKey;
+
+    private LocationInformation locationInfo;
     
     public OpenWeatherMapData()
     {
         JsonParser weatherMapKeyGetter = new JsonParser(File.ReadAllText("../../../config.json"));
+        locationInfo = new LocationInformation();
         openWeatherMapKey = weatherMapKeyGetter.getDataByTag<string>("openWeatherKey");
 
         CultureInfo currentCulture = CultureInfo.CurrentCulture;
@@ -26,14 +29,14 @@ public class OpenWeatherMapData
         tempUnit = isUserAmerican ? "F" : "C";
         Task.Run(setWeatherData);
     }
-
+    
     public async Task setWeatherData()
     {
-        LocationInformation locationInfo = new LocationInformation();
         await locationInfo.setLocationData();
+        
         string units = getUnitType();
         string url = $"https://api.openweathermap.org/data/2.5/weather?q={locationInfo.currentCity}&units={units}&appid={openWeatherMapKey}";;
-
+        
         string weatherRightNowInfo = await HttpUtils.getHttpContent(url);
         JsonParser weatherParser = new JsonParser(weatherRightNowInfo);
         
@@ -57,10 +60,10 @@ public class OpenWeatherMapData
         return input * 3.6f; // to convert m/s to km/h, multiply m/s by 3.6
     }
 
-    private int roundTemp(float unroundedTemp)
+    private int roundTemp(float temperatureBeforeRounding)
     {
         // Convert the value that OpenWeatherMap provides (which contains decimal places) into an integer, while rounding up or down to the nearest number before converting
-        return (int)Math.Round(unroundedTemp);
+        return (int)Math.Round(temperatureBeforeRounding);
     }
     
     private float convertAirPressure(int pressure)

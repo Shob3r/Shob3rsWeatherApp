@@ -8,9 +8,10 @@
         x:Class="Shob3rsWeatherApp.MainWindow"
         x:CompileBindings="True"
         Title="Shob3r's Weather App"
-        Background="Black"
+        Background="#121212"
         MinWidth="1200"
         MinHeight="750"
+        Icon="/Assets/Images/cloudy-day.png"
         ExtendClientAreaToDecorationsHint="False">
         
         <Window.Styles>
@@ -18,7 +19,7 @@
         </Window.Styles>
         
         <Grid ColumnDefinitions="Auto,*">
-
+                
                 <SplitView Classes="sideMenu" Padding="2.5" x:Name="sideMenu">
                         <Button Click="CloseMenu" Classes="menuButton" 
                                 VerticalAlignment="Top" 
@@ -54,22 +55,27 @@
                         </SplitView.Pane>
                 </SplitView>
                 
-                <Grid x:Name="mainContent" Grid.Column="1" Grid.RowDefinitions="Auto, Auto, Auto">
-                        <TextBlock x:Name="greeting" FontFamily="Rubik-Light" Text="Good Morning Username" Padding="15" Margin="10"/>
-                        
-                        <StackPanel Grid.Row="1">
-                                <Image x:Name="weatherImage" Margin="20" Height="300" Width="250"/>
-                                <TextBlock x:Name="weatherRightNow" Classes="temperature" Text="nil"/>
-                                <TextBlock x:Name="weatherDescription" Classes="temperature" Text="Weather Description"/>
-                        </StackPanel>
-                        
-                        
-                        <Button Grid.Row="0" Classes="menuButton" Click="refreshWeatherData" HorizontalAlignment="Right">
-                                <Grid ColumnDefinitions="Auto, Auto">
-                                        <ic:SymbolIcon Symbol="ArrowClockwise"/>
-                                        <TextBlock Grid.Column="1" Text="Refresh Weather Data"/>
-                                </Grid>
-                        </Button>
-                </Grid>
+                <ScrollViewer Grid.Column="1">
+                        <Grid x:Name="mainContent" RowDefinitions="Auto, Auto, Auto">
+                                <StackPanel>
+                                        <Grid>
+                                                <TextBlock x:Name="greeting" FontFamily="Rubik-Light" Text="Good Morning Username" Padding="15" Margin="10"/>
+                                                <Button Grid.Row="0" Classes="menuButton" Click="refreshWeatherData" HorizontalAlignment="Right">
+                                                        <Grid ColumnDefinitions="Auto, Auto">
+                                                                <ic:SymbolIcon Symbol="ArrowClockwise"/>
+                                                                <TextBlock Grid.Column="1" Text="Refresh Weather Data"/>
+                                                        </Grid>
+                                                </Button>
+                                        </Grid>
+                                </StackPanel>
+                                
+                                <StackPanel Grid.Row="1">
+                                        <Image x:Name="weatherImage" Margin="20" Height="300" Width="250"/>
+                                        <TextBlock x:Name="weatherRightNow" Classes="temperature" Text="temp"/>
+                                        <TextBlock x:Name="weatherDescription" Classes="weatherDescription" Text="Weather Description"/>
+                                        <TextBlock x:Name="testTextBlock" Text="i"/>
+                                </StackPanel>
+                        </Grid>
+                </ScrollViewer>
         </Grid>
 </Window>

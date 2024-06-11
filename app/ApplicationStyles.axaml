@@ -55,8 +55,15 @@
         <Setter Property="FontFamily" Value="{StaticResource Rubik-Light}"/>
         <Setter Property="FontSize" Value="120"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="Margin" Value="15"/>
-        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Padding" Value="5"/>
+    </Style>
+    
+    <Style Selector="TextBlock.weatherDescription">
+        <Setter Property="FontFamily" Value="{StaticResource Rubik-Light}"/>
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="2.5"/>
     </Style>
     
 </Styles>
