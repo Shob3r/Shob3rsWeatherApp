@@ -11,14 +11,13 @@ public class OpenWeatherMapData
     public string? sunsetTime, sunriseTime, tempUnit, weatherDescription, detailedWeatherDescription;
     public int tempNow, feelsLike, minimumTemp, maximumTemp;
     public float airPressure, windSpeed;
-
-    private string customCityName;
+    
     private readonly bool isUserAmerican;
-    private readonly string openWeatherMapKey;
-
+    private readonly string openWeatherMapKey, customCityName;
+    
     private LocationInformation locationInfo;
     
-    public OpenWeatherMapData()
+    public OpenWeatherMapData(string customCityName = "")
     {
         JsonParser weatherMapKeyGetter = new JsonParser(File.ReadAllText("../../../config.json"));
         locationInfo = new LocationInformation();
@@ -27,6 +26,8 @@ public class OpenWeatherMapData
         CultureInfo currentCulture = CultureInfo.CurrentCulture;
         isUserAmerican = currentCulture.Name.Equals("en_US", StringComparison.InvariantCultureIgnoreCase);
         tempUnit = isUserAmerican ? "F" : "C";
+
+        this.customCityName = customCityName;
         Task.Run(setWeatherData);
     }
     
@@ -35,8 +36,10 @@ public class OpenWeatherMapData
         await locationInfo.setLocationData();
         
         string units = getUnitType();
-        string url = $"https://api.openweathermap.org/data/2.5/weather?q={locationInfo.currentCity}&units={units}&appid={openWeatherMapKey}";;
+        string url;
+        url = customCityName != "" ? $"https://api.openweathermap.org/data/2.5/weather?q={customCityName}&units={units}&appid={openWeatherMapKey}" : $"https://api.openweathermap.org/data/2.5/weather?q={locationInfo.currentCity}&units={units}&appid={openWeatherMapKey}";
         
+        Console.WriteLine(url);
         string weatherRightNowInfo = await HttpUtils.getHttpContent(url);
         JsonParser weatherParser = new JsonParser(weatherRightNowInfo);
         
@@ -52,6 +55,7 @@ public class OpenWeatherMapData
         feelsLike = roundTemp(weatherParser.getDataByTag<float>("main.feels_like"));
         maximumTemp = roundTemp(weatherParser.getDataByTag<float>("main.temp_min"));
         minimumTemp = roundTemp(weatherParser.getDataByTag<float>("main.temp_max"));
+        airPressure = convertAirPressure(weatherParser.getDataByTag<int>("main.pressure"));
     }
     
     private float convertSpeed(float input)

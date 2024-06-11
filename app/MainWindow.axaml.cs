@@ -11,7 +11,6 @@ public partial class MainWindow : Window
 {
     private readonly OpenWeatherMapData openWeatherMapData;
     private Task setContentTask;
-    private int value = 0; 
     public MainWindow()
     {
         openWeatherMapData = new OpenWeatherMapData();
@@ -27,8 +26,6 @@ public partial class MainWindow : Window
         weatherRightNow.Text = $"{openWeatherMapData.tempNow}\u00b0{openWeatherMapData.tempUnit}";
         weatherImage.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName()}.png")));
         if (openWeatherMapData.detailedWeatherDescription != null) weatherDescription.Text = textInfo.ToTitleCase(openWeatherMapData.detailedWeatherDescription);
-        value++;
-        testTextBlock.Text = value.ToString();
     }
 
     private string getWeatherImageName()

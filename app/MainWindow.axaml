@@ -73,7 +73,6 @@
                                         <Image x:Name="weatherImage" Margin="20" Height="300" Width="250"/>
                                         <TextBlock x:Name="weatherRightNow" Classes="temperature" Text="temp"/>
                                         <TextBlock x:Name="weatherDescription" Classes="weatherDescription" Text="Weather Description"/>
-                                        <TextBlock x:Name="testTextBlock" Text="i"/>
                                 </StackPanel>
                         </Grid>
                 </ScrollViewer>
