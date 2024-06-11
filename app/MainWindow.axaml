@@ -58,8 +58,9 @@
                         <TextBlock x:Name="greeting" FontFamily="Rubik-Light" Text="Good Morning Username" Padding="15" Margin="10"/>
                         
                         <StackPanel Grid.Row="1">
-                                <Image x:Name="weatherImage" Margin="20" Height="300" Width="250" Source="/Assets/Images/snowy.png" />
+                                <Image x:Name="weatherImage" Margin="20" Height="300" Width="250"/>
                                 <TextBlock x:Name="weatherRightNow" Classes="temperature" Text="nil"/>
+                                <TextBlock x:Name="weatherDescription" Classes="temperature" Text="Weather Description"/>
                         </StackPanel>
                         
                         

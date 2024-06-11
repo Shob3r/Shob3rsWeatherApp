@@ -8,17 +8,16 @@ namespace Shob3rsWeatherApp;
 
 public class OpenWeatherMapData
 {
-    public string? sunsetTime, sunriseTime, tempUnit;
+    public string? sunsetTime, sunriseTime, tempUnit, weatherDescription, detailedWeatherDescription;
     public int tempNow, feelsLike, minimumTemp, maximumTemp;
     public float airPressure, windSpeed;
 
-    private readonly string customCityName;
+    private string customCityName;
     private readonly bool isUserAmerican;
     private readonly string openWeatherMapKey;
     
-    public OpenWeatherMapData(string cityName = "")
+    public OpenWeatherMapData()
     {
-        customCityName = cityName;
         JsonParser weatherMapKeyGetter = new JsonParser(File.ReadAllText("../../../config.json"));
         openWeatherMapKey = weatherMapKeyGetter.getDataByTag<string>("openWeatherKey");
 
@@ -31,26 +30,21 @@ public class OpenWeatherMapData
     public async Task setWeatherData()
     {
         LocationInformation locationInfo = new LocationInformation();
-        string url;
+        await locationInfo.setLocationData();
         string units = getUnitType();
-        if (customCityName == "")
-        {
-            await locationInfo.setLocationData();
-            url = $"https://api.openweathermap.org/data/2.5/weather?lat={locationInfo.latitude}&lon={locationInfo.longitude}&units={units}&appid={openWeatherMapKey}";
-        }
-        else
-        {
-            url = $"https://api.openweathermap.org/data/2.5/weather?q={customCityName}&units={units}&appid={openWeatherMapKey}";
-        }
-        
+        string url = $"https://api.openweathermap.org/data/2.5/weather?q={locationInfo.currentCity}&units={units}&appid={openWeatherMapKey}";;
+
         string weatherRightNowInfo = await HttpUtils.getHttpContent(url);
         JsonParser weatherParser = new JsonParser(weatherRightNowInfo);
         
         int timezone = weatherParser.getDataByTag<int>("timezone");
         // Add the timezone variable to whatever the unix time is to adjust it to the timezone the user is currently in. without it, we'd be using the UTC time in greenwich 
+        
         sunriseTime = normalizeUnixTime(weatherParser.getDataByTag<long>("sys.sunrise") + timezone);
         sunsetTime = normalizeUnixTime(weatherParser.getDataByTag<long>("sys.sunset") + timezone);
 
+        weatherDescription = weatherParser.getDataByTag<string>("weather[0].main");
+        detailedWeatherDescription = weatherParser.getDataByTag<string>("weather[0].description");
         tempNow = roundTemp(weatherParser.getDataByTag<float>("main.temp"));
         feelsLike = roundTemp(weatherParser.getDataByTag<float>("main.feels_like"));
         maximumTemp = roundTemp(weatherParser.getDataByTag<float>("main.temp_min"));
