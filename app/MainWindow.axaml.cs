@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Media.Imaging;
 
 namespace Shob3rsWeatherApp;
 public partial class MainWindow : Window
@@ -22,11 +23,12 @@ public partial class MainWindow : Window
         await openWeatherMapData.setWeatherData();
         greeting.Text = $"Good {getTime()}, {Environment.UserName}";
         weatherRightNow.Text = $"{openWeatherMapData.tempNow}\u00b0{openWeatherMapData.tempUnit}";
+        weatherImage.Source = new Bitmap($"/Assets/Images/fog.png");
     }
     
     private string getTime()
     {
-        var currentTime = DateTime.Now;
+        DateTime currentTime = DateTime.Now;
         int currentHour = currentTime.Hour;
 
         return currentHour switch
