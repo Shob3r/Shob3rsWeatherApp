@@ -9,11 +9,14 @@ using Avalonia.Platform;
 namespace Shob3rsWeatherApp;
 public partial class MainWindow : Window
 {
-    private readonly OpenWeatherData _openWeatherData;
+    private readonly OpenWeatherData currentWeather;
+    private readonly OpenWeatherFutureForecasting futureForecast;
     private Task setContentTask;
     public MainWindow()
     {
-        _openWeatherData = new OpenWeatherData();
+        currentWeather = new OpenWeatherData();
+        futureForecast = new OpenWeatherFutureForecasting();
+        
         InitializeComponent();
         setContentTask = setMenuContent();
     }
@@ -21,16 +24,16 @@ public partial class MainWindow : Window
     private async Task setMenuContent()
     {
         TextInfo textInfo = new CultureInfo("en-CA", false).TextInfo;
-        await _openWeatherData.setWeatherData();
+        await currentWeather.setWeatherData();
         greeting.Text = $"Good {getTime()}, {Environment.UserName}";
-        weatherRightNow.Text = $"{_openWeatherData.tempNow}\u00b0{_openWeatherData.tempUnit}";
+        weatherRightNow.Text = $"{currentWeather.tempNow}\u00b0{currentWeather.tempUnit}";
         weatherImage.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName()}.png")));
-        if (_openWeatherData.detailedWeatherDescription != null) weatherDescription.Text = textInfo.ToTitleCase(_openWeatherData.detailedWeatherDescription);
+        if (currentWeather.detailedWeatherDescription != null) weatherDescription.Text = textInfo.ToTitleCase(currentWeather.detailedWeatherDescription);
     }
 
     private string getWeatherImageName()
     {
-        string? currentWeather = _openWeatherData.weatherDescription;
+        string? currentWeather = this.currentWeather.weatherDescription;
         return currentWeather!.ToLower() switch
         {
             "clear" => $"clear-{getTime(true)}",
@@ -101,7 +104,6 @@ public partial class MainWindow : Window
     private Grid getActiveView()
     {
         Grid[] appMenuViews = { weatherHereContent, weatherSearchContent, settingsContent };
-
         foreach (var t in appMenuViews)
         {
             if (t.IsVisible)
@@ -110,7 +112,7 @@ public partial class MainWindow : Window
             }
         }
 
-        Console.WriteLine("Errrmm... Why aren't any of the views active");
+        Console.WriteLine("Errrmm... Why aren't any of the views active....");
         throw new Exception();
     }
 }

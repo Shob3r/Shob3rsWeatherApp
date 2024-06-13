@@ -8,7 +8,8 @@
         x:Class="Shob3rsWeatherApp.MainWindow"
         x:CompileBindings="True"
         Title="Shob3r's Weather App"
-        Background="#121212"
+        Background="#0d0d0d"
+        TransparencyLevelHint="AcrylicBlur"
         MinWidth="1200"
         MinHeight="750"
         Icon="/Assets/Images/cloudy-day.png"
@@ -20,14 +21,6 @@
         
         <Grid ColumnDefinitions="Auto,*">
                 <SplitView Classes="sideMenu" Padding="2.5" x:Name="sideMenu">
-                        <Button Click="CloseMenu" Classes="menuButton" 
-                                VerticalAlignment="Top" 
-                                HorizontalAlignment="Left"
-                                Width="35"
-                                Height="35">
-                                <ic:SymbolIcon Symbol="List" IsFilled="True"/> 
-                        </Button>
-                        
                         <SplitView.Pane>
                                 <StackPanel>
                                         <Button Classes="menuButton sideMenuItem" Click="OpenWeatherHere">
@@ -56,29 +49,81 @@
                 
                 <ScrollViewer Grid.Column="1">
                         <Panel>
-                                <Grid x:Name="weatherHereContent">
-                                        <StackPanel>
-                                                <Grid>
-                                                        <TextBlock x:Name="greeting" Text="Good Morning Username" Classes="Greeting"/>
-                                                        <Button Grid.Row="0" Classes="menuButton" Click="refreshWeatherData" HorizontalAlignment="Right">
-                                                                <Grid ColumnDefinitions="Auto, Auto">
-                                                                        <ic:SymbolIcon Symbol="ArrowClockwise"/>
-                                                                </Grid>
-                                                        </Button>
-                                                </Grid>
-                                        </StackPanel>
+                                <Button Click="CloseMenu" Classes="menuButton" 
+                                        VerticalAlignment="Top" 
+                                        HorizontalAlignment="Left"
+                                        Width="35"
+                                        Height="35"
+                                        Background="Transparent">
+                                        <ic:SymbolIcon Symbol="List" IsFilled="True"/> 
+                                </Button>
                                 
+                                <Grid x:Name="weatherHereContent">
+                                        <Button Classes="menuButton" Click="refreshWeatherData" HorizontalAlignment="Right" Background="Black">
+                                                <Grid ColumnDefinitions="Auto, Auto">
+                                                        <ic:SymbolIcon Symbol="ArrowClockwise"/>
+                                                </Grid>
+                                        </Button>
+                                        
                                         <StackPanel VerticalAlignment="Center">
+                                                <TextBlock x:Name="greeting" Text="Good Morning Username" Classes="Greeting"/>
+                                                
                                                 <Image x:Name="weatherImage" Margin="20" Height="275" Width="275" VerticalAlignment="Center"/>
                                                 <TextBlock x:Name="weatherRightNow" Classes="temperature" Text="temp"/>
                                                 <TextBlock x:Name="weatherDescription" Classes="weatherDescription" Text="Weather Description"/>
+                                                
+                                                <Grid VerticalAlignment="Bottom" HorizontalAlignment="Center" ColumnDefinitions="Auto, Auto, Auto, Auto, Auto" Margin="25">
+                                                        <Panel Grid.Column="0">
+                                                                <Rectangle Classes="FutureForecastRect"/>
+                                                                <StackPanel VerticalAlignment="Center">
+                                                                        <TextBlock x:Name="weatherNowCol0Date" Text="Tomorrow" HorizontalAlignment="Center"/>
+                                                                        <Image x:Name="weatherNowCol0Image" Source="/Assets/Images/clear-day.png" Width="50" Height="50" Margin="15"/>
+                                                                        <TextBlock x:Name="weatherNowCol0Temp" Text="Temp Value" HorizontalAlignment="Center"/>
+                                                                </StackPanel>
+                                                        </Panel>
+                                                        
+                                                        <Panel Grid.Column="1">
+                                                                <Rectangle Classes="FutureForecastRect"/>
+                                                                <StackPanel VerticalAlignment="Center">
+                                                                        <TextBlock x:Name="weatherNowCol1Date" Text="Tomorrow" HorizontalAlignment="Center"/>
+                                                                        <Image x:Name="weatherNowCol1Image" Source="/Assets/Images/clear-day.png" Width="50" Height="50" Margin="15"/>
+                                                                        <TextBlock x:Name="weatherNowCol1Temp" Text="Temp Value" HorizontalAlignment="Center"/>
+                                                                </StackPanel>
+                                                        </Panel>
+                                                        
+                                                        <Panel Grid.Column="2">
+                                                                <Rectangle Classes="FutureForecastRect"/>
+                                                                <StackPanel VerticalAlignment="Center">
+                                                                        <TextBlock x:Name="weatherNowCol2Date" Text="Tomorrow" HorizontalAlignment="Center"/>
+                                                                        <Image x:Name="weatherNowCol2Image" Source="/Assets/Images/clear-day.png" Width="50" Height="50" Margin="15"/>
+                                                                        <TextBlock x:Name="weatherNowCol2Temp" Text="Temp Value" HorizontalAlignment="Center"/>
+                                                                </StackPanel>
+                                                        </Panel>
+                                                        
+                                                        <Panel Grid.Column="3">
+                                                                <Rectangle Classes="FutureForecastRect"/>
+                                                                <StackPanel VerticalAlignment="Center">
+                                                                        <TextBlock x:Name="weatherNowCol3Date" Text="Tomorrow" HorizontalAlignment="Center"/>
+                                                                        <Image x:Name="weatherNowCol3Image" Source="/Assets/Images/clear-day.png" Width="50" Height="50" Margin="15"/>
+                                                                        <TextBlock x:Name="weatherNowCol3Temp" Text="Temp Value" HorizontalAlignment="Center"/>
+                                                                </StackPanel>
+                                                        </Panel>
+                                                        
+                                                        <Panel Grid.Column="4">
+                                                                <Rectangle Classes="FutureForecastRect"/>
+                                                                <StackPanel VerticalAlignment="Center">
+                                                                        <TextBlock x:Name="weatherNowCol4Date" Text="Tomorrow" HorizontalAlignment="Center"/>
+                                                                        <Image x:Name="weatherNowCol4Image" Source="/Assets/Images/clear-day.png" Width="50" Height="50" Margin="15"/>
+                                                                        <TextBlock x:Name="weatherNowCol4Temp" Text="Temp Value" HorizontalAlignment="Center"/>
+                                                                </StackPanel>
+                                                        </Panel>
+                                                </Grid>
                                         </StackPanel>
                                 </Grid>
                                 
                                 <Grid x:Name="weatherSearchContent" IsVisible="False">
                                         <TextBlock Text="temp stuff"/>
                                 </Grid>
-                                
                                 
                                 <Grid x:Name="settingsContent" IsVisible="False">
                                         <TextBlock Text="temp stufdtfgjntdjterdjedrjnf"/>

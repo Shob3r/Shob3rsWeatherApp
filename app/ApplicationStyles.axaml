@@ -76,4 +76,12 @@
         <Setter Property="FontSize" Value="25"/>
     </Style>
     
+    <Style Selector="Rectangle.FutureForecastRect">
+        <Setter Property="Margin" Value="15"/>
+        <Setter Property="Width" Value="125"/>
+        <Setter Property="Height" Value="150"/>
+        <Setter Property="Fill" Value="#090909"/>
+        <Setter Property="RadiusX" Value="10"/>
+        <Setter Property="RadiusY" Value="15"></Setter>
+    </Style>
 </Styles>
