@@ -34,7 +34,7 @@ public class OpenWeatherData
         string units = getUnitType();
         string url = customCityName != ""
             ? $"https://api.openweathermap.org/data/2.5/weather?q={customCityName}&units={units}&appid={openWeatherMapKey}"
-            : $"https://api.openweathermap.org/data/2.5/weather?q={LocationInformation.currentCity}&units={units}&appid={openWeatherMapKey}";
+            : $"https://api.openweathermap.org/data/2.5/weather?q={LocationInformation.currentCity},{LocationInformation.countryOfResidence}&units={units}&appid={openWeatherMapKey}";
 
         string weatherRightNowInfo = await HttpUtils.getHttpContent(url);
         var weatherParser = new JsonParser(weatherRightNowInfo);
