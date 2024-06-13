@@ -30,4 +30,24 @@
     <ItemGroup>
         <AvaloniaResource Include="Assets/**"/>
     </ItemGroup>
+    
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-Black.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-BlackItalic.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-Bold.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-BoldItalic.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-ExtraBold.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-ExtraBoldItalic.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-Italic-VariableFont_wght.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-Italic.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-Light.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-LightItalic.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-Medium.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-MediumItalic.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-OFL-License.txt" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-Regular.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-SemiBold.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-SemiBoldItalic.ttf" />
+      <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-VariableFont_wght.ttf" />
+    </ItemGroup>
 </Project>

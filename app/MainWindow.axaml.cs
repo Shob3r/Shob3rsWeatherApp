@@ -82,6 +82,35 @@ public partial class MainWindow : Window
 
     private void OpenWeatherSearch(object? sender, RoutedEventArgs e)
     {
-        sideMenu.IsVisible = false;
+        getActiveView().IsVisible = false;
+        weatherSearchContent.IsVisible = true;
+    }
+    
+    private void OpenWeatherHere(object? sender, RoutedEventArgs e)
+    {
+        getActiveView().IsVisible = false;
+        weatherHereContent.IsVisible = true;
+    }
+    
+    private void OpenSettings(object? sender, RoutedEventArgs e)
+    {
+        getActiveView().IsVisible = false;
+        settingsContent.IsVisible = true;
+    }
+
+    private Grid getActiveView()
+    {
+        Grid[] appMenuViews = { weatherHereContent, weatherSearchContent, settingsContent };
+
+        foreach (var t in appMenuViews)
+        {
+            if (t.IsVisible)
+            {
+                return t;
+            }
+        }
+
+        Console.WriteLine("Errrmm... Why aren't any of the views active");
+        throw new Exception();
     }
 }
