@@ -31,6 +31,7 @@ public partial class MainWindow : Window
         await futureForecast.setWeatherData();
 
         greeting.Text = $"Good {getTime()}, {Environment.UserName}";
+        usersLocation.Text = $"{LocationInformation.currentCity}, {LocationInformation.fullCountryName}";
         weatherRightNow.Text = $"{currentWeather.tempNow}\u00b0{currentWeather.tempUnit}";
         weatherImage.Source =
             new Bitmap(AssetLoader.Open(

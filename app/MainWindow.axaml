@@ -67,7 +67,10 @@
 
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock x:Name="greeting" Text="Good Morning Username" Classes="Greeting" />
-
+                        <Grid Margin="10">
+                            <ic:SymbolIcon Symbol="Location" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="usersLocation" Text="City Name" HorizontalAlignment="Center"/>
+                        </Grid>
                         <Image x:Name="weatherImage" Margin="20" Height="275" Width="275" VerticalAlignment="Center" />
                         <TextBlock x:Name="weatherRightNow" Classes="temperature" Text="temp" />
                         <TextBlock x:Name="weatherDescription" Classes="weatherDescription" Text="Weather Description" />

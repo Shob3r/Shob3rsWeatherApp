@@ -9,7 +9,7 @@ namespace Shob3rsWeatherApp;
 public static class LocationInformation
 {
     public static float? latitude, longitude;
-    public static string? currentCity, countryOfResidence, publicIpAddress;
+    public static string? currentCity, countryOfResidence, fullCountryName, publicIpAddress;
 
     private static IpDataClient client;
     private static int callCount;
@@ -37,6 +37,7 @@ public static class LocationInformation
             latitude = (float)fullIpInformation.Latitude!;
             longitude = (float)fullIpInformation.Longitude!;
             countryOfResidence = fullIpInformation.CountryCode;
+            fullCountryName = fullIpInformation.CountryName;
         }
     }
 }
