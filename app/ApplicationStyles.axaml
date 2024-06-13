@@ -84,4 +84,11 @@
         <Setter Property="RadiusX" Value="10" />
         <Setter Property="RadiusY" Value="15" />
     </Style>
+    
+    <Style Selector="Border.WeatherWidgetConfig">
+        <Setter Property="Height" Value="250"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="CornerRadius" Value="5"/>
+    </Style>
 </Styles>

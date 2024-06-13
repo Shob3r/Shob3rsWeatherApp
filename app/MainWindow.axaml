@@ -58,7 +58,7 @@
                 </Button>
 
                 <Grid x:Name="weatherHereContent">
-                    <Button Classes="menuButton" Click="refreshWeatherData" HorizontalAlignment="Right"
+                    <Button Classes="menuButton" Click="refreshWeatherData" HorizontalAlignment="Right" VerticalAlignment="Top"
                             Background="Black">
                         <Grid ColumnDefinitions="Auto, Auto">
                             <ic:SymbolIcon Symbol="ArrowClockwise" />
@@ -121,7 +121,40 @@
                             </Panel>
                         </Grid>
                         
-                        <Rectangle HorizontalAlignment="Center" Width="1050" Height="450" Fill="Aqua" />
+                        
+                        <Border Background="Transparent" BorderThickness="2"
+                                CornerRadius="3"
+                                Padding="10"
+                                Margin="10">
+                            <StackPanel>
+                                <Grid ColumnDefinitions="75*, 25*">
+                                    <Border Background="#242424" Classes="WeatherWidgetConfig">
+                                        <TextBlock Text="Sunset/Sunrise"/>
+                                    </Border>
+                                    <Border Grid.Column="1" Background="#242424" Classes="WeatherWidgetConfig">
+                                        <TextBlock Text="Barometric Pressure"/>
+                                    </Border>
+                                </Grid>
+                                
+                                <Grid ColumnDefinitions="25*, 75*">
+                                    <Border Background="#242424" Classes="WeatherWidgetConfig">
+                                        <StackPanel>
+                                            <TextBlock Text="Wind Speed"/>
+                                        </StackPanel>
+                                    </Border>
+                                    <Border Grid.Column="1" Background="#242424" Classes="WeatherWidgetConfig">
+                                        <StackPanel>
+                                            <TextBlock Text="Current Temp"/>
+                                            <TextBlock Text="Feels like:"/>
+                                            <TextBlock Text="High:"/>
+                                            <TextBlock Text="Low:"/>
+                                        </StackPanel>
+                                    </Border>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                        
+                        
                     </StackPanel>
                 </Grid>
 
