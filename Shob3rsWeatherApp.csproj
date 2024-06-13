@@ -50,8 +50,4 @@
         <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-SemiBoldItalic.ttf"/>
         <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-VariableFont_wght.ttf"/>
     </ItemGroup>
-
-    <ItemGroup>
-      <None Include="Env.cs" />
-    </ItemGroup>
 </Project>

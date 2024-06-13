@@ -122,39 +122,52 @@
                         </Grid>
                         
                         
-                        <Border Background="Transparent" BorderThickness="2"
+                        <Border Background="#151515" BorderThickness="2"
                                 CornerRadius="3"
                                 Padding="10"
                                 Margin="10">
                             <StackPanel>
                                 <Grid ColumnDefinitions="75*, 25*">
                                     <Border Background="#242424" Classes="WeatherWidgetConfig">
-                                        <TextBlock Text="Sunset/Sunrise"/>
+                                        <StackPanel Margin="15">
+                                            <TextBlock Text="Sunset/Sunrise"/>
+                                        </StackPanel>
                                     </Border>
+                                    
                                     <Border Grid.Column="1" Background="#242424" Classes="WeatherWidgetConfig">
-                                        <TextBlock Text="Barometric Pressure"/>
+                                        <StackPanel Margin="15">
+                                            <TextBlock Text="Barometric Pressure"/>
+                                        </StackPanel>
                                     </Border>
                                 </Grid>
                                 
-                                <Grid ColumnDefinitions="25*, 75*">
+                                <Grid ColumnDefinitions="15*, 28*, 28*, 29*">
                                     <Border Background="#242424" Classes="WeatherWidgetConfig">
-                                        <StackPanel>
+                                        <StackPanel Margin="15">
                                             <TextBlock Text="Wind Speed"/>
                                         </StackPanel>
                                     </Border>
+                                    
                                     <Border Grid.Column="1" Background="#242424" Classes="WeatherWidgetConfig">
-                                        <StackPanel>
-                                            <TextBlock Text="Current Temp"/>
-                                            <TextBlock Text="Feels like:"/>
+                                        <StackPanel Margin="15">
+                                            <ic:SymbolIcon Symbol="ArrowDown" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <Border Grid.Column="2" Background="#242424" Classes="WeatherWidgetConfig">
+                                        <StackPanel Margin="15">
                                             <TextBlock Text="High:"/>
-                                            <TextBlock Text="Low:"/>
+                                        </StackPanel>
+                                    </Border>
+                                    
+                                    <Border Grid.Column="3" Background="#242424" Classes="WeatherWidgetConfig">
+                                        <StackPanel Margin="15">
+                                            <TextBlock Text="Feels like:"/>
                                         </StackPanel>
                                     </Border>
                                 </Grid>
                             </StackPanel>
                         </Border>
-                        
-                        
                     </StackPanel>
                 </Grid>
 
