@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using IpData;
+using IpData.Models;
 using Shob3rsWeatherApp.Util;
 
 namespace Shob3rsWeatherApp;
@@ -18,9 +19,9 @@ public static class LocationInformation
     {
         try
         {
-            var jsonParser = new JsonParser(File.ReadAllText("../../../config.json"));
             publicIpAddress = Task.Run(() => HttpUtils.getHttpContent("https://api.ipify.org")).Result;
-            client = new IpDataClient(jsonParser.getDataByTag<string>("ipDataKey"));
+            Console.WriteLine(publicIpAddress);
+            client = new IpDataClient(Env.ipDataKey);
         }
         catch (FileNotFoundException e)
         {
@@ -32,12 +33,13 @@ public static class LocationInformation
         {
             Console.WriteLine("Setting location info...");
             callCount++;
-            var fullIpInformation = await client.Lookup(publicIpAddress);
+            IpInfo? fullIpInformation = await client.Lookup(publicIpAddress);
             currentCity = fullIpInformation.City;
             latitude = (float)fullIpInformation.Latitude!;
             longitude = (float)fullIpInformation.Longitude!;
             countryOfResidence = fullIpInformation.CountryCode;
             fullCountryName = fullIpInformation.CountryName;
+            Console.WriteLine("Location info set!");
         }
     }
 }

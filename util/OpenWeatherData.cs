@@ -1,6 +1,5 @@
 using System;
 using System.Globalization;
-using System.IO;
 using System.Threading.Tasks;
 using Shob3rsWeatherApp.Util;
 
@@ -19,10 +18,9 @@ public class OpenWeatherData
 
     public OpenWeatherData(string customCityName = "")
     {
-        var weatherMapKeyGetter = new JsonParser(File.ReadAllText("../../../config.json"));
-        openWeatherMapKey = weatherMapKeyGetter.getDataByTag<string>("openWeatherKey");
-
-        var currentCulture = CultureInfo.CurrentCulture;
+        openWeatherMapKey = Env.openWeatherKey;
+        
+        CultureInfo currentCulture = CultureInfo.CurrentCulture;
         isUserAmerican = currentCulture.Name.Equals("en_US", StringComparison.InvariantCultureIgnoreCase);
         tempUnit = isUserAmerican ? "F" : "C";
 
@@ -66,21 +64,20 @@ public class OpenWeatherData
         return (int)Math.Round(temperatureBeforeRounding);
     }
 
-    protected float convertAirPressure(int pressure)
+    private float convertAirPressure(int pressure)
     {
         // I'll just use bar because that's the one that makes the most sense
         // openWeatherMap returns Hpa (hectopascal). 1hpa = 0.001 bar
         return pressure * 0.001f;
     }
 
-    protected string normalizeUnixTime(long inputTime)
+    private string normalizeUnixTime(long inputTime)
     {
-        var dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(inputTime);
-        var dateTime = dateTimeOffset.DateTime;
+        DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(inputTime);
+        DateTime dateTime = dateTimeOffset.DateTime;
 
         return
-            dateTime.ToString("hh:mm tt")
-                .ToLower(); // Using ToLower() here as without it, am/pm will be all capitalized
+            dateTime.ToString("hh:mm tt").ToLower(); // Using ToLower() here as without it, am/pm will be all capitalized
     }
 
     protected string getUnitType()

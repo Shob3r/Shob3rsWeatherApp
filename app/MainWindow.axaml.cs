@@ -1,5 +1,6 @@
 using System;
 using System.Globalization;
+using System.Linq;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
@@ -25,25 +26,43 @@ public partial class MainWindow : Window
 
     private async Task setMenuContent()
     {
-        var textInfo = new CultureInfo("en-CA", false).TextInfo;
+        TextInfo textInfo = new CultureInfo("en-CA", false).TextInfo;
         await LocationInformation.setLocationData();
         await currentWeather.setWeatherData();
-        await futureForecast.setWeatherData();
 
         greeting.Text = $"Good {getTime()}, {Environment.UserName}";
         usersLocation.Text = $"{LocationInformation.currentCity}, {LocationInformation.fullCountryName}";
         weatherRightNow.Text = $"{currentWeather.tempNow}\u00b0{currentWeather.tempUnit}";
-        weatherImage.Source =
-            new Bitmap(AssetLoader.Open(
-                new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName()}.png")));
-        if (currentWeather.detailedWeatherDescription != null)
-            weatherDescription.Text = textInfo.ToTitleCase(currentWeather.detailedWeatherDescription);
+        weatherImage.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName(currentWeather.weatherDescription)}.png")));
+        if (currentWeather.detailedWeatherDescription != null) weatherDescription.Text = textInfo.ToTitleCase(currentWeather.detailedWeatherDescription);
+
+        await setFutureForecastContent();
     }
 
-    private string getWeatherImageName()
+    private async Task setFutureForecastContent()
     {
-        string? currentWeather = this.currentWeather.weatherDescription;
-        return currentWeather!.ToLower() switch
+        await futureForecast.setWeatherData();
+        
+        futureWeatherCol0Date.Text = "Tomorrow";
+        futureWeatherCol0Image.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName(futureForecast.futureWeatherDescriptions!.ElementAt(0))}.png")));
+        futureWeatherCol0Temp.Text = $"{futureForecast.futureTemperatures!.ElementAt(0)}\u00b0{currentWeather.tempUnit}";
+        
+        futureWeatherCol1Date.Text = getDayOfWeekInFuture(2);
+        futureWeatherCol1Image.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName(futureForecast.futureWeatherDescriptions!.ElementAt(1))}.png")));
+        futureWeatherCol1Temp.Text = $"{futureForecast.futureTemperatures!.ElementAt(1)}\u00b0{currentWeather.tempUnit}";
+        
+        futureWeatherCol2Date.Text = getDayOfWeekInFuture(3);
+        futureWeatherCol2Image.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName(futureForecast.futureWeatherDescriptions!.ElementAt(2))}.png")));
+        futureWeatherCol2Temp.Text = $"{futureForecast.futureTemperatures!.ElementAt(2)}\u00b0{currentWeather.tempUnit}";
+        
+        futureWeatherCol3Date.Text = getDayOfWeekInFuture(4);
+        futureWeatherCol3Image.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName(futureForecast.futureWeatherDescriptions!.ElementAt(3))}.png")));
+        futureWeatherCol3Temp.Text = $"{futureForecast.futureTemperatures!.ElementAt(3)}\u00b0{currentWeather.tempUnit}";
+    }
+    
+    private string getWeatherImageName(string? inputWeatherDescription)
+    {
+        return inputWeatherDescription!.ToLower() switch
         {
             "clear" => $"clear-{getTime(true)}",
             "drizzle" => "rainy",
@@ -60,9 +79,17 @@ public partial class MainWindow : Window
         };
     }
 
+    private string getDayOfWeekInFuture(int days)
+    {
+        DateTime thePresent = DateTime.Today;
+        DateTime futureDate = thePresent.AddDays(days);
+
+        return futureDate.DayOfWeek.ToString();
+    }
+    
     private string getTime(bool onlyDayAndNight = false)
     {
-        var currentTime = DateTime.Now;
+        DateTime currentTime = DateTime.Now;
         int currentHour = currentTime.Hour;
 
         if (onlyDayAndNight)
@@ -111,7 +138,7 @@ public partial class MainWindow : Window
     private Grid getActiveView()
     {
         Grid[] appMenuViews = { weatherHereContent, weatherSearchContent, settingsContent };
-        foreach (var t in appMenuViews)
+        foreach (Grid t in appMenuViews)
             if (t.IsVisible)
                 return t;
 

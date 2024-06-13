@@ -67,23 +67,23 @@
 
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock x:Name="greeting" Text="Good Morning Username" Classes="Greeting" />
-                        <Grid Margin="10">
-                            <ic:SymbolIcon Symbol="Location" HorizontalAlignment="Center"/>
-                            <TextBlock x:Name="usersLocation" Text="City Name" HorizontalAlignment="Center"/>
+                        <Grid Margin="10" ColumnDefinitions="Auto, Auto" HorizontalAlignment="Center">
+                            <ic:SymbolIcon Symbol="Location"/>
+                            <TextBlock Grid.Column="1" x:Name="usersLocation" Text="City Name" HorizontalAlignment="Center"/>
                         </Grid>
                         <Image x:Name="weatherImage" Margin="20" Height="275" Width="275" VerticalAlignment="Center" />
                         <TextBlock x:Name="weatherRightNow" Classes="temperature" Text="temp" />
                         <TextBlock x:Name="weatherDescription" Classes="weatherDescription" Text="Weather Description" />
 
                         <Grid VerticalAlignment="Bottom" HorizontalAlignment="Center"
-                              ColumnDefinitions="Auto, Auto, Auto, Auto, Auto" Margin="25">
+                              ColumnDefinitions="Auto, Auto, Auto, Auto" Margin="25">
                             <Panel Grid.Column="0">
                                 <Rectangle Classes="FutureForecastRect" />
                                 <StackPanel VerticalAlignment="Center">
-                                    <TextBlock x:Name="weatherNowCol0Date" Text="Tomorrow" HorizontalAlignment="Center" />
-                                    <Image x:Name="weatherNowCol0Image" Source="/Assets/Images/clear-day.png"
+                                    <TextBlock x:Name="futureWeatherCol0Date" Text="Tomorrow" HorizontalAlignment="Center" />
+                                    <Image x:Name="futureWeatherCol0Image" Source="/Assets/Images/clear-day.png"
                                            Width="50" Height="50" Margin="15" />
-                                    <TextBlock x:Name="weatherNowCol0Temp" Text="Temp Value"
+                                    <TextBlock x:Name="futureWeatherCol0Temp" Text="Temp Value"
                                                HorizontalAlignment="Center" />
                                 </StackPanel>
                             </Panel>
@@ -91,10 +91,10 @@
                             <Panel Grid.Column="1">
                                 <Rectangle Classes="FutureForecastRect" />
                                 <StackPanel VerticalAlignment="Center">
-                                    <TextBlock x:Name="weatherNowCol1Date" Text="Tomorrow" HorizontalAlignment="Center" />
-                                    <Image x:Name="weatherNowCol1Image" Source="/Assets/Images/clear-day.png"
+                                    <TextBlock x:Name="futureWeatherCol1Date" Text="Tomorrow" HorizontalAlignment="Center" />
+                                    <Image x:Name="futureWeatherCol1Image" Source="/Assets/Images/clear-day.png"
                                            Width="50" Height="50" Margin="15" />
-                                    <TextBlock x:Name="weatherNowCol1Temp" Text="Temp Value"
+                                    <TextBlock x:Name="futureWeatherCol1Temp" Text="Temp Value"
                                                HorizontalAlignment="Center" />
                                 </StackPanel>
                             </Panel>
@@ -102,32 +102,20 @@
                             <Panel Grid.Column="2">
                                 <Rectangle Classes="FutureForecastRect" />
                                 <StackPanel VerticalAlignment="Center">
-                                    <TextBlock x:Name="weatherNowCol2Date" Text="Tomorrow" HorizontalAlignment="Center" />
-                                    <Image x:Name="weatherNowCol2Image" Source="/Assets/Images/clear-day.png"
+                                    <TextBlock x:Name="futureWeatherCol2Date" Text="Tomorrow" HorizontalAlignment="Center" />
+                                    <Image x:Name="futureWeatherCol2Image" Source="/Assets/Images/clear-day.png"
                                            Width="50" Height="50" Margin="15" />
-                                    <TextBlock x:Name="weatherNowCol2Temp" Text="Temp Value"
-                                               HorizontalAlignment="Center" />
+                                    <TextBlock x:Name="futureWeatherCol2Temp" Text="Temp Value" HorizontalAlignment="Center" />
                                 </StackPanel>
                             </Panel>
 
                             <Panel Grid.Column="3">
                                 <Rectangle Classes="FutureForecastRect" />
                                 <StackPanel VerticalAlignment="Center">
-                                    <TextBlock x:Name="weatherNowCol3Date" Text="Tomorrow" HorizontalAlignment="Center" />
-                                    <Image x:Name="weatherNowCol3Image" Source="/Assets/Images/clear-day.png"
+                                    <TextBlock x:Name="futureWeatherCol3Date" Text="Tomorrow" HorizontalAlignment="Center" />
+                                    <Image x:Name="futureWeatherCol3Image" Source="/Assets/Images/clear-day.png"
                                            Width="50" Height="50" Margin="15" />
-                                    <TextBlock x:Name="weatherNowCol3Temp" Text="Temp Value"
-                                               HorizontalAlignment="Center" />
-                                </StackPanel>
-                            </Panel>
-
-                            <Panel Grid.Column="4">
-                                <Rectangle Classes="FutureForecastRect" />
-                                <StackPanel VerticalAlignment="Center">
-                                    <TextBlock x:Name="weatherNowCol4Date" Text="Tomorrow" HorizontalAlignment="Center" />
-                                    <Image x:Name="weatherNowCol4Image" Source="/Assets/Images/clear-day.png"
-                                           Width="50" Height="50" Margin="15" />
-                                    <TextBlock x:Name="weatherNowCol4Temp" Text="Temp Value"
+                                    <TextBlock x:Name="futureWeatherCol3Temp" Text="Temp Value"
                                                HorizontalAlignment="Center" />
                                 </StackPanel>
                             </Panel>

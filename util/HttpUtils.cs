@@ -10,10 +10,10 @@ public static class HttpUtils
     {
         Console.WriteLine(url);
 
-        using var httpClient = new HttpClient();
+        using HttpClient httpClient = new HttpClient();
         try
         {
-            var response = await httpClient.GetAsync(url);
+            HttpResponseMessage response = await httpClient.GetAsync(url);
             response.EnsureSuccessStatusCode();
             string content = await response.Content.ReadAsStringAsync();
 

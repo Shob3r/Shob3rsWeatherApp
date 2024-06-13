@@ -27,7 +27,7 @@ public class JsonParser(string contents)
 
     private bool doesTagExist(string tagName)
     {
-        var token = parsedFileContents.SelectToken(tagName);
+        JToken? token = parsedFileContents.SelectToken(tagName);
         return token != null && token.Type != JTokenType.Null;
     }
 }
