@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Shob3rsWeatherApp.Util;
 
@@ -14,6 +14,9 @@ public class OpenWeatherFutureForecasting(string customCityName = "") : OpenWeat
     public override async Task setWeatherData()
     {
         string units = getUnitType();
+        Debug.Assert(LocationInformation.currentCity != null || LocationInformation.currentCity != "");
+        Debug.Assert(LocationInformation.countryOfResidence != null || LocationInformation.countryOfResidence != "");
+        
         string url = customCityName != ""
             ? $"https://api.openweathermap.org/data/2.5/forecast?q={customCityName}&units={units}&appid={openWeatherMapKey}"
             : $"https://api.openweathermap.org/data/2.5/forecast?q={LocationInformation.currentCity},{LocationInformation.countryOfResidence}&units={units}&appid={openWeatherMapKey}";

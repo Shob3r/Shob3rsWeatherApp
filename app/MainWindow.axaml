@@ -68,8 +68,8 @@
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock x:Name="greeting" Text="Good Morning Username" Classes="Greeting" />
                         <Grid Margin="10" ColumnDefinitions="Auto, Auto" HorizontalAlignment="Center">
-                            <ic:SymbolIcon Symbol="Location"/>
-                            <TextBlock Grid.Column="1" x:Name="usersLocation" Text="City Name" HorizontalAlignment="Center"/>
+                            <ic:SymbolIcon Symbol="Location" FontSize="20" Margin="5"/>
+                            <TextBlock Grid.Column="1" x:Name="usersLocation" Text="City Name" HorizontalAlignment="Center" FontSize="15" Margin="5"/>
                         </Grid>
                         <Image x:Name="weatherImage" Margin="20" Height="275" Width="275" VerticalAlignment="Center" />
                         <TextBlock x:Name="weatherRightNow" Classes="temperature" Text="temp" />

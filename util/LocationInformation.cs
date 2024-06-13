@@ -10,7 +10,7 @@ namespace Shob3rsWeatherApp;
 public static class LocationInformation
 {
     public static float? latitude, longitude;
-    public static string? currentCity, countryOfResidence, fullCountryName, publicIpAddress;
+    public static string currentCity, countryOfResidence, fullCountryName, publicIpAddress;
 
     private static IpDataClient client;
     private static int callCount;
