@@ -18,12 +18,9 @@ public class OpenWeatherData
     private readonly bool isUserAmerican;
     protected readonly string openWeatherMapKey, customCityName;
     
-    protected readonly LocationInformation locationInfo;
-    
     public OpenWeatherData(string customCityName = "")
     {
         JsonParser weatherMapKeyGetter = new JsonParser(File.ReadAllText("../../../config.json"));
-        locationInfo = new LocationInformation();
         openWeatherMapKey = weatherMapKeyGetter.getDataByTag<string>("openWeatherKey");
 
         CultureInfo currentCulture = CultureInfo.CurrentCulture;
@@ -31,15 +28,12 @@ public class OpenWeatherData
         tempUnit = isUserAmerican ? "F" : "C";
 
         this.customCityName = customCityName;
-        Task.Run(setWeatherData);
     }
     
     public virtual async Task setWeatherData()
     {
-        await locationInfo.setLocationData();
-        
         string units = getUnitType();
-        string url = customCityName != "" ? $"https://api.openweathermap.org/data/2.5/weather?q={customCityName}&units={units}&appid={openWeatherMapKey}" : $"https://api.openweathermap.org/data/2.5/weather?q={locationInfo.currentCity}&units={units}&appid={openWeatherMapKey}";
+        string url = customCityName != "" ? $"https://api.openweathermap.org/data/2.5/weather?q={customCityName}&units={units}&appid={openWeatherMapKey}" : $"https://api.openweathermap.org/data/2.5/weather?q={LocationInformation.currentCity}&units={units}&appid={openWeatherMapKey}";
         
         string weatherRightNowInfo = await HttpUtils.getHttpContent(url);
         JsonParser weatherParser = new JsonParser(weatherRightNowInfo);

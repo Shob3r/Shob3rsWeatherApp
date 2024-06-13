@@ -11,7 +11,7 @@ public partial class MainWindow : Window
 {
     private readonly OpenWeatherData currentWeather;
     private readonly OpenWeatherFutureForecasting futureForecast;
-    private Task setContentTask;
+    private Task setContentTask, locationDataSetter;
     public MainWindow()
     {
         currentWeather = new OpenWeatherData();
@@ -24,6 +24,8 @@ public partial class MainWindow : Window
     private async Task setMenuContent()
     {
         TextInfo textInfo = new CultureInfo("en-CA", false).TextInfo;
+        await LocationInformation.setLocationData();
+        
         await currentWeather.setWeatherData();
         greeting.Text = $"Good {getTime()}, {Environment.UserName}";
         weatherRightNow.Text = $"{currentWeather.tempNow}\u00b0{currentWeather.tempUnit}";

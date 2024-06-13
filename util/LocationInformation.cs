@@ -6,14 +6,15 @@ using Shob3rsWeatherApp.Util;
 
 namespace Shob3rsWeatherApp;
 
-public class LocationInformation
+public static class LocationInformation
 {
-    private IpDataClient client;
+    public static float? latitude, longitude;
+    public static string? currentCity, publicIpAddress;
     
-    public float? latitude, longitude;
-    public string? currentCity, publicIpAddress;
-    
-    public LocationInformation()
+    private static IpDataClient client;
+    private static int callCount = 0;
+
+    public static async Task setLocationData()
     {
         try
         {
@@ -26,13 +27,15 @@ public class LocationInformation
             Console.WriteLine(e);
             throw;
         }
-    }
-
-    public async Task setLocationData()
-    {
-        var fullIpInformation = await client.Lookup(publicIpAddress);
-        currentCity = fullIpInformation.City;
-        latitude = (float) fullIpInformation.Latitude!;
-        longitude = (float) fullIpInformation.Longitude!;
+        
+        if (callCount == 0)
+        {
+            Console.WriteLine("Setting location info...");
+            callCount++;
+            var fullIpInformation = await client.Lookup(publicIpAddress);
+            currentCity = fullIpInformation.City;
+            latitude = (float) fullIpInformation.Latitude!;
+            longitude = (float) fullIpInformation.Longitude!;
+        }
     }
 }

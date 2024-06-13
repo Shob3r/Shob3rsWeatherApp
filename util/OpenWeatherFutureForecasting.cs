@@ -12,10 +12,8 @@ public class OpenWeatherFutureForecasting(string customCityName = "") : OpenWeat
     
     public override async Task setWeatherData()
     {
-        await locationInfo.setLocationData();
-        
         string units = getUnitType();
-        string url = customCityName != "" ? $"https://api.openweathermap.org/data/2.5/forecast?q={customCityName}&units={units}&appid={openWeatherMapKey}" : $"https://api.openweathermap.org/data/2.5/forecast?q={locationInfo.currentCity}&units={units}&appid={openWeatherMapKey}";
+        string url = customCityName != "" ? $"https://api.openweathermap.org/data/2.5/forecast?q={customCityName}&units={units}&appid={openWeatherMapKey}" : $"https://api.openweathermap.org/data/2.5/forecast?q={LocationInformation.currentCity}&units={units}&appid={openWeatherMapKey}";
         
         string futureWeatherInfo = await HttpUtils.getHttpContent(url);
         JsonParser weatherParser = new JsonParser(futureWeatherInfo);

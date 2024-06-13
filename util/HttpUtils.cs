@@ -8,6 +8,8 @@ public static class HttpUtils
 {
     public static async Task<string> getHttpContent(string url)
     {
+        Console.WriteLine(url);
+        
         using HttpClient httpClient = new HttpClient();
         try
         {
