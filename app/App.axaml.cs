@@ -4,7 +4,7 @@ using Avalonia.Markup.Xaml;
 
 namespace Shob3rsWeatherApp;
 
-public partial class App : Application
+public class App : Application
 {
     public override void Initialize()
     {
@@ -14,9 +14,7 @@ public partial class App : Application
     public override void OnFrameworkInitializationCompleted()
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-        {
-            desktop.MainWindow = new Shob3rsWeatherApp.MainWindow();
-        }
+            desktop.MainWindow = new MainWindow();
 
         base.OnFrameworkInitializationCompleted();
     }

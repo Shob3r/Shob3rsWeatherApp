@@ -7,30 +7,36 @@ using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 
 namespace Shob3rsWeatherApp;
+
 public partial class MainWindow : Window
 {
     private readonly OpenWeatherData currentWeather;
     private readonly OpenWeatherFutureForecasting futureForecast;
-    private Task setContentTask, locationDataSetter;
+    private Task setContentTask;
+
     public MainWindow()
     {
         currentWeather = new OpenWeatherData();
         futureForecast = new OpenWeatherFutureForecasting();
-        
+
         InitializeComponent();
         setContentTask = setMenuContent();
     }
 
     private async Task setMenuContent()
     {
-        TextInfo textInfo = new CultureInfo("en-CA", false).TextInfo;
+        var textInfo = new CultureInfo("en-CA", false).TextInfo;
         await LocationInformation.setLocationData();
-        
         await currentWeather.setWeatherData();
+        await futureForecast.setWeatherData();
+
         greeting.Text = $"Good {getTime()}, {Environment.UserName}";
         weatherRightNow.Text = $"{currentWeather.tempNow}\u00b0{currentWeather.tempUnit}";
-        weatherImage.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName()}.png")));
-        if (currentWeather.detailedWeatherDescription != null) weatherDescription.Text = textInfo.ToTitleCase(currentWeather.detailedWeatherDescription);
+        weatherImage.Source =
+            new Bitmap(AssetLoader.Open(
+                new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName()}.png")));
+        if (currentWeather.detailedWeatherDescription != null)
+            weatherDescription.Text = textInfo.ToTitleCase(currentWeather.detailedWeatherDescription);
     }
 
     private string getWeatherImageName()
@@ -52,21 +58,19 @@ public partial class MainWindow : Window
             _ => "clear-day"
         };
     }
-    
+
     private string getTime(bool onlyDayAndNight = false)
     {
-        DateTime currentTime = DateTime.Now;
+        var currentTime = DateTime.Now;
         int currentHour = currentTime.Hour;
 
         if (onlyDayAndNight)
-        {
             return currentHour switch
             {
                 >= 6 and < 18 => "day",
                 _ => "night"
             };
-        }
-        
+
         return currentHour switch
         {
             >= 6 and < 12 => "Morning",
@@ -90,13 +94,13 @@ public partial class MainWindow : Window
         getActiveView().IsVisible = false;
         weatherSearchContent.IsVisible = true;
     }
-    
+
     private void OpenWeatherHere(object? sender, RoutedEventArgs e)
     {
         getActiveView().IsVisible = false;
         weatherHereContent.IsVisible = true;
     }
-    
+
     private void OpenSettings(object? sender, RoutedEventArgs e)
     {
         getActiveView().IsVisible = false;
@@ -107,12 +111,8 @@ public partial class MainWindow : Window
     {
         Grid[] appMenuViews = { weatherHereContent, weatherSearchContent, settingsContent };
         foreach (var t in appMenuViews)
-        {
             if (t.IsVisible)
-            {
                 return t;
-            }
-        }
 
         Console.WriteLine("Errrmm... Why aren't any of the views active....");
         throw new Exception();

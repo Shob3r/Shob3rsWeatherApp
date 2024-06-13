@@ -9,14 +9,14 @@ public static class HttpUtils
     public static async Task<string> getHttpContent(string url)
     {
         Console.WriteLine(url);
-        
-        using HttpClient httpClient = new HttpClient();
+
+        using var httpClient = new HttpClient();
         try
         {
-            HttpResponseMessage response = await httpClient.GetAsync(url);
+            var response = await httpClient.GetAsync(url);
             response.EnsureSuccessStatusCode();
             string content = await response.Content.ReadAsStringAsync();
-    
+
             return content;
         }
         catch (HttpRequestException e)

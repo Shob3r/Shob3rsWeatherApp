@@ -10,9 +10,9 @@ public static class LocationInformation
 {
     public static float? latitude, longitude;
     public static string? currentCity, publicIpAddress;
-    
+
     private static IpDataClient client;
-    private static int callCount = 0;
+    private static int callCount;
 
     public static async Task setLocationData()
     {
@@ -27,15 +27,15 @@ public static class LocationInformation
             Console.WriteLine(e);
             throw;
         }
-        
+
         if (callCount == 0)
         {
             Console.WriteLine("Setting location info...");
             callCount++;
             var fullIpInformation = await client.Lookup(publicIpAddress);
             currentCity = fullIpInformation.City;
-            latitude = (float) fullIpInformation.Latitude!;
-            longitude = (float) fullIpInformation.Longitude!;
+            latitude = (float)fullIpInformation.Latitude!;
+            longitude = (float)fullIpInformation.Longitude!;
         }
     }
 }
