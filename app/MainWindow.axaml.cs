@@ -9,11 +9,11 @@ using Avalonia.Platform;
 namespace Shob3rsWeatherApp;
 public partial class MainWindow : Window
 {
-    private readonly OpenWeatherMapData openWeatherMapData;
+    private readonly OpenWeatherData _openWeatherData;
     private Task setContentTask;
     public MainWindow()
     {
-        openWeatherMapData = new OpenWeatherMapData();
+        _openWeatherData = new OpenWeatherData();
         InitializeComponent();
         setContentTask = setMenuContent();
     }
@@ -21,16 +21,16 @@ public partial class MainWindow : Window
     private async Task setMenuContent()
     {
         TextInfo textInfo = new CultureInfo("en-CA", false).TextInfo;
-        await openWeatherMapData.setWeatherData();
+        await _openWeatherData.setWeatherData();
         greeting.Text = $"Good {getTime()}, {Environment.UserName}";
-        weatherRightNow.Text = $"{openWeatherMapData.tempNow}\u00b0{openWeatherMapData.tempUnit}";
+        weatherRightNow.Text = $"{_openWeatherData.tempNow}\u00b0{_openWeatherData.tempUnit}";
         weatherImage.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName()}.png")));
-        if (openWeatherMapData.detailedWeatherDescription != null) weatherDescription.Text = textInfo.ToTitleCase(openWeatherMapData.detailedWeatherDescription);
+        if (_openWeatherData.detailedWeatherDescription != null) weatherDescription.Text = textInfo.ToTitleCase(_openWeatherData.detailedWeatherDescription);
     }
 
     private string getWeatherImageName()
     {
-        string? currentWeather = openWeatherMapData.weatherDescription;
+        string? currentWeather = _openWeatherData.weatherDescription;
         return currentWeather!.ToLower() switch
         {
             "clear" => $"clear-{getTime(true)}",

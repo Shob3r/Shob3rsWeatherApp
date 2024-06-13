@@ -6,7 +6,7 @@ using Shob3rsWeatherApp.Util;
 
 namespace Shob3rsWeatherApp;
 
-public class OpenWeatherMapData
+public class OpenWeatherData
 {
     public string? sunsetTime, sunriseTime;
     public readonly string? tempUnit;
@@ -16,11 +16,11 @@ public class OpenWeatherMapData
     public float airPressure, windSpeed;
     
     private readonly bool isUserAmerican;
-    private readonly string openWeatherMapKey, customCityName;
+    protected readonly string openWeatherMapKey, customCityName;
     
-    private readonly LocationInformation locationInfo;
+    protected readonly LocationInformation locationInfo;
     
-    public OpenWeatherMapData(string customCityName = "")
+    public OpenWeatherData(string customCityName = "")
     {
         JsonParser weatherMapKeyGetter = new JsonParser(File.ReadAllText("../../../config.json"));
         locationInfo = new LocationInformation();
@@ -34,7 +34,7 @@ public class OpenWeatherMapData
         Task.Run(setWeatherData);
     }
     
-    public async Task setWeatherData()
+    public virtual async Task setWeatherData()
     {
         await locationInfo.setLocationData();
         
@@ -59,26 +59,26 @@ public class OpenWeatherMapData
         airPressure = convertAirPressure(weatherParser.getDataByTag<int>("main.pressure"));
     }
     
-    private float convertSpeed(float input)
+    protected float convertSpeed(float input)
     {
         if (isUserAmerican) return input;
         return input * 3.6f; // to convert m/s to km/h, multiply m/s by 3.6
     }
 
-    private int roundTemp(float temperatureBeforeRounding)
+    protected int roundTemp(float temperatureBeforeRounding)
     {
         // Convert the value that OpenWeatherMap provides (which contains decimal places) into an integer, while rounding up or down to the nearest number before converting
         return (int)Math.Round(temperatureBeforeRounding);
     }
     
-    private float convertAirPressure(int pressure)
+    protected float convertAirPressure(int pressure)
     {
         // I'll just use bar because that's the one that makes the most sense
         // openWeatherMap returns Hpa (hectopascal). 1hpa = 0.001 bar
         return pressure * 0.001f;
     }
 
-    private string normalizeUnixTime(long inputTime)
+    protected string normalizeUnixTime(long inputTime)
     {
         DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(inputTime);
         DateTime dateTime = dateTimeOffset.DateTime;
@@ -86,7 +86,7 @@ public class OpenWeatherMapData
         return dateTime.ToString("hh:mm tt").ToLower(); // Using ToLower() here as without it, am/pm will be all capitalized
     }
     
-    private string getUnitType()
+    protected string getUnitType()
     {
         return isUserAmerican ? "imperial" : "metric";
     }

@@ -4,7 +4,7 @@
     
     <Style Selector="TextBlock.primaryText">
         <Setter Property="Foreground" Value="White"></Setter>
-        <Setter Property="FontFamily" Value="{StaticResource Inter-Light}"></Setter>
+        <Setter Property="FontFamily" Value="{StaticResource Inter}"></Setter>
     </Style>
                 
     <Style Selector="TextBlock.mainHeader">
@@ -13,14 +13,14 @@
     </Style>
                 
     <Style Selector="MenuItem.SidebarMenu">
-        <Setter Property="FontFamily" Value="{StaticResource Inter-Light}"/>
+        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
         <Setter Property="FontSize" Value="10"/>
         <Setter Property="Margin" Value="10"/>
     </Style>
                 
     <Style Selector="SplitView.sideMenu">
         <Setter Property="FontSize" Value="20"/>
-        <Setter Property="FontFamily" Value="{StaticResource Inter-Light}"/>
+        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
         <Setter Property="PanePlacement" Value="Left"/>
         <Setter Property="IsPaneOpen" Value="True"/>
         <Setter Property="DisplayMode" Value="Inline"/>
@@ -52,18 +52,28 @@
     </Style>
     
     <Style Selector="TextBlock.temperature">
-        <Setter Property="FontFamily" Value="{StaticResource Inter-Light}"/>
+        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
         <Setter Property="FontSize" Value="120"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="Padding" Value="5"/>
+        
     </Style>
     
     <Style Selector="TextBlock.weatherDescription">
-        <Setter Property="FontFamily" Value="{StaticResource Inter-Light}"/>
+        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
         <Setter Property="FontSize" Value="25"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="2.5"/>
+    </Style>
+    
+    <Style Selector="TextBlock.Greeting">
+        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="10 15"></Setter>
+        <Setter Property="FontSize" Value="25"/>
     </Style>
     
 </Styles>

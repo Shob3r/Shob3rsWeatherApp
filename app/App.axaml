@@ -9,6 +9,6 @@
     </Application.Styles>
     
     <Application.Resources>
-        <FontFamily x:Key="Inter-Light">avares://Shob3rsWeatherApp/Assets/Fonts/Inter/#Inter</FontFamily>
+        <FontFamily x:Key="Inter">avares://Shob3rsWeatherApp/Assets/Fonts/Inter/#Inter</FontFamily>
     </Application.Resources>
 </Application>
