@@ -79,4 +79,9 @@ public partial class MainWindow : Window
     {
         setContentTask = setMenuContent();
     }
+
+    private void OpenWeatherSearch(object? sender, RoutedEventArgs e)
+    {
+        sideMenu.IsVisible = false;
+    }
 }

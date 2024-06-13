@@ -19,7 +19,6 @@
         </Window.Styles>
         
         <Grid ColumnDefinitions="Auto,*">
-                
                 <SplitView Classes="sideMenu" Padding="2.5" x:Name="sideMenu">
                         <Button Click="CloseMenu" Classes="menuButton" 
                                 VerticalAlignment="Top" 
@@ -38,7 +37,7 @@
                                                 </Grid>
                                         </Button>
                                         
-                                        <Button Classes="menuButton sideMenuItem">
+                                        <Button Classes="menuButton sideMenuItem" Click="OpenWeatherSearch">
                                                 <Grid ColumnDefinitions="Auto Auto">
                                                         <ic:SymbolIcon Classes="menuItemIcon" Symbol="GlobeLocation"/>
                                                         <TextBlock Grid.Column="1" Classes="menuItemText" Text="Weather Search"/>
@@ -56,14 +55,13 @@
                 </SplitView>
                 
                 <ScrollViewer Grid.Column="1">
-                        <Grid x:Name="mainContent" RowDefinitions="Auto, Auto, Auto">
+                        <Grid x:Name="weatherHereContent" RowDefinitions="Auto, Auto, Auto">
                                 <StackPanel>
                                         <Grid>
                                                 <TextBlock x:Name="greeting" FontFamily="Rubik-Light" Text="Good Morning Username" Padding="15" Margin="10"/>
                                                 <Button Grid.Row="0" Classes="menuButton" Click="refreshWeatherData" HorizontalAlignment="Right">
                                                         <Grid ColumnDefinitions="Auto, Auto">
                                                                 <ic:SymbolIcon Symbol="ArrowClockwise"/>
-                                                                <TextBlock Grid.Column="1" Text="Refresh Weather Data"/>
                                                         </Grid>
                                                 </Button>
                                         </Grid>
