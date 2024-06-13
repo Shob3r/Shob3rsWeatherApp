@@ -1,4 +1,6 @@
 .idea/
-config.json
 bin/
 obj/
+
+# Environment variables static class
+Env.cs
