@@ -8,7 +8,6 @@
         x:CompileBindings="True"
         Title="Shob3r's Weather App"
         Background="#0d0d0d"
-        TransparencyLevelHint="AcrylicBlur"
         MinWidth="1200"
         MinHeight="750"
         Icon="/Assets/Images/cloudy-day.png"
@@ -149,9 +148,13 @@
                                     </Border>
                                     
                                     <Border Grid.Column="1" Background="#242424" Classes="WeatherWidgetConfig">
-                                        <StackPanel Margin="15">
-                                            <ic:SymbolIcon Symbol="ArrowDown" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                                        </StackPanel>
+                                        <Panel>
+                                            <Grid ColumnDefinitions="Auto, Auto">
+                                                <ic:SymbolIcon Symbol="ArrowDown" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="30"/>
+                                                <TextBlock Grid.Column="1" FontSize="40" Text="39C"/>
+                                            </Grid>
+                                            
+                                        </Panel>
                                     </Border>
                                     
                                     <Border Grid.Column="2" Background="#242424" Classes="WeatherWidgetConfig">
