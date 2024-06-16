@@ -31,7 +31,6 @@ public static class LocationInformation
 
         if (callCount == 0)
         {
-            Console.WriteLine("Setting location info...");
             callCount++;
             IpInfo? fullIpInformation = await client.Lookup(publicIpAddress);
             currentCity = fullIpInformation.City;
