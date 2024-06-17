@@ -103,14 +103,14 @@
                                 <Border Grid.Column="1" Background="#242424" Classes="WeatherWidgetConfig">
                                     <StackPanel Margin="15">
                                          <Image Source="/Assets/Images/airpressure.png" Width="150" Height="150"/>
-                                         <TextBlock x:Name="barPressure" Text="Placeholder" Margin="15" TextAlignment="Center" VerticalAlignment="Bottom" FontSize="25" FontFamily="{StaticResource Inter}"/>
+                                         <TextBlock x:Name="barPressure" Text="Placeholder" Classes="weatherWidgetText"/>
                                     </StackPanel>
                                 </Border>
                                 
                                 <Border Grid.Column="2" Background="#242424" Classes="WeatherWidgetConfig">
                                     <StackPanel Margin="15">
                                         <Image Source="/Assets/Images/humidity.png" Width="150" Height="150"/>
-                                        <TextBlock x:Name="humidity" Text="Placeholder" Margin="15" TextAlignment="Center" VerticalAlignment="Bottom" FontSize="25" FontFamily="{StaticResource Inter}"/>
+                                        <TextBlock x:Name="humidity" Text="Placeholder" Classes="weatherWidgetText"/>
                                     </StackPanel>
                                 </Border>
                             </Grid>
@@ -118,29 +118,29 @@
                             <Grid ColumnDefinitions="15*, 28*, 28*, 29*">
                                 <Border Background="#242424" Classes="WeatherWidgetConfig">
                                     <StackPanel Margin="15">
-                                        <Image Source="/Assets/Images/windspeed.png" Width="75" Height="75"/>
-                                        <TextBlock Text="Temp"></TextBlock>
+                                        <Image Source="/Assets/Images/windspeed.png" Width="100" Height="100"/>
+                                        <TextBlock x:Name="windSpeed" Text="Temp" Classes="weatherWidgetText" FontSize="25"/>
                                     </StackPanel>
                                 </Border>
                                 
                                 <Border Grid.Column="1" Background="#242424" Classes="WeatherWidgetConfig">
                                     <StackPanel Margin="15">
                                         <Image Source="/Assets/Images/temp-lows.png" Width="150" Height="150"/>
-                                        <TextBlock Text="temp"/>
+                                        <TextBlock x:Name="tempLows" Text="temp" Classes="weatherWidgetText"/>
                                     </StackPanel>
                                 </Border>
                                 
                                 <Border Grid.Column="2" Background="#242424" Classes="WeatherWidgetConfig">
                                     <StackPanel Margin="15">
                                         <Image Source="/Assets/Images/temp-highs.png" Width="150" Height="150"/>
-                                        <TextBlock Text="temp"/>
+                                        <TextBlock x:Name="tempHighs" Text="temp" Classes="weatherWidgetText"/>
                                     </StackPanel>
                                 </Border>
                                 
                                 <Border Grid.Column="3" Background="#242424" Classes="WeatherWidgetConfig">
                                     <StackPanel Margin="15">
                                         <Image Source="/Assets/Images/feels-like.png" Width="150" Height="150"/>
-                                        <TextBlock Text="temp"></TextBlock>
+                                        <TextBlock x:Name="feelsLike" Text="temp" Classes="weatherWidgetText"/>
                                     </StackPanel>
                                 </Border>
                             </Grid>

@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 
@@ -45,32 +43,32 @@ public partial class MainWindow : Window
         if (currentWeather.detailedWeatherDescription != null) weatherDescription.Text = textInfo.ToTitleCase(currentWeather.detailedWeatherDescription);
         todaysWeather.Text = currentWeather.todaysWeatherDescription;
         
-        
         // Future forecast segment
-        List<TextBlock> futureWeatherDate =
-            [futureWeatherCol0Date, futureWeatherCol1Date, futureWeatherCol2Date, futureWeatherCol3Date];
-        List<TextBlock> futureWeatherTemp =
-            [futureWeatherCol0Temp, futureWeatherCol1Temp, futureWeatherCol2Temp, futureWeatherCol3Temp];
-        List<Image> futureWeatherImage =
-            [futureWeatherCol0Image, futureWeatherCol1Image, futureWeatherCol2Image, futureWeatherCol3Image];
+        List<TextBlock> futureWeatherDate = [futureWeatherCol0Date, futureWeatherCol1Date, futureWeatherCol2Date, futureWeatherCol3Date];
+        List<TextBlock> futureWeatherTemp = [futureWeatherCol0Temp, futureWeatherCol1Temp, futureWeatherCol2Temp, futureWeatherCol3Temp];
+        List<Image> futureWeatherImage = [futureWeatherCol0Image, futureWeatherCol1Image, futureWeatherCol2Image, futureWeatherCol3Image];
 
         for (int i = 0; i < 4; i++)
         {
             futureWeatherDate[i].Text = i == 0 ? "Tomorrow" : getDayOfWeekInFuture(i + 1);
-            futureWeatherImage[i].Source = new Bitmap(AssetLoader.Open(new Uri(
-                $"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName(futureForecast.futureWeatherDescriptions!.ElementAt(i))}.png")));
-            futureWeatherTemp[i].Text =
-                $"{futureForecast.futureTemperatures!.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
+            futureWeatherImage[i].Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName(futureForecast.futureWeatherDescriptions!.ElementAt(i))}.png"))); 
+            futureWeatherTemp[i].Text = $"{futureForecast.futureTemperatures!.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
         }
-        // Day completion Segment
-
+        
+        // Day completion Widget
         dayProgressBar.Value = calculatePercentageOfDayPassed();
-        
-        // Barometric Pressure Segment
-        barPressure.Text = $"{currentWeather.airPressure.ToString(CultureInfo.CurrentCulture)}bar";
-        
-        // Humidity Segment
-        
+        // Barometric Pressure Widget
+        barPressure.Text = $"{currentWeather.airPressure.ToString(CultureInfo.CurrentCulture)} bar";
+        // Humidity Segment Widget
+        humidity.Text = $"{currentWeather.humidity}% Humidity";
+        // Wind speed Widget
+        windSpeed.Text = $"{currentWeather.windSpeed} {getSpeedUnits()}";
+        // Temp Lows Widget
+        tempLows.Text = $"{currentWeather.minimumTemp}\u00b0{currentWeather.tempUnit}";
+        // Temp Highs Widget
+        tempHighs.Text = $"{currentWeather.maximumTemp}\u00b0{currentWeather.tempUnit}";
+        // Currently Feels like Widget
+        feelsLike.Text = $"{currentWeather.feelsLike}\u00b0{currentWeather.tempUnit}";
     }
 
     private string getWeatherImageName(string? inputWeatherDescription)
@@ -119,6 +117,11 @@ public partial class MainWindow : Window
             >= 12 and < 19 => "Afternoon",
             _ => "Evening"
         };
+    }
+
+    private string getSpeedUnits()
+    {
+        return currentWeather.isUserAmerican ? "Mph" : "Km/h";
     }
     
     private void refreshWeatherData(object? sender, RoutedEventArgs e)

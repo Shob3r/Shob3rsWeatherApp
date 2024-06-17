@@ -9,10 +9,10 @@ namespace Shob3rsWeatherApp;
 
 public class OpenWeatherData
 {
-    private readonly bool isUserAmerican;
-    protected readonly string openWeatherMapKey, customCityName;
+    public readonly bool isUserAmerican;
+    protected readonly string openWeatherMapKey;
     public readonly string? tempUnit;
-    public float airPressure, windSpeed;
+    public float airPressure, windSpeed, humidity;
     
     public int tempNow, feelsLike, minimumTemp, maximumTemp;
 
@@ -43,12 +43,14 @@ public class OpenWeatherData
         minimumTemp = roundTemp(weatherParser.getDataByTag<float>("daily[0].temp.max"));
         todaysWeatherDescription = weatherParser.getDataByTag<string>("daily[0].summary");
         airPressure = convertAirPressure(weatherParser.getDataByTag<int>("current.pressure"));
+        humidity = weatherParser.getDataByTag<float>("current.humidity");
+        windSpeed = convertSpeed(weatherParser.getDataByTag<float>("current.wind_speed"));
     }
 
-    protected float convertSpeed(float input)
+    private float convertSpeed(float input)
     {
         if (isUserAmerican) return input;
-        return input * 3.6f; // to convert m/s to km/h, multiply m/s by 3.6
+        return (float) Math.Round(input * 3.6f, 1); // to convert m/s to km/h, multiply m/s by 3.6
     }
 
     protected int roundTemp(float temperatureBeforeRounding)
@@ -61,7 +63,7 @@ public class OpenWeatherData
     {
         // I'll just use bar because that's the one that makes the most sense
         // openWeatherMap returns Hpa (hectopascal). 1hpa = 0.001 bar
-        return pressure * 0.001f;
+        return (float) Math.Round(pressure * 0.001f, 2);
     }
 
     protected string getUnitType()
