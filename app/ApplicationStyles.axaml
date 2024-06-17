@@ -1,5 +1,4 @@
 <Styles xmlns="https://github.com/avaloniaui"
-        xmlns:ic="using:FluentIcons.Avalonia"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style Selector="TextBlock.primaryText">
@@ -17,7 +16,7 @@
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Margin" Value="5 3" />
     </Style>
-    
+
     <Style Selector="TextBlock.menuItemText">
         <Setter Property="Margin" Value="10" />
         <Setter Property="HorizontalAlignment" Value="Right" />
@@ -31,7 +30,7 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Margin" Value="10" />
         <Setter Property="Padding" Value="5" />
-        <Setter Property="FontWeight" Value="200"/>
+        <Setter Property="FontWeight" Value="200" />
     </Style>
 
     <Style Selector="TextBlock.weatherDescription">
@@ -43,21 +42,21 @@
     </Style>
 
     <Style Selector="TextBlock.City">
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="TextAlignment" Value="Center"/>
-        <Setter Property="FontSize" Value="30"/>
-        <Setter Property="Margin" Value="5"/>
-        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="FontFamily" Value="{StaticResource Inter}" />
     </Style>
-    
+
     <Style Selector="TextBlock.Coordinates">
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="TextAlignment" Value="Center"/>
-        <Setter Property="FontSize" Value="15"/>
-        <Setter Property="Foreground" Value="#cccccc"/>
-        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="Foreground" Value="#cccccc" />
+        <Setter Property="FontFamily" Value="{StaticResource Inter}" />
     </Style>
-    
+
     <Style Selector="TextBlock.Greeting">
         <Setter Property="FontFamily" Value="{StaticResource Inter}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
@@ -73,46 +72,46 @@
         <Setter Property="RadiusX" Value="10" />
         <Setter Property="RadiusY" Value="15" />
     </Style>
-    
+
     <Style Selector="Border.WeatherWidgetConfig">
-        <Setter Property="Height" Value="250"/>
-        <Setter Property="Padding" Value="10"/>
-        <Setter Property="Margin" Value="10"/>
-        <Setter Property="CornerRadius" Value="10"/>
-        <Setter Property="BorderBrush" Value="#22FFFFFF"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BoxShadow" Value="2.5 2.5 5 3 #28000000"/>
+        <Setter Property="Height" Value="250" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Margin" Value="10" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="BorderBrush" Value="#22FFFFFF" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BoxShadow" Value="2.5 2.5 5 3 #28000000" />
     </Style>
-    
+
     <Style Selector="ProgressBar.dayCompletionProgressbar">
-        <Setter Property="Height" Value="50"></Setter>
-        <Setter Property="Minimum" Value="0"/>
-        <Setter Property="Maximum" Value="100"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Stretch"/>
-        <Setter Property="Margin" Value="10 0"/>
-        <Setter Property="Foreground" Value="#5910ad"/>
-        <Setter Property="ShowProgressText" Value="True"/>
-        <Setter Property="ProgressTextFormat" Value="The day is {1:0}% complete"/>
-        <Setter Property="FontSize" Value="15"/>
-        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
+        <Setter Property="Height" Value="50" />
+        <Setter Property="Minimum" Value="0" />
+        <Setter Property="Maximum" Value="100" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="Margin" Value="10 0" />
+        <Setter Property="Foreground" Value="#5910ad" />
+        <Setter Property="ShowProgressText" Value="True" />
+        <Setter Property="ProgressTextFormat" Value="The day is {1:0}% complete" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontFamily" Value="{StaticResource Inter}" />
     </Style>
-    
+
     <Style Selector="TextBlock.weatherOutlook">
-        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
-        <Setter Property="FontSize" Value="15"/>
-        <Setter Property="Foreground" Value="#cccccc"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="Margin" Value="10"/>
+        <Setter Property="FontFamily" Value="{StaticResource Inter}" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="Foreground" Value="#cccccc" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="10" />
     </Style>
-    
+
     <Style Selector="TextBlock.weatherWidgetText">
-        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
-        <Setter Property="FontSize" Value="35"/>
-        <Setter Property="FontWeight" Value="400"></Setter>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="TextAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Bottom"/>
-        <Setter Property="Margin" Value="15"/>
+        <Setter Property="FontFamily" Value="{StaticResource Inter}" />
+        <Setter Property="FontSize" Value="35" />
+        <Setter Property="FontWeight" Value="400" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="TextAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="Margin" Value="15" />
     </Style>
 </Styles>

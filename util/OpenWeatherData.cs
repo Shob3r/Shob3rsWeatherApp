@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Threading.Tasks;
 using Shob3rsWeatherApp.Util;
 
@@ -13,7 +11,7 @@ public class OpenWeatherData
     protected readonly string openWeatherMapKey;
     public readonly string? tempUnit;
     public float airPressure, windSpeed, humidity;
-    
+
     public int tempNow, feelsLike, minimumTemp, maximumTemp;
 
     public string? weatherDescription, detailedWeatherDescription, todaysWeatherDescription;
@@ -21,8 +19,8 @@ public class OpenWeatherData
     public OpenWeatherData()
     {
         openWeatherMapKey = Env.openWeatherKey;
-        
-        CultureInfo currentCulture = CultureInfo.CurrentCulture;
+
+        var currentCulture = CultureInfo.CurrentCulture;
         isUserAmerican = currentCulture.Name.Equals("en_US", StringComparison.InvariantCultureIgnoreCase);
         tempUnit = isUserAmerican ? "F" : "C";
     }
@@ -30,11 +28,12 @@ public class OpenWeatherData
     public virtual async Task setWeatherData()
     {
         string units = getUnitType();
-        string url = $"https://api.openweathermap.org/data/3.0/onecall?lat={LocationInformation.latitude}&lon={LocationInformation.longitude}&exclude=minutely,hourly&units={getUnitType()}&appid={Env.openWeatherKey}";
-        
+        string url =
+            $"https://api.openweathermap.org/data/3.0/onecall?lat={LocationInformation.latitude}&lon={LocationInformation.longitude}&exclude=minutely,hourly&units={getUnitType()}&appid={Env.openWeatherKey}";
+
         string weatherRightNowInfo = await HttpUtils.getHttpContent(url);
         var weatherParser = new JsonParser(weatherRightNowInfo);
-        
+
         weatherDescription = weatherParser.getDataByTag<string>("current.weather[0].main");
         detailedWeatherDescription = weatherParser.getDataByTag<string>("current.weather[0].description");
         tempNow = roundTemp(weatherParser.getDataByTag<float>("current.temp"));
@@ -50,7 +49,7 @@ public class OpenWeatherData
     private float convertSpeed(float input)
     {
         if (isUserAmerican) return input;
-        return (float) Math.Round(input * 3.6f, 1); // to convert m/s to km/h, multiply m/s by 3.6
+        return (float)Math.Round(input * 3.6f, 1); // to convert m/s to km/h, multiply m/s by 3.6
     }
 
     protected int roundTemp(float temperatureBeforeRounding)
@@ -63,18 +62,18 @@ public class OpenWeatherData
     {
         // I'll just use bar because that's the one that makes the most sense
         // openWeatherMap returns Hpa (hectopascal). 1hpa = 0.001 bar
-        return (float) Math.Round(pressure * 0.001f, 2);
+        return (float)Math.Round(pressure * 0.001f, 2);
     }
 
     protected string getUnitType()
     {
         return isUserAmerican ? "imperial" : "metric";
     }
-    
+
     private string normalizeUnixTime(long inputTime)
     {
-        DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(inputTime);
-        DateTime dateTime = dateTimeOffset.DateTime;
+        var dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(inputTime);
+        var dateTime = dateTimeOffset.DateTime;
 
         return dateTime.ToString("hh:mm tt").ToUpper();
     }

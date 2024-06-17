@@ -28,8 +28,8 @@ public partial class MainWindow : Window
     private async Task setMenuContent()
     {
         // Create a text formatter, so I can use ToTileCase() when I need to, then wait for the classes to set their data, so this method can execute properly
-        TextInfo textInfo = new CultureInfo("en-CA", false).TextInfo;
-        
+        var textInfo = new CultureInfo("en-CA", false).TextInfo;
+
         await LocationInformation.setLocationData();
         await futureForecast.setWeatherData();
         await currentWeather.setWeatherData();
@@ -39,22 +39,29 @@ public partial class MainWindow : Window
         usersLocation.Text = $"{LocationInformation.currentCity}, {LocationInformation.fullCountryName}";
         coordinates.Text = $"({LocationInformation.latitude}, {LocationInformation.longitude})";
         weatherRightNow.Text = $"{currentWeather.tempNow}\u00b0{currentWeather.tempUnit}";
-        weatherImage.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName(currentWeather.weatherDescription)}.png")));
-        if (currentWeather.detailedWeatherDescription != null) weatherDescription.Text = textInfo.ToTitleCase(currentWeather.detailedWeatherDescription);
+        weatherImage.Source = new Bitmap(AssetLoader.Open(new Uri(
+            $"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName(currentWeather.weatherDescription)}.png")));
+        if (currentWeather.detailedWeatherDescription != null)
+            weatherDescription.Text = textInfo.ToTitleCase(currentWeather.detailedWeatherDescription);
         todaysWeather.Text = currentWeather.todaysWeatherDescription;
-        
+
         // Future forecast segment
-        List<TextBlock> futureWeatherDate = [futureWeatherCol0Date, futureWeatherCol1Date, futureWeatherCol2Date, futureWeatherCol3Date];
-        List<TextBlock> futureWeatherTemp = [futureWeatherCol0Temp, futureWeatherCol1Temp, futureWeatherCol2Temp, futureWeatherCol3Temp];
-        List<Image> futureWeatherImage = [futureWeatherCol0Image, futureWeatherCol1Image, futureWeatherCol2Image, futureWeatherCol3Image];
+        List<TextBlock> futureWeatherDate =
+            [futureWeatherCol0Date, futureWeatherCol1Date, futureWeatherCol2Date, futureWeatherCol3Date];
+        List<TextBlock> futureWeatherTemp =
+            [futureWeatherCol0Temp, futureWeatherCol1Temp, futureWeatherCol2Temp, futureWeatherCol3Temp];
+        List<Image> futureWeatherImage =
+            [futureWeatherCol0Image, futureWeatherCol1Image, futureWeatherCol2Image, futureWeatherCol3Image];
 
         for (int i = 0; i < 4; i++)
         {
             futureWeatherDate[i].Text = i == 0 ? "Tomorrow" : getDayOfWeekInFuture(i + 1);
-            futureWeatherImage[i].Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName(futureForecast.futureWeatherDescriptions!.ElementAt(i))}.png"))); 
-            futureWeatherTemp[i].Text = $"{futureForecast.futureTemperatures!.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
+            futureWeatherImage[i].Source = new Bitmap(AssetLoader.Open(new Uri(
+                $"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName(futureForecast.futureWeatherDescriptions!.ElementAt(i))}.png")));
+            futureWeatherTemp[i].Text =
+                $"{futureForecast.futureTemperatures!.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
         }
-        
+
         // Day completion Widget
         dayProgressBar.Value = calculatePercentageOfDayPassed();
         // Barometric Pressure Widget
@@ -93,15 +100,15 @@ public partial class MainWindow : Window
 
     private string getDayOfWeekInFuture(int days)
     {
-        DateTime thePresent = DateTime.Today;
-        DateTime futureDate = thePresent.AddDays(days);
+        var thePresent = DateTime.Today;
+        var futureDate = thePresent.AddDays(days);
 
         return futureDate.DayOfWeek.ToString();
     }
 
     private string getTime(bool onlyDayAndNight = false)
     {
-        DateTime currentTime = DateTime.Now;
+        var currentTime = DateTime.Now;
         int currentHour = currentTime.Hour;
 
         if (onlyDayAndNight) // For other methods that only want day and night stuff, rather than the default return value
@@ -123,7 +130,7 @@ public partial class MainWindow : Window
     {
         return currentWeather.isUserAmerican ? "Mph" : "Km/h";
     }
-    
+
     private void refreshWeatherData(object? sender, RoutedEventArgs e)
     {
         setContentTask = setMenuContent();
@@ -131,17 +138,17 @@ public partial class MainWindow : Window
 
     private long getCurrentUnixTime()
     {
-        DateTimeOffset currentTime = DateTimeOffset.UtcNow;
+        var currentTime = DateTimeOffset.UtcNow;
         return currentTime.ToUnixTimeSeconds();
     }
 
     private double calculatePercentageOfDayPassed()
     {
         // The only thing generated with ChatGPT here
-        DateTime now = DateTime.Now;
+        var now = DateTime.Now;
         double totalSecondsInDay = 24 * 60 * 60;
         double secondsElapsedToday = (now - now.Date).TotalSeconds;
-        double percentageCompleted = (secondsElapsedToday / totalSecondsInDay) * 100;
+        double percentageCompleted = secondsElapsedToday / totalSecondsInDay * 100;
         return percentageCompleted;
     }
 }

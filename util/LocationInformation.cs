@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using IpData;
-using IpData.Models;
 using Shob3rsWeatherApp.Util;
 
 namespace Shob3rsWeatherApp;
@@ -32,7 +31,7 @@ public static class LocationInformation
         if (callCount == 0)
         {
             callCount++;
-            IpInfo? fullIpInformation = await client.Lookup(publicIpAddress);
+            var fullIpInformation = await client.Lookup(publicIpAddress);
             currentCity = fullIpInformation.City;
             latitude = (float)fullIpInformation.Latitude!;
             longitude = (float)fullIpInformation.Longitude!;

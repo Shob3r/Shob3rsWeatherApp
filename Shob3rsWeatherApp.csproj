@@ -9,43 +9,43 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.1.0-rc1" />
-        <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.1.0-rc1" />
-        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.1.0-rc1" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.1.0-rc1" />
-        <PackageReference Include="Avalonia.FreeDesktop" Version="11.1.0-rc1" />
-        <PackageReference Include="Avalonia.Native" Version="11.1.0-rc1" />
-        <PackageReference Include="Avalonia.Remote.Protocol" Version="11.1.0-rc1" />
-        <PackageReference Include="Avalonia.Skia" Version="11.1.0-rc1" />
-        <PackageReference Include="Avalonia.Svg" Version="11.1.0-rc1" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.0-rc1" />
-        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.1.0-rc1" />
+        <PackageReference Include="Avalonia" Version="11.1.0-rc1"/>
+        <PackageReference Include="Avalonia.Controls.ColorPicker" Version="11.1.0-rc1"/>
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.1.0-rc1"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.1.0-rc1"/>
+        <PackageReference Include="Avalonia.FreeDesktop" Version="11.1.0-rc1"/>
+        <PackageReference Include="Avalonia.Native" Version="11.1.0-rc1"/>
+        <PackageReference Include="Avalonia.Remote.Protocol" Version="11.1.0-rc1"/>
+        <PackageReference Include="Avalonia.Skia" Version="11.1.0-rc1"/>
+        <PackageReference Include="Avalonia.Svg" Version="11.1.0-rc1"/>
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.0-rc1"/>
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.1.0-rc1"/>
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.0-rc1" />
-        <PackageReference Include="Avalonia.Themes.Simple" Version="11.1.0-rc1" />
-        <PackageReference Include="Avalonia.Win32" Version="11.1.0-rc1" />
-        <PackageReference Include="Avalonia.X11" Version="11.1.0-rc1" />
-        <PackageReference Include="FluentIcons.Avalonia" Version="1.1.244" />
-        <PackageReference Include="HarfBuzzSharp" Version="8.3.0-preview.3.1" />
-        <PackageReference Include="HarfBuzzSharp.NativeAssets.Linux" Version="8.3.0-preview.3.1" />
-        <PackageReference Include="HarfBuzzSharp.NativeAssets.macOS" Version="8.3.0-preview.3.1" />
-        <PackageReference Include="HarfBuzzSharp.NativeAssets.WebAssembly" Version="8.3.0-preview.3.1" />
-        <PackageReference Include="HarfBuzzSharp.NativeAssets.Win32" Version="8.3.0-preview.3.1" />
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.1.0-rc1"/>
+        <PackageReference Include="Avalonia.Themes.Simple" Version="11.1.0-rc1"/>
+        <PackageReference Include="Avalonia.Win32" Version="11.1.0-rc1"/>
+        <PackageReference Include="Avalonia.X11" Version="11.1.0-rc1"/>
+        <PackageReference Include="FluentIcons.Avalonia" Version="1.1.244"/>
+        <PackageReference Include="HarfBuzzSharp" Version="8.3.0-preview.3.1"/>
+        <PackageReference Include="HarfBuzzSharp.NativeAssets.Linux" Version="8.3.0-preview.3.1"/>
+        <PackageReference Include="HarfBuzzSharp.NativeAssets.macOS" Version="8.3.0-preview.3.1"/>
+        <PackageReference Include="HarfBuzzSharp.NativeAssets.WebAssembly" Version="8.3.0-preview.3.1"/>
+        <PackageReference Include="HarfBuzzSharp.NativeAssets.Win32" Version="8.3.0-preview.3.1"/>
         <PackageReference Include="IpData" Version="2.0.1"/>
-        <PackageReference Include="Microsoft.NETCore.Platforms" Version="8.0.0-preview.7.23375.6" />
-        <PackageReference Include="Microsoft.NETCore.Targets" Version="6.0.0-preview.4.21253.7" />
+        <PackageReference Include="Microsoft.NETCore.Platforms" Version="8.0.0-preview.7.23375.6"/>
+        <PackageReference Include="Microsoft.NETCore.Targets" Version="6.0.0-preview.4.21253.7"/>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-        <PackageReference Include="ShimSkiaSharp" Version="2.0.0-rc1" />
-        <PackageReference Include="SkiaSharp" Version="3.0.0-preview.3.1" />
-        <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="3.0.0-preview.3.1" />
-        <PackageReference Include="SkiaSharp.NativeAssets.macOS" Version="3.0.0-preview.3.1" />
-        <PackageReference Include="SkiaSharp.NativeAssets.WebAssembly" Version="3.0.0-preview.3.1" />
-        <PackageReference Include="SkiaSharp.NativeAssets.Win32" Version="3.0.0-preview.3.1" />
-        <PackageReference Include="Svg.Custom" Version="2.0.0-rc1" />
-        <PackageReference Include="Svg.Model" Version="2.0.0-rc1" />
-        <PackageReference Include="System.IO.Pipelines" Version="9.0.0-preview.5.24306.7" />
-        <PackageReference Include="System.Runtime.WindowsRuntime" Version="5.0.0-preview.5.20278.1" />
-        <PackageReference Include="System.Runtime.WindowsRuntime.UI.Xaml" Version="5.0.0-preview.5.20278.1" />
+        <PackageReference Include="ShimSkiaSharp" Version="2.0.0-rc1"/>
+        <PackageReference Include="SkiaSharp" Version="3.0.0-preview.3.1"/>
+        <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="3.0.0-preview.3.1"/>
+        <PackageReference Include="SkiaSharp.NativeAssets.macOS" Version="3.0.0-preview.3.1"/>
+        <PackageReference Include="SkiaSharp.NativeAssets.WebAssembly" Version="3.0.0-preview.3.1"/>
+        <PackageReference Include="SkiaSharp.NativeAssets.Win32" Version="3.0.0-preview.3.1"/>
+        <PackageReference Include="Svg.Custom" Version="2.0.0-rc1"/>
+        <PackageReference Include="Svg.Model" Version="2.0.0-rc1"/>
+        <PackageReference Include="System.IO.Pipelines" Version="9.0.0-preview.5.24306.7"/>
+        <PackageReference Include="System.Runtime.WindowsRuntime" Version="5.0.0-preview.5.20278.1"/>
+        <PackageReference Include="System.Runtime.WindowsRuntime.UI.Xaml" Version="5.0.0-preview.5.20278.1"/>
     </ItemGroup>
 
     <ItemGroup>

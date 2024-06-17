@@ -16,30 +16,31 @@
     <Window.Styles>
         <StyleInclude Source="ApplicationStyles.axaml" />
     </Window.Styles>
-    
+
     <ScrollViewer>
         <Panel>
             <Grid x:Name="weatherHereContent">
-                <Button Classes="menuButton" Click="refreshWeatherData" HorizontalAlignment="Right" VerticalAlignment="Top"
+                <Button Classes="menuButton" Click="refreshWeatherData" HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
                         Background="Black">
                     <Grid ColumnDefinitions="Auto, Auto">
                         <ic:SymbolIcon Symbol="ArrowClockwise" />
                     </Grid>
                 </Button>
-                
+
                 <StackPanel VerticalAlignment="Center">
                     <TextBlock x:Name="greeting" Text="Good Morning Username" Classes="Greeting" />
-                    
+
                     <StackPanel Margin="10" HorizontalAlignment="Center">
-                        <TextBlock x:Name="usersLocation" Text="City Name" Classes="City"/>
-                        <TextBlock x:Name="coordinates" Text="Coordinates" Classes="Coordinates"/>
+                        <TextBlock x:Name="usersLocation" Text="City Name" Classes="City" />
+                        <TextBlock x:Name="coordinates" Text="Coordinates" Classes="Coordinates" />
                     </StackPanel>
-                    
+
                     <Image x:Name="weatherImage" Margin="20" Height="275" Width="275" VerticalAlignment="Center" />
                     <TextBlock x:Name="weatherRightNow" Classes="temperature" Text="temp" />
                     <TextBlock x:Name="weatherDescription" Classes="weatherDescription" Text="Weather Description" />
-                    <TextBlock x:Name="todaysWeather" Classes="weatherOutlook" Text="Today's weather"/>
-                    
+                    <TextBlock x:Name="todaysWeather" Classes="weatherOutlook" Text="Today's weather" />
+
                     <Grid VerticalAlignment="Bottom" HorizontalAlignment="Center"
                           ColumnDefinitions="Auto, Auto, Auto, Auto" Margin="25">
                         <Panel Grid.Column="0">
@@ -52,7 +53,7 @@
                                            HorizontalAlignment="Center" />
                             </StackPanel>
                         </Panel>
-                        
+
                         <Panel Grid.Column="1">
                             <Rectangle Classes="FutureForecastRect" />
                             <StackPanel VerticalAlignment="Center">
@@ -63,17 +64,18 @@
                                            HorizontalAlignment="Center" />
                             </StackPanel>
                         </Panel>
-                        
+
                         <Panel Grid.Column="2">
                             <Rectangle Classes="FutureForecastRect" />
                             <StackPanel VerticalAlignment="Center">
                                 <TextBlock x:Name="futureWeatherCol2Date" Text="Tomorrow" HorizontalAlignment="Center" />
                                 <Image x:Name="futureWeatherCol2Image" Source="/Assets/Images/clear-day.png"
                                        Width="50" Height="50" Margin="15" />
-                                <TextBlock x:Name="futureWeatherCol2Temp" Text="Temp Value" HorizontalAlignment="Center" />
+                                <TextBlock x:Name="futureWeatherCol2Temp" Text="Temp Value"
+                                           HorizontalAlignment="Center" />
                             </StackPanel>
                         </Panel>
-                        
+
                         <Panel Grid.Column="3">
                             <Rectangle Classes="FutureForecastRect" />
                             <StackPanel VerticalAlignment="Center">
@@ -85,62 +87,71 @@
                             </StackPanel>
                         </Panel>
                     </Grid>
-                    
+
                     <Border Background="#151515" BorderThickness="2"
                             CornerRadius="3"
                             Padding="10"
                             Margin="10">
                         <StackPanel>
                             <Grid ColumnDefinitions="50*, 25*, 25*">
-                                <Border Background="#242424" Classes="WeatherWidgetConfig" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center" ColumnDefinitions="Auto,*,Auto">
-                                        <Image x:Name="risingImage" Source="/Assets/Images/day-rise.png" Width="75" Height="75" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="25 0" Grid.Column="0"/>
-                                        <ProgressBar Grid.Column="1" x:Name="dayProgressBar" Classes="dayCompletionProgressbar"/>
-                                        <Image x:Name="settingImage" Source="/Assets/Images/night-rise.png" Width="75" Height="75" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="25 0" Grid.Column="2"/>
+                                <Border Background="#242424" Classes="WeatherWidgetConfig"
+                                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                                          ColumnDefinitions="Auto,*,Auto">
+                                        <Image x:Name="risingImage" Source="/Assets/Images/day-rise.png" Width="75"
+                                               Height="75" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                               Margin="25 0" Grid.Column="0" />
+                                        <ProgressBar Grid.Column="1" x:Name="dayProgressBar"
+                                                     Classes="dayCompletionProgressbar" />
+                                        <Image x:Name="settingImage" Source="/Assets/Images/night-rise.png" Width="75"
+                                               Height="75" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                               Margin="25 0" Grid.Column="2" />
                                     </Grid>
                                 </Border>
-                                
+
                                 <Border Grid.Column="1" Background="#242424" Classes="WeatherWidgetConfig">
                                     <StackPanel Margin="15">
-                                         <Image Source="/Assets/Images/airpressure.png" Width="150" Height="150"/>
-                                         <TextBlock x:Name="barPressure" Text="Placeholder" Classes="weatherWidgetText"/>
+                                        <Image Source="/Assets/Images/airpressure.png" Width="150" Height="150" />
+                                        <TextBlock x:Name="barPressure" Text="Placeholder" Classes="weatherWidgetText" />
                                     </StackPanel>
                                 </Border>
-                                
+
                                 <Border Grid.Column="2" Background="#242424" Classes="WeatherWidgetConfig">
                                     <StackPanel Margin="15">
-                                        <Image Source="/Assets/Images/humidity.png" Width="150" Height="150"/>
-                                        <TextBlock x:Name="humidity" Text="Placeholder" Classes="weatherWidgetText"/>
+                                        <Image Source="/Assets/Images/humidity.png" Width="150" Height="150" />
+                                        <TextBlock x:Name="humidity" Text="Placeholder" Classes="weatherWidgetText" />
                                     </StackPanel>
                                 </Border>
                             </Grid>
-                            
+
                             <Grid ColumnDefinitions="15*, 28*, 28*, 29*">
                                 <Border Background="#242424" Classes="WeatherWidgetConfig">
                                     <StackPanel Margin="15">
-                                        <Image Source="/Assets/Images/windspeed.png" Width="100" Height="100"/>
-                                        <TextBlock x:Name="windSpeed" Text="Temp" Classes="weatherWidgetText" FontSize="25"/>
+                                        <Image Source="/Assets/Images/windspeed.png" Width="100" Height="100"
+                                               Margin="0 25" />
+                                        <TextBlock x:Name="windSpeed" Text="Temp" Classes="weatherWidgetText"
+                                                   FontSize="25" Margin="2" />
                                     </StackPanel>
                                 </Border>
-                                
+
                                 <Border Grid.Column="1" Background="#242424" Classes="WeatherWidgetConfig">
                                     <StackPanel Margin="15">
-                                        <Image Source="/Assets/Images/temp-lows.png" Width="150" Height="150"/>
-                                        <TextBlock x:Name="tempLows" Text="temp" Classes="weatherWidgetText"/>
+                                        <Image Source="/Assets/Images/temp-lows.png" Width="150" Height="150" />
+                                        <TextBlock x:Name="tempLows" Text="temp" Classes="weatherWidgetText" />
                                     </StackPanel>
                                 </Border>
-                                
+
                                 <Border Grid.Column="2" Background="#242424" Classes="WeatherWidgetConfig">
                                     <StackPanel Margin="15">
-                                        <Image Source="/Assets/Images/temp-highs.png" Width="150" Height="150"/>
-                                        <TextBlock x:Name="tempHighs" Text="temp" Classes="weatherWidgetText"/>
+                                        <Image Source="/Assets/Images/temp-highs.png" Width="150" Height="150" />
+                                        <TextBlock x:Name="tempHighs" Text="temp" Classes="weatherWidgetText" />
                                     </StackPanel>
                                 </Border>
-                                
+
                                 <Border Grid.Column="3" Background="#242424" Classes="WeatherWidgetConfig">
                                     <StackPanel Margin="15">
-                                        <Image Source="/Assets/Images/feels-like.png" Width="150" Height="150"/>
-                                        <TextBlock x:Name="feelsLike" Text="temp" Classes="weatherWidgetText"/>
+                                        <Image Source="/Assets/Images/feels-like.png" Width="150" Height="150" />
+                                        <TextBlock x:Name="feelsLike" Text="temp" Classes="weatherWidgetText" />
                                     </StackPanel>
                                 </Border>
                             </Grid>
