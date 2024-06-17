@@ -7,6 +7,9 @@
 To run from source, rename "Env.cs.example" to Env.cs and populate it with
 your [OpenWeatherMap](https://openweathermap.org/) and [IpData](https://ipdata.co/) API keys
 
+# Known Issues
+- Launching the app on slow internet speeds results in queries to OpenWeatherMap not being correct and set properly on application launch
+
 # Credits
 
 [iconixar](https://www.flaticon.com/authors/iconixar) - Weather Icons

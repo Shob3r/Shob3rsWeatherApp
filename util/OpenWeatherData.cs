@@ -27,25 +27,35 @@ public class OpenWeatherData
 
     public virtual async Task setWeatherData()
     {
-        string units = getUnitType();
-        string url = $"https://api.openweathermap.org/data/3.0/onecall?lat={LocationInformation.latitude}&lon={LocationInformation.longitude}&exclude=minutely,hourly&units={units}&appid={Env.openWeatherKey}";
+        JsonParser weatherParser = new JsonParser(await HttpUtils.getHttpContent($"https://api.openweathermap.org/data/3.0/onecall?lat={LocationInformation.latitude}&lon={LocationInformation.longitude}&exclude=minutely,hourly&units={getUnitType()}&appid={Env.openWeatherKey}"));
+        
+        setWeatherDescriptions(weatherParser);
+        setTempData(weatherParser);
+        setMiscData(weatherParser);
+    }
 
-        string weatherRightNowInfo = await HttpUtils.getHttpContent(url);
-        var weatherParser = new JsonParser(weatherRightNowInfo);
-
-        // There was literally no better way to do this, I swear. I tried doing some silly lists and for loops, and it just DID NOT WORK. I am devastated 
+    private void setWeatherDescriptions(JsonParser weatherParser)
+    {
         weatherDescription = weatherParser.getDataByTag<string>("current.weather[0].main");
         detailedWeatherDescription = weatherParser.getDataByTag<string>("current.weather[0].description");
+        todaysWeatherDescription = weatherParser.getDataByTag<string>("daily[0].summary");
+    }
+    
+    private void setTempData(JsonParser weatherParser)
+    {
         tempNow = roundTemp(weatherParser.getDataByTag<float>("current.temp"));
         feelsLike = roundTemp(weatherParser.getDataByTag<float>("current.feels_like"));
         minimumTemp = roundTemp(weatherParser.getDataByTag<float>("daily[0].temp.min"));
         maximumTemp = roundTemp(weatherParser.getDataByTag<float>("daily[0].temp.max"));
-        todaysWeatherDescription = weatherParser.getDataByTag<string>("daily[0].summary");
+    }
+
+    private void setMiscData(JsonParser weatherParser)
+    {
         airPressure = convertAirPressure(weatherParser.getDataByTag<int>("current.pressure"));
         humidity = weatherParser.getDataByTag<float>("current.humidity");
         windSpeed = convertSpeed(weatherParser.getDataByTag<float>("current.wind_speed"));
     }
-
+    
     private float convertSpeed(float input)
     {
         // To convert m/s to km/h, multiply m/s by 3.6
