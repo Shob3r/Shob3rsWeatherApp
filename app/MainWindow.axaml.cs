@@ -78,9 +78,9 @@ public partial class MainWindow : Window
         // Wind speed Widget
         windSpeed.Text = $"{currentWeather.windSpeed} {MainWindowUtils.getSpeedUnits()}";
         // Temp Lows Widget
-        tempLows.Text = $"Low: {currentWeather.minimumTemp}\u00b0{currentWeather.tempUnit}";
+        tempLows.Text = $"{currentWeather.minimumTemp}\u00b0{currentWeather.tempUnit}";
         // Temp Highs Widget
-        tempHighs.Text = $"High: {currentWeather.maximumTemp}\u00b0{currentWeather.tempUnit}";
+        tempHighs.Text = $"{currentWeather.maximumTemp}\u00b0{currentWeather.tempUnit}";
         // Currently Feels like Widget
         feelsLike.Text = $"{currentWeather.feelsLike}\u00b0{currentWeather.tempUnit}";
     }
