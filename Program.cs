@@ -1,6 +1,5 @@
 ﻿using System;
 using Avalonia;
-using Avalonia.Svg;
 
 namespace Shob3rsWeatherApp;
 

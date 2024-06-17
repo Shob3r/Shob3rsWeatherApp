@@ -12,11 +12,11 @@ namespace Shob3rsWeatherApp;
 
 public partial class MainWindow : Window
 {
-    private TextInfo textInfo = new CultureInfo("en-CA", false).TextInfo;
     private readonly OpenWeatherData currentWeather;
     private readonly OpenWeatherFutureForecasting futureForecast;
-    private Task setContentTask;
     private MainWindowUtils? MainWindowUtils;
+    private Task setContentTask;
+    private readonly TextInfo textInfo = new CultureInfo("en-CA", false).TextInfo;
 
     public MainWindow()
     {
@@ -34,7 +34,7 @@ public partial class MainWindow : Window
         await futureForecast.setWeatherData();
         await currentWeather.setWeatherData();
         MainWindowUtils = new MainWindowUtils(currentWeather, futureForecast);
-        
+
         setEnvironmentData();
         setFutureWeatherData();
         setWidgetsData();
@@ -56,14 +56,19 @@ public partial class MainWindow : Window
     private void setFutureWeatherData()
     {
         // Future forecast segment
-        List<TextBlock> futureWeatherDate = [futureWeatherCol0Date, futureWeatherCol1Date, futureWeatherCol2Date, futureWeatherCol3Date];
-        List<TextBlock> futureWeatherTemp = [futureWeatherCol0Temp, futureWeatherCol1Temp, futureWeatherCol2Temp, futureWeatherCol3Temp];
-        List<Image> futureWeatherImage = [futureWeatherCol0Image, futureWeatherCol1Image, futureWeatherCol2Image, futureWeatherCol3Image];
+        List<TextBlock> futureWeatherDate =
+            [futureWeatherCol0Date, futureWeatherCol1Date, futureWeatherCol2Date, futureWeatherCol3Date];
+        List<TextBlock> futureWeatherTemp =
+            [futureWeatherCol0Temp, futureWeatherCol1Temp, futureWeatherCol2Temp, futureWeatherCol3Temp];
+        List<Image> futureWeatherImage =
+            [futureWeatherCol0Image, futureWeatherCol1Image, futureWeatherCol2Image, futureWeatherCol3Image];
         for (int i = 0; i < 4; i++)
         {
             futureWeatherDate[i].Text = i == 0 ? "Tomorrow" : MainWindowUtils.getDayOfWeekInFuture(i + 1);
-            futureWeatherImage[i].Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{MainWindowUtils.getWeatherImageName(futureForecast.futureWeatherDescriptions!.ElementAt(i))}.png")));
-            futureWeatherTemp[i].Text = $"{futureForecast.futureTemperatures!.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
+            futureWeatherImage[i].Source = new Bitmap(AssetLoader.Open(new Uri(
+                $"avares://Shob3rsWeatherApp/Assets/Images/{MainWindowUtils.getWeatherImageName(futureForecast.futureWeatherDescriptions!.ElementAt(i))}.png")));
+            futureWeatherTemp[i].Text =
+                $"{futureForecast.futureTemperatures!.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
         }
     }
 
@@ -84,7 +89,7 @@ public partial class MainWindow : Window
         // Currently Feels like Widget
         feelsLike.Text = $"{currentWeather.feelsLike}\u00b0{currentWeather.tempUnit}";
     }
-    
+
     private void refreshWeatherData(object? sender, RoutedEventArgs e)
     {
         setContentTask = setMenuContent();
