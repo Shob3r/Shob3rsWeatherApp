@@ -10,7 +10,7 @@
         Background="#0d0d0d"
         MinWidth="1200"
         MinHeight="750"
-        Icon="/Assets/Images/cloudy-day.png"
+        Icon="/Assets/Images/appIcon.png"
         ExtendClientAreaToDecorationsHint="False">
 
     <Window.Styles>
