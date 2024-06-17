@@ -69,7 +69,7 @@
         <Setter Property="Margin" Value="15" />
         <Setter Property="Width" Value="125" />
         <Setter Property="Height" Value="150" />
-        <Setter Property="Fill" Value="#090909" />
+        <Setter Property="Fill" Value="#292929" />
         <Setter Property="RadiusX" Value="10" />
         <Setter Property="RadiusY" Value="15" />
     </Style>
@@ -81,15 +81,28 @@
         <Setter Property="CornerRadius" Value="10"/>
         <Setter Property="BorderBrush" Value="#22FFFFFF"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BoxShadow" Value="2.5 2.5 5 3 #44000000"/>
+        <Setter Property="BoxShadow" Value="2.5 2.5 5 3 #28000000"/>
     </Style>
     
     <Style Selector="ProgressBar.dayCompletionProgressbar">
-        <Setter Property="Width" Value="750"/>
-        <Setter Property="Height" Value="50"/>
+        <Setter Property="Height" Value="50"></Setter>
         <Setter Property="Minimum" Value="0"/>
         <Setter Property="Maximum" Value="100"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="Margin" Value="10 0"/>
+        <Setter Property="Foreground" Value="#5910ad"/>
         <Setter Property="ShowProgressText" Value="True"/>
-        <Setter Property="ProgressTextFormat" Value="The Day Is {1:0}% Over"/>
+        <Setter Property="ProgressTextFormat" Value="The day is {1:0}% complete"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
+    </Style>
+    
+    <Style Selector="TextBlock.weatherOutlook">
+        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Foreground" Value="#cccccc"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="10"/>
     </Style>
 </Styles>

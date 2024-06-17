@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Threading.Tasks;
 using Shob3rsWeatherApp.Util;
 
@@ -11,45 +13,36 @@ public class OpenWeatherData
     protected readonly string openWeatherMapKey, customCityName;
     public readonly string? tempUnit;
     public float airPressure, windSpeed;
-    public string? sunsetTime, sunriseTime;
+    
     public int tempNow, feelsLike, minimumTemp, maximumTemp;
 
-    public string? weatherDescription, detailedWeatherDescription;
+    public string? weatherDescription, detailedWeatherDescription, todaysWeatherDescription;
 
-    public OpenWeatherData(string customCityName = "")
+    public OpenWeatherData()
     {
         openWeatherMapKey = Env.openWeatherKey;
         
         CultureInfo currentCulture = CultureInfo.CurrentCulture;
         isUserAmerican = currentCulture.Name.Equals("en_US", StringComparison.InvariantCultureIgnoreCase);
         tempUnit = isUserAmerican ? "F" : "C";
-
-        this.customCityName = customCityName;
     }
 
     public virtual async Task setWeatherData()
     {
         string units = getUnitType();
-        string url = customCityName != ""
-            ? $"https://api.openweathermap.org/data/2.5/weather?q={customCityName}&units={units}&appid={openWeatherMapKey}"
-            : $"https://api.openweathermap.org/data/2.5/weather?q={LocationInformation.currentCity},{LocationInformation.countryOfResidence}&units={units}&appid={openWeatherMapKey}";
-
+        string url = $"https://api.openweathermap.org/data/3.0/onecall?lat={LocationInformation.latitude}&lon={LocationInformation.longitude}&exclude=minutely,hourly&units={getUnitType()}&appid={Env.openWeatherKey}";
+        
         string weatherRightNowInfo = await HttpUtils.getHttpContent(url);
         var weatherParser = new JsonParser(weatherRightNowInfo);
-
-        int timezone = weatherParser.getDataByTag<int>("timezone");
-
-        // Add the timezone variable to whatever the unix time is to adjust it to the timezone the user is currently in. without it, we'd be using UTC time
-        sunriseTime = normalizeUnixTime(weatherParser.getDataByTag<long>("sys.sunrise") + timezone);
-        sunsetTime = normalizeUnixTime(weatherParser.getDataByTag<long>("sys.sunset") + timezone);
-
-        weatherDescription = weatherParser.getDataByTag<string>("weather[0].main");
-        detailedWeatherDescription = weatherParser.getDataByTag<string>("weather[0].description");
-        tempNow = roundTemp(weatherParser.getDataByTag<float>("main.temp"));
-        feelsLike = roundTemp(weatherParser.getDataByTag<float>("main.feels_like"));
-        maximumTemp = roundTemp(weatherParser.getDataByTag<float>("main.temp_min"));
-        minimumTemp = roundTemp(weatherParser.getDataByTag<float>("main.temp_max"));
-        airPressure = convertAirPressure(weatherParser.getDataByTag<int>("main.pressure"));
+        
+        weatherDescription = weatherParser.getDataByTag<string>("current.weather[0].main");
+        detailedWeatherDescription = weatherParser.getDataByTag<string>("current.weather[0].description");
+        tempNow = roundTemp(weatherParser.getDataByTag<float>("current.temp"));
+        feelsLike = roundTemp(weatherParser.getDataByTag<float>("current.feels_like"));
+        maximumTemp = roundTemp(weatherParser.getDataByTag<float>("daily[0].temp.min"));
+        minimumTemp = roundTemp(weatherParser.getDataByTag<float>("daily[0].temp.max"));
+        todaysWeatherDescription = weatherParser.getDataByTag<string>("daily[0].summary");
+        airPressure = convertAirPressure(weatherParser.getDataByTag<int>("current.pressure"));
     }
 
     protected float convertSpeed(float input)
@@ -71,17 +64,16 @@ public class OpenWeatherData
         return pressure * 0.001f;
     }
 
+    protected string getUnitType()
+    {
+        return isUserAmerican ? "imperial" : "metric";
+    }
+    
     private string normalizeUnixTime(long inputTime)
     {
         DateTimeOffset dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(inputTime);
         DateTime dateTime = dateTimeOffset.DateTime;
 
-        return
-            dateTime.ToString("hh:mm tt").ToLower(); // Using ToLower() here as without it, am/pm will be all capitalized
-    }
-
-    protected string getUnitType()
-    {
-        return isUserAmerican ? "imperial" : "metric";
+        return dateTime.ToString("hh:mm tt").ToUpper();
     }
 }
