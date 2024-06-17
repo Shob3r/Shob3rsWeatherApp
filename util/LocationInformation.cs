@@ -18,11 +18,10 @@ public static class LocationInformation
     {
         try
         {
-            publicIpAddress = Task.Run(() => HttpUtils.getHttpContent("https://api.ipify.org")).Result;
-            Console.WriteLine(publicIpAddress);
+            publicIpAddress = Task.Run(() => HttpUtils.getHttpContent("https://api.ipify.org")).Result; // This website is a life-saver
             client = new IpDataClient(Env.ipDataKey);
         }
-        catch (FileNotFoundException e)
+        catch (Exception e)
         {
             Console.WriteLine(e);
             throw;
@@ -30,6 +29,7 @@ public static class LocationInformation
 
         if (callCount == 0)
         {
+            // Prevent IPData from calling more than once and eating through the daily api call limit
             callCount++;
             var fullIpInformation = await client.Lookup(publicIpAddress);
             currentCity = fullIpInformation.City;
@@ -37,7 +37,6 @@ public static class LocationInformation
             longitude = (float)fullIpInformation.Longitude!;
             countryOfResidence = fullIpInformation.CountryCode;
             fullCountryName = fullIpInformation.CountryName;
-            Console.WriteLine("Location info set!");
         }
     }
 }

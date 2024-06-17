@@ -5,6 +5,7 @@ namespace Shob3rsWeatherApp;
 
 public class JsonParser(string contents)
 {
+    // Yoinked this code from a different C# project, but I wrote this all
     private readonly JObject parsedFileContents = JObject.Parse(contents);
 
     public T getDataByTag<T>(string tagName, bool enableDebug = false)

@@ -6,9 +6,9 @@ namespace Shob3rsWeatherApp.Util;
 
 public static class HttpUtils
 {
-    public static async Task<string> getHttpContent(string url)
+    public static async Task<string> getHttpContent(string url, bool enableLogging = false)
     {
-        Console.WriteLine(url);
+        if(enableLogging) Console.WriteLine(url);
 
         using var httpClient = new HttpClient();
         try
