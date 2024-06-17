@@ -127,10 +127,9 @@
                             <Grid ColumnDefinitions="15*, 28*, 28*, 29*">
                                 <Border Background="#242424" Classes="WeatherWidgetConfig">
                                     <StackPanel Margin="15">
-                                        <Image Source="/Assets/Images/windspeed.png" Width="100" Height="100"
-                                               Margin="0 25" />
+                                        <Image Source="/Assets/Images/windspeed.png" Width="100" Height="100" Margin="0 25" />
                                         <TextBlock x:Name="windSpeed" Text="Temp" Classes="weatherWidgetText"
-                                                   FontSize="25" Margin="2" />
+                                                   FontSize="25" Margin="2" FontWeight="400" />
                                     </StackPanel>
                                 </Border>
 

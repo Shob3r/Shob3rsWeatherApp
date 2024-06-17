@@ -12,9 +12,11 @@ namespace Shob3rsWeatherApp;
 
 public partial class MainWindow : Window
 {
+    private TextInfo textInfo = new CultureInfo("en-CA", false).TextInfo;
     private readonly OpenWeatherData currentWeather;
     private readonly OpenWeatherFutureForecasting futureForecast;
     private Task setContentTask;
+    private MainWindowUtils MainWindowUtils;
 
     public MainWindow()
     {
@@ -28,127 +30,63 @@ public partial class MainWindow : Window
     private async Task setMenuContent()
     {
         // Create a text formatter, so I can use ToTileCase() when I need to, then wait for the classes to set their data, so this method can execute properly
-        var textInfo = new CultureInfo("en-CA", false).TextInfo;
-
         await LocationInformation.setLocationData();
         await futureForecast.setWeatherData();
         await currentWeather.setWeatherData();
+        MainWindowUtils = new MainWindowUtils(currentWeather, futureForecast);
+        
+        setEnvironmentData();
+        setFutureWeatherData();
+        setWidgetsData();
+    }
 
-        // Greeting + Current weather segment
-        greeting.Text = $"Good {getTime()}, {Environment.UserName}";
+    private void setEnvironmentData()
+    {
+        greeting.Text = $"Good {MainWindowUtils.getTime()}, {Environment.UserName}";
         usersLocation.Text = $"{LocationInformation.currentCity}, {LocationInformation.fullCountryName}";
         coordinates.Text = $"({LocationInformation.latitude}, {LocationInformation.longitude})";
         weatherRightNow.Text = $"{currentWeather.tempNow}\u00b0{currentWeather.tempUnit}";
         weatherImage.Source = new Bitmap(AssetLoader.Open(new Uri(
-            $"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName(currentWeather.weatherDescription)}.png")));
+            $"avares://Shob3rsWeatherApp/Assets/Images/{MainWindowUtils.getWeatherImageName(currentWeather.weatherDescription)}.png")));
         if (currentWeather.detailedWeatherDescription != null)
             weatherDescription.Text = textInfo.ToTitleCase(currentWeather.detailedWeatherDescription);
         todaysWeather.Text = currentWeather.todaysWeatherDescription;
+    }
 
+    private void setFutureWeatherData()
+    {
         // Future forecast segment
-        List<TextBlock> futureWeatherDate =
-            [futureWeatherCol0Date, futureWeatherCol1Date, futureWeatherCol2Date, futureWeatherCol3Date];
-        List<TextBlock> futureWeatherTemp =
-            [futureWeatherCol0Temp, futureWeatherCol1Temp, futureWeatherCol2Temp, futureWeatherCol3Temp];
-        List<Image> futureWeatherImage =
-            [futureWeatherCol0Image, futureWeatherCol1Image, futureWeatherCol2Image, futureWeatherCol3Image];
-
+        List<TextBlock> futureWeatherDate = [futureWeatherCol0Date, futureWeatherCol1Date, futureWeatherCol2Date, futureWeatherCol3Date];
+        List<TextBlock> futureWeatherTemp = [futureWeatherCol0Temp, futureWeatherCol1Temp, futureWeatherCol2Temp, futureWeatherCol3Temp];
+        List<Image> futureWeatherImage = [futureWeatherCol0Image, futureWeatherCol1Image, futureWeatherCol2Image, futureWeatherCol3Image];
         for (int i = 0; i < 4; i++)
         {
-            futureWeatherDate[i].Text = i == 0 ? "Tomorrow" : getDayOfWeekInFuture(i + 1);
-            futureWeatherImage[i].Source = new Bitmap(AssetLoader.Open(new Uri(
-                $"avares://Shob3rsWeatherApp/Assets/Images/{getWeatherImageName(futureForecast.futureWeatherDescriptions!.ElementAt(i))}.png")));
-            futureWeatherTemp[i].Text =
-                $"{futureForecast.futureTemperatures!.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
+            futureWeatherDate[i].Text = i == 0 ? "Tomorrow" : MainWindowUtils.getDayOfWeekInFuture(i + 1);
+            futureWeatherImage[i].Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{MainWindowUtils.getWeatherImageName(futureForecast.futureWeatherDescriptions!.ElementAt(i))}.png")));
+            futureWeatherTemp[i].Text = $"{futureForecast.futureTemperatures!.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
         }
+    }
 
+    private void setWidgetsData()
+    {
         // Day completion Widget
-        dayProgressBar.Value = calculatePercentageOfDayPassed();
+        dayProgressBar.Value = MainWindowUtils.calculatePercentageOfDayPassed();
         // Barometric Pressure Widget
         barPressure.Text = $"{currentWeather.airPressure.ToString(CultureInfo.CurrentCulture)} bar";
         // Humidity Segment Widget
         humidity.Text = $"{currentWeather.humidity}% Humidity";
         // Wind speed Widget
-        windSpeed.Text = $"{currentWeather.windSpeed} {getSpeedUnits()}";
+        windSpeed.Text = $"{currentWeather.windSpeed} {MainWindowUtils.getSpeedUnits()}";
         // Temp Lows Widget
-        tempLows.Text = $"{currentWeather.minimumTemp}\u00b0{currentWeather.tempUnit}";
+        tempLows.Text = $"Low: {currentWeather.minimumTemp}\u00b0{currentWeather.tempUnit}";
         // Temp Highs Widget
-        tempHighs.Text = $"{currentWeather.maximumTemp}\u00b0{currentWeather.tempUnit}";
+        tempHighs.Text = $"High: {currentWeather.maximumTemp}\u00b0{currentWeather.tempUnit}";
         // Currently Feels like Widget
-        feelsLike.Text = $"{currentWeather.feelsLike}\u00b0{currentWeather.tempUnit}";
+        feelsLike.Text = $"Feels Like: {currentWeather.feelsLike}\u00b0{currentWeather.tempUnit}";
     }
-
-    private string getWeatherImageName(string? inputWeatherDescription)
-    {
-        // This returns exact file names for the image names (without png)
-        return inputWeatherDescription!.ToLower() switch
-        {
-            "clear" => $"clear-{getTime(true)}",
-            "drizzle" => "rainy",
-            "rain" => "storm",
-            "snow" => "snowy",
-            "mist" => "overcast",
-            "haze" => "overcast",
-            "fog" => "fog",
-            "ash" => "fog",
-            "squall" => "windy",
-            "tornado" => "tornado",
-            "clouds" => $"cloudy-{getTime(true)}",
-            _ => "clear-day"
-        };
-    }
-
-    private string getDayOfWeekInFuture(int days)
-    {
-        var thePresent = DateTime.Today;
-        var futureDate = thePresent.AddDays(days);
-
-        return futureDate.DayOfWeek.ToString();
-    }
-
-    private string getTime(bool onlyDayAndNight = false)
-    {
-        var currentTime = DateTime.Now;
-        int currentHour = currentTime.Hour;
-
-        if (onlyDayAndNight) // For other methods that only want day and night stuff, rather than the default return value
-            return currentHour switch
-            {
-                >= 6 and < 18 => "day",
-                _ => "night"
-            };
-
-        return currentHour switch
-        {
-            >= 6 and < 12 => "Morning",
-            >= 12 and < 19 => "Afternoon",
-            _ => "Evening"
-        };
-    }
-
-    private string getSpeedUnits()
-    {
-        return currentWeather.isUserAmerican ? "Mph" : "Km/h";
-    }
-
+    
     private void refreshWeatherData(object? sender, RoutedEventArgs e)
     {
         setContentTask = setMenuContent();
-    }
-
-    private long getCurrentUnixTime()
-    {
-        var currentTime = DateTimeOffset.UtcNow;
-        return currentTime.ToUnixTimeSeconds();
-    }
-
-    private double calculatePercentageOfDayPassed()
-    {
-        // The only thing generated with ChatGPT here
-        var now = DateTime.Now;
-        double totalSecondsInDay = 24 * 60 * 60;
-        double secondsElapsedToday = (now - now.Date).TotalSeconds;
-        double percentageCompleted = secondsElapsedToday / totalSecondsInDay * 100;
-        return percentageCompleted;
     }
 }

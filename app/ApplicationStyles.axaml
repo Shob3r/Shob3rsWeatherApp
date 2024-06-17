@@ -108,7 +108,7 @@
     <Style Selector="TextBlock.weatherWidgetText">
         <Setter Property="FontFamily" Value="{StaticResource Inter}" />
         <Setter Property="FontSize" Value="35" />
-        <Setter Property="FontWeight" Value="400" />
+        <Setter Property="FontWeight" Value="300" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="TextAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
