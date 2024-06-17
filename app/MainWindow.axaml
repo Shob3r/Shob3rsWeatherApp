@@ -8,8 +8,8 @@
         x:CompileBindings="True"
         Title="Shob3r's Weather App"
         Background="#0d0d0d"
-        MinWidth="1200"
-        MinHeight="750"
+        MinWidth="1350"
+        MinHeight="850"
         Icon="/Assets/Images/appIcon.png"
         ExtendClientAreaToDecorationsHint="False">
 
@@ -20,7 +20,7 @@
     <ScrollViewer>
         <Panel>
             <Grid x:Name="weatherHereContent">
-                <Button Classes="menuButton" Click="refreshWeatherData" HorizontalAlignment="Right"
+                <Button Classes="menuButton" Click="refreshWeatherButton" HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Background="Black">
                     <Grid ColumnDefinitions="Auto, Auto">
@@ -112,7 +112,7 @@
                                 <Border Grid.Column="1" Background="#242424" Classes="WeatherWidgetConfig">
                                     <StackPanel Margin="15">
                                         <Grid ColumnDefinitions="Auto, *">
-                                            <Image Source="/Assets/Images/airpressure.png" Classes="WeatherWidgetImage" />
+                                            <Image Source="/Assets/Images/airpressure.png" Classes="WeatherWidgetImage"/>
                                             <TextBlock Grid.Column="1" Text="Air Pressure:"
                                                        Classes="WeatherWidgetDescription" />
                                         </Grid>

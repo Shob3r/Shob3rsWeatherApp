@@ -2,12 +2,12 @@ using System;
 
 namespace Shob3rsWeatherApp;
 
-public class MainWindowUtils(OpenWeatherData currentWeather, OpenWeatherFutureForecasting futureForecast)
+public class MainWindowUtils(OpenWeatherData currentWeather, OpenWeatherFutureForecasting futureForecast) // futureForecast not used for now but may be needed in the future
 {
-    public string getWeatherImageName(string? inputWeatherDescription)
+    public string getWeatherImageName(string inputWeatherDescription)
     {
         // This returns exact file names for the image names (without png)
-        return inputWeatherDescription!.ToLower() switch
+        return inputWeatherDescription.ToLower() switch
         {
             "clear" => $"clear-{getTime(true)}",
             "drizzle" => "rainy",
@@ -20,21 +20,21 @@ public class MainWindowUtils(OpenWeatherData currentWeather, OpenWeatherFutureFo
             "squall" => "windy",
             "tornado" => "tornado",
             "clouds" => $"cloudy-{getTime(true)}",
-            _ => "clear-day"
+            _ => "unknown"
         };
     }
 
-    public string getDayOfWeekInFuture(int days)
+    public string getFutureDayName(int days)
     {
-        var thePresent = DateTime.Today;
-        var futureDate = thePresent.AddDays(days);
+        DateTime thePresent = DateTime.Today;
+        DateTime futureDate = thePresent.AddDays(days);
 
         return futureDate.DayOfWeek.ToString();
     }
 
     public string getTime(bool onlyDayAndNight = false)
     {
-        var currentTime = DateTime.Now;
+        DateTime currentTime = DateTime.Now;
         int currentHour = currentTime.Hour;
 
         if (onlyDayAndNight) // For other methods that only want day and night stuff, rather than the default return value
@@ -57,17 +57,11 @@ public class MainWindowUtils(OpenWeatherData currentWeather, OpenWeatherFutureFo
         return currentWeather.isUserAmerican ? "Mph" : "Km/h";
     }
 
-    public long getCurrentUnixTime()
-    {
-        var currentTime = DateTimeOffset.UtcNow;
-        return currentTime.ToUnixTimeSeconds();
-    }
-
     public double calculatePercentageOfDayPassed()
     {
-        // The only thing generated with ChatGPT here
-        var now = DateTime.Now;
-        double totalSecondsInDay = 24 * 60 * 60;
+        // The only thing generated with ChatGPT in this whole project
+        DateTime now = DateTime.Now;
+        const double totalSecondsInDay = 24 * 60 * 60;
         double secondsElapsedToday = (now - now.Date).TotalSeconds;
         double percentageCompleted = secondsElapsedToday / totalSecondsInDay * 100;
         return percentageCompleted;
