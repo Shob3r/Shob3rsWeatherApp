@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading.Tasks;
 using Shob3rsWeatherApp.Util;
 
@@ -8,12 +7,12 @@ namespace Shob3rsWeatherApp;
 
 public class OpenWeatherFutureForecasting : OpenWeatherData
 {
-    public List<string>? futureTemperatures = [];
-    public List<string>? futureWeatherDescriptions = [];
+    public readonly List<string>? futureTemperatures = [];
+    public readonly List<string>? futureWeatherDescriptions = [];
 
     public override async Task setWeatherData()
     {
-        // TODO: Migrate to OneCall V3 for future forecasting if I have the time for it
+        // Migrate to OneCall V3 for future forecasting if I have the time for it
         JsonParser weatherParser = new JsonParser(await HttpUtils.getHttpContent($"https://api.openweathermap.org/data/2.5/forecast?q={LocationInformation.currentCity},{LocationInformation.countryOfResidence}&units={getUnitType()}&appid={openWeatherMapKey}"));
 
         // Cursed for loop conditions
@@ -23,7 +22,6 @@ public class OpenWeatherFutureForecasting : OpenWeatherData
             // I only want to show the weather once every 24 hours, and start 24 hours from now.
             // So we start at element 7 of the array, which is 24 hours from when the application runs, and then increment it by 8 each time from there on
             // As 8 segments of 3 hour increments = 24 hours
-            // A little difficult to explain for 1am me but it makes sense when it's thought about 
             
             try
             {
