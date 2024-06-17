@@ -94,6 +94,7 @@
         <Setter Property="ShowProgressText" Value="True" />
         <Setter Property="ProgressTextFormat" Value="The day is {1:0}% complete" />
         <Setter Property="FontSize" Value="15" />
+        <Setter Property="CornerRadius" Value="12"/>
         <Setter Property="FontFamily" Value="{StaticResource Inter}" />
     </Style>
 
@@ -113,5 +114,21 @@
         <Setter Property="TextAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Bottom" />
         <Setter Property="Margin" Value="15" />
+    </Style>
+    
+    <Style Selector="Image.WeatherWidgetImage">
+        <Setter Property="Width" Value="75"/>
+        <Setter Property="Height" Value="75"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
+    
+    <Style Selector="TextBlock.WeatherWidgetDescription">
+        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="FontWeight" Value="200"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 </Styles>

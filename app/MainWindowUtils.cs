@@ -65,7 +65,7 @@ public class MainWindowUtils(OpenWeatherData currentWeather, OpenWeatherFutureFo
     public double calculatePercentageOfDayPassed()
     {
         // The only thing generated with ChatGPT here
-        var now = DateTime.Now;
+        DateTime now = DateTime.Now;
         double totalSecondsInDay = 24 * 60 * 60;
         double secondsElapsedToday = (now - now.Date).TotalSeconds;
         double percentageCompleted = secondsElapsedToday / totalSecondsInDay * 100;

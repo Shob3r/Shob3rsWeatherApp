@@ -16,7 +16,7 @@ public partial class MainWindow : Window
     private readonly OpenWeatherData currentWeather;
     private readonly OpenWeatherFutureForecasting futureForecast;
     private Task setContentTask;
-    private MainWindowUtils MainWindowUtils;
+    private MainWindowUtils? MainWindowUtils;
 
     public MainWindow()
     {
@@ -82,7 +82,7 @@ public partial class MainWindow : Window
         // Temp Highs Widget
         tempHighs.Text = $"High: {currentWeather.maximumTemp}\u00b0{currentWeather.tempUnit}";
         // Currently Feels like Widget
-        feelsLike.Text = $"Feels Like: {currentWeather.feelsLike}\u00b0{currentWeather.tempUnit}";
+        feelsLike.Text = $"{currentWeather.feelsLike}\u00b0{currentWeather.tempUnit}";
     }
     
     private void refreshWeatherData(object? sender, RoutedEventArgs e)

@@ -28,8 +28,7 @@ public class OpenWeatherFutureForecasting : OpenWeatherData
         for (int i = 7; i < 40; i += 8)
             try
             {
-                futureTemperatures?.Add(roundTemp(weatherParser.getDataByTag<float>($"list[{i}].main.temp"))
-                    .ToString());
+                futureTemperatures?.Add(roundTemp(weatherParser.getDataByTag<float>($"list[{i}].main.temp")).ToString());
                 futureWeatherDescriptions?.Add(weatherParser.getDataByTag<string>($"list[{i}].weather[0].main"));
             }
             catch (IndexOutOfRangeException)
