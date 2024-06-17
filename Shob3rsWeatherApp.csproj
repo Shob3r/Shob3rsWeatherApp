@@ -76,4 +76,10 @@
         <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-SemiBoldItalic.ttf"/>
         <UpToDateCheckInput Remove="Assets\Fonts\Rubik\Rubik-VariableFont_wght.ttf"/>
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="app\MainWindowUtils.cs">
+        <DependentUpon>MainWindow.axaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
 </Project>
