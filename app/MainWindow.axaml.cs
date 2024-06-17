@@ -79,7 +79,7 @@ public partial class MainWindow : Window
         // Barometric Pressure Widget
         barPressure.Text = $"{currentWeather.airPressure.ToString(CultureInfo.CurrentCulture)} bar";
         // Humidity Segment Widget
-        humidity.Text = $"{currentWeather.humidity}% Humidity";
+        humidity.Text = $"{currentWeather.humidity}%";
         // Wind speed Widget
         windSpeed.Text = $"{currentWeather.windSpeed} {MainWindowUtils.getSpeedUnits()}";
         // Temp Lows Widget

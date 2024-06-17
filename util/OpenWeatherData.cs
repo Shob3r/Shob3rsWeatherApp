@@ -38,8 +38,8 @@ public class OpenWeatherData
         detailedWeatherDescription = weatherParser.getDataByTag<string>("current.weather[0].description");
         tempNow = roundTemp(weatherParser.getDataByTag<float>("current.temp"));
         feelsLike = roundTemp(weatherParser.getDataByTag<float>("current.feels_like"));
-        maximumTemp = roundTemp(weatherParser.getDataByTag<float>("daily[0].temp.min"));
-        minimumTemp = roundTemp(weatherParser.getDataByTag<float>("daily[0].temp.max"));
+        minimumTemp = roundTemp(weatherParser.getDataByTag<float>("daily[0].temp.min"));
+        maximumTemp = roundTemp(weatherParser.getDataByTag<float>("daily[0].temp.max"));
         todaysWeatherDescription = weatherParser.getDataByTag<string>("daily[0].summary");
         airPressure = convertAirPressure(weatherParser.getDataByTag<int>("current.pressure"));
         humidity = weatherParser.getDataByTag<float>("current.humidity");

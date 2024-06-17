@@ -124,7 +124,7 @@
                                     <StackPanel Margin="15">
                                         <Grid ColumnDefinitions="Auto, *">
                                             <Image Source="/Assets/Images/humidity.png" Classes="WeatherWidgetImage" />
-                                            <TextBlock Grid.Column="1" Text="Humidity Right Now:"
+                                            <TextBlock Grid.Column="1" Text="Humidity:"
                                                        Classes="WeatherWidgetDescription" />
                                         </Grid>
                                         <TextBlock x:Name="humidity" Text="Placeholder" Classes="weatherWidgetText" />
@@ -157,10 +157,7 @@
                                     <StackPanel Margin="15">
                                         <Grid ColumnDefinitions="Auto, *">
                                             <Image Source="/Assets/Images/temp-highs.png" Classes="WeatherWidgetImage" />
-                                            <TextBlock Grid.Column="1" Text="Today's Highs:"
-                                                       HorizontalAlignment="Center" VerticalAlignment="Top"
-                                                       Classes="weatherWidgetText" TextAlignment="Center"
-                                                       TextWrapping="Wrap" />
+                                            <TextBlock Grid.Column="1" Text="Today's Highs:" Classes="WeatherWidgetDescription" />
                                         </Grid>
                                         <TextBlock x:Name="tempHighs" Text="Highs" Classes="weatherWidgetText" />
                                     </StackPanel>
@@ -173,8 +170,7 @@
                                             <TextBlock Grid.Column="1" Text="It Feels Like:"
                                                        Classes="WeatherWidgetDescription" />
                                         </Grid>
-                                        <TextBlock x:Name="feelsLike" Text="temp" Classes="weatherWidgetText"
-                                                   FontSize="60" />
+                                        <TextBlock x:Name="feelsLike" Text="temp" Classes="weatherWidgetText"/>
                                     </StackPanel>
                                 </Border>
                             </Grid>
