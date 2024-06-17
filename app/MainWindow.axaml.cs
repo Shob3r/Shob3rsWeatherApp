@@ -42,7 +42,7 @@ public partial class MainWindow : Window
 
     private void setEnvironmentData()
     {
-        greeting.Text = $"Good {MainWindowUtils.getTime()}, {Environment.UserName}";
+        greeting.Text = $"Good {MainWindowUtils!.getTime()}, {Environment.UserName}";
         usersLocation.Text = $"{LocationInformation.currentCity}, {LocationInformation.fullCountryName}";
         coordinates.Text = $"({LocationInformation.latitude}, {LocationInformation.longitude})";
         weatherRightNow.Text = $"{currentWeather.tempNow}\u00b0{currentWeather.tempUnit}";
