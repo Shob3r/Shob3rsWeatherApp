@@ -8,40 +8,37 @@ namespace Shob3rsWeatherApp;
 public class OpenWeatherData
 {
     public readonly bool isUserAmerican;
-    public readonly string? tempUnit;
+    public readonly string tempUnit;
     
     public int tempNow, feelsLike, minimumTemp, maximumTemp;
     public float airPressure, windSpeed, humidity;
-    public string? weatherDescription, detailedWeatherDescription, todaysWeatherDescription;
+    public string? weatherDescription, detailedWeatherDescription, weatherOutlook;
     
-    protected readonly string openWeatherMapKey;
 
     public OpenWeatherData()
     {
-        openWeatherMapKey = Env.openWeatherKey;
-
         var currentCulture = CultureInfo.CurrentCulture;
         isUserAmerican = currentCulture.Name.Equals("en_US", StringComparison.InvariantCultureIgnoreCase);
         tempUnit = isUserAmerican ? "F" : "C";
     }
 
-    public virtual async Task setWeatherData()
+    public virtual async Task updateWeatherData()
     {
-        JsonParser weatherParser = new JsonParser(await HttpUtils.getHttpContent($"https://api.openweathermap.org/data/3.0/onecall?lat={LocationInformation.latitude}&lon={LocationInformation.longitude}&exclude=minutely,hourly&units={getUnitType()}&appid={Env.openWeatherKey}"));
+        JsonParser weatherParser = new JsonParser(await HttpUtils.getHttpContent($"https://api.openweathermap.org/data/3.0/onecall?lat={LocationInformation.latitude}&lon={LocationInformation.longitude}&exclude=minutely,hourly&units={getMeasurementSystem()}&appid={Env.openWeatherKey}"));
         
-        setWeatherDescriptions(weatherParser);
-        setTempData(weatherParser);
-        setMiscData(weatherParser);
+        updateWeatherDescriptions(weatherParser);
+        updateTempData(weatherParser);
+        updateMiscData(weatherParser);
     }
 
-    private void setWeatherDescriptions(JsonParser weatherParser)
+    private void updateWeatherDescriptions(JsonParser weatherParser)
     {
         weatherDescription = weatherParser.getDataByTag<string>("current.weather[0].main");
         detailedWeatherDescription = weatherParser.getDataByTag<string>("current.weather[0].description");
-        todaysWeatherDescription = weatherParser.getDataByTag<string>("daily[0].summary");
+        weatherOutlook = weatherParser.getDataByTag<string>("daily[0].summary");
     }
     
-    private void setTempData(JsonParser weatherParser)
+    private void updateTempData(JsonParser weatherParser)
     {
         tempNow = roundTemp(weatherParser.getDataByTag<float>("current.temp"));
         feelsLike = roundTemp(weatherParser.getDataByTag<float>("current.feels_like"));
@@ -49,7 +46,7 @@ public class OpenWeatherData
         maximumTemp = roundTemp(weatherParser.getDataByTag<float>("daily[0].temp.max"));
     }
 
-    private void setMiscData(JsonParser weatherParser)
+    private void updateMiscData(JsonParser weatherParser)
     {
         airPressure = convertAirPressure(weatherParser.getDataByTag<int>("current.pressure"));
         humidity = weatherParser.getDataByTag<float>("current.humidity");
@@ -76,16 +73,8 @@ public class OpenWeatherData
         return (float)Math.Round(pressure * 0.001f, 2); // Round to nearest hundredth
     }
 
-    protected string getUnitType()
+    protected string getMeasurementSystem()
     {
         return isUserAmerican ? "imperial" : "metric";
-    }
-
-    private string normalizeUnixTime(long inputTime)
-    {
-        var dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(inputTime);
-        var dateTime = dateTimeOffset.DateTime;
-
-        return dateTime.ToString("hh:mm tt").ToUpper();
     }
 }

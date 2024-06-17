@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ic="using:FluentIcons.Avalonia"
+        xmlns:vlc="clr-namespace:LibVLCSharp.Avalonia;assembly=LibVLCSharp.Avalonia"
         mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="750"
         x:Class="Shob3rsWeatherApp.MainWindow"
         x:CompileBindings="True"
@@ -176,6 +177,17 @@
                             </Grid>
                         </StackPanel>
                     </Border>
+                    <Grid ColumnDefinitions="33*,34*,33*">
+                        <Border Grid.Column="1" CornerRadius="10" Background="#1f1e33" Height="65" VerticalAlignment="Center">
+                            <Grid ColumnDefinitions="Auto, Auto, Auto">
+                                <Button Grid.Column="1" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right" Click="openGithub">
+                                    <Image Source="/Assets/Images/GithubLogo.png" Width="45" Height="45"/>
+                                </Button>
+                                <TextBlock Grid.Column="1" Text="v1.1.0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBlock Grid.Column="2" Text="©Shob3r 2024" VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
                 </StackPanel>
             </Grid>
         </Panel>

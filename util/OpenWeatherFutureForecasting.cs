@@ -7,13 +7,13 @@ namespace Shob3rsWeatherApp;
 
 public class OpenWeatherFutureForecasting : OpenWeatherData
 {
-    public readonly List<string>? futureTemperatures = [];
-    public readonly List<string>? futureWeatherDescriptions = [];
+    public readonly List<string> futureTemperatures = [];
+    public readonly List<string> futureWeatherDescriptions = [];
 
-    public override async Task setWeatherData()
+    public override async Task updateWeatherData()
     {
         // Migrate to OneCall V3 for future forecasting if I have the time for it
-        JsonParser weatherParser = new JsonParser(await HttpUtils.getHttpContent($"https://api.openweathermap.org/data/2.5/forecast?q={LocationInformation.currentCity},{LocationInformation.countryOfResidence}&units={getUnitType()}&appid={openWeatherMapKey}"));
+        JsonParser weatherParser = new JsonParser(await HttpUtils.getHttpContent($"https://api.openweathermap.org/data/2.5/forecast?q={LocationInformation.currentCity},{LocationInformation.countryOfResidence}&units={getMeasurementSystem()}&appid={Env.openWeatherKey}"));
 
         // Cursed for loop conditions
         for (int i = 7; i < 40; i += 8)
@@ -25,8 +25,8 @@ public class OpenWeatherFutureForecasting : OpenWeatherData
             
             try
             {
-                futureTemperatures?.Add(roundTemp(weatherParser.getDataByTag<float>($"list[{i}].main.temp")).ToString());
-                futureWeatherDescriptions?.Add(weatherParser.getDataByTag<string>($"list[{i}].weather[0].main"));
+                futureTemperatures.Add(roundTemp(weatherParser.getDataByTag<float>($"list[{i}].main.temp")).ToString());
+                futureWeatherDescriptions.Add(weatherParser.getDataByTag<string>($"list[{i}].weather[0].main"));
             }
             catch (IndexOutOfRangeException e)
             {

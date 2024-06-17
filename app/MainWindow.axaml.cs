@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 
@@ -13,16 +14,13 @@ namespace Shob3rsWeatherApp;
 public partial class MainWindow : Window
 {
     private MainWindowUtils mainWindowUtils;
-    private readonly OpenWeatherData currentWeather;
-    private readonly OpenWeatherFutureForecasting futureForecast;
+    private readonly OpenWeatherData currentWeather = new OpenWeatherData();
+    private readonly OpenWeatherFutureForecasting futureForecast = new OpenWeatherFutureForecasting();
     private readonly TextInfo textInfo = new CultureInfo("en-CA", false).TextInfo;
 
     private Task setContentTask;
     public MainWindow()
     {
-        currentWeather = new OpenWeatherData();
-        futureForecast = new OpenWeatherFutureForecasting();
-
         InitializeComponent();
         setContentTask = setMenuContent();
     }
@@ -31,8 +29,8 @@ public partial class MainWindow : Window
     {
         // Create a text formatter, so I can use ToTileCase() when I need to, then wait for the classes to set their data, so this method can execute properly
         await LocationInformation.setLocationData();
-        await futureForecast.setWeatherData();
-        await currentWeather.setWeatherData();
+        await futureForecast.updateWeatherData();
+        await currentWeather.updateWeatherData();
         mainWindowUtils = new MainWindowUtils(currentWeather, futureForecast);
 
         setGreetingContent();
@@ -54,7 +52,7 @@ public partial class MainWindow : Window
         weatherRightNow.Text = $"{currentWeather.tempNow}\u00b0{currentWeather.tempUnit}";
         weatherImage.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{mainWindowUtils.getWeatherImageName(currentWeather.weatherDescription)}.png")));
         if (currentWeather.detailedWeatherDescription != null) weatherDescription.Text = textInfo.ToTitleCase(currentWeather.detailedWeatherDescription);
-        todaysWeather.Text = currentWeather.todaysWeatherDescription;
+        todaysWeather.Text = currentWeather.weatherOutlook;
     }
 
     private void setForecastContent()
@@ -98,5 +96,10 @@ public partial class MainWindow : Window
     {
         // Restart the task that runs when the app launches
         setContentTask = setMenuContent();
+    }
+
+    private void openGithub(object? sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -9,10 +9,10 @@ namespace Shob3rsWeatherApp;
 
 public static class LocationInformation
 {
-    public static float? latitude, longitude;
+    public static float latitude, longitude;
     public static string currentCity = "", countryOfResidence = "", fullCountryName = "", publicIpAddress = "";
 
-    private static IpDataClient client = new IpDataClient(Env.ipDataKey);
+    private static readonly IpDataClient client = new (Env.ipDataKey);
     private static int callCount;
 
     public static async Task setLocationData()
