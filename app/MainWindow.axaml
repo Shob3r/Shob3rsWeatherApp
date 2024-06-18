@@ -177,14 +177,14 @@
                             </Grid>
                         </StackPanel>
                     </Border>
-                    <Grid ColumnDefinitions="33*,34*,33*">
-                        <Border Grid.Column="1" CornerRadius="10" Background="#1f1e33" Height="65" VerticalAlignment="Center">
+                    <Grid ColumnDefinitions="33*, 34*, 33*" HorizontalAlignment="Center">
+                        <Border Grid.Column="1" CornerRadius="10" Background="#1f1f1f" Height="70" VerticalAlignment="Center" Padding="15">
                             <Grid ColumnDefinitions="Auto, Auto, Auto">
-                                <Button Grid.Column="1" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right" Click="openGithub">
-                                    <Image Source="/Assets/Images/GithubLogo.png" Width="45" Height="45"/>
+                                <TextBlock Grid.Column="0" Text="v1.1.0" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" FontFamily="{StaticResource Inter}" Foreground="#cccccc" FontSize="17"/>
+                                <TextBlock Grid.Column="1" Text="©Shob3r 2024" VerticalAlignment="Center" HorizontalAlignment="Right" TextAlignment="Center" Margin="75 0" FontFamily="{StaticResource Inter}" Foreground="#cccccc" FontSize="17"/>
+                                <Button Grid.Column="2" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right" Click="openGithub">
+                                    <Image Source="/Assets/Images/GithubLogo.png" Width="35" Height="35"/>
                                 </Button>
-                                <TextBlock Grid.Column="1" Text="v1.1.0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                <TextBlock Grid.Column="2" Text="©Shob3r 2024" VerticalAlignment="Center"/>
                             </Grid>
                         </Border>
                     </Grid>

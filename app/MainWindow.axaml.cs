@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -60,11 +61,12 @@ public partial class MainWindow : Window
         List<TextBlock> futureWeatherDate = [futureWeatherCol0Date, futureWeatherCol1Date, futureWeatherCol2Date, futureWeatherCol3Date];
         List<TextBlock> futureWeatherTemp = [futureWeatherCol0Temp, futureWeatherCol1Temp, futureWeatherCol2Temp, futureWeatherCol3Temp];
         List<Image> futureWeatherImage = [futureWeatherCol0Image, futureWeatherCol1Image, futureWeatherCol2Image, futureWeatherCol3Image];
+        
         for (int i = 0; i < 4; i++)
         {
             futureWeatherDate[i].Text = i == 0 ? "Tomorrow" : mainWindowUtils.getFutureDayName(i + 1);
             futureWeatherImage[i].Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{mainWindowUtils.getWeatherImageName(futureForecast.futureWeatherDescriptions!.ElementAt(i))}.png")));
-            futureWeatherTemp[i].Text = $"{futureForecast.futureTemperatures!.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
+            futureWeatherTemp[i].Text = $"{futureForecast.futureTemperatures.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
         }
     }
 
@@ -100,6 +102,10 @@ public partial class MainWindow : Window
 
     private void openGithub(object? sender, RoutedEventArgs e)
     {
-        throw new NotImplementedException();
+        Process.Start(new ProcessStartInfo
+        {
+            FileName = "https://github.com/Shob3r/Shob3rsWeatherApp",
+            UseShellExecute = true
+        });
     }
 }
