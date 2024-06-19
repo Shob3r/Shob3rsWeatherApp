@@ -49,9 +49,9 @@
                                     <Image x:Name="futureWeatherCol0Image" Source="/Assets/Images/clear-day.png" Width="50" Height="50" Margin="0 15" HorizontalAlignment="Center" />
 
                                     <Grid ColumnDefinitions="1*, Auto, 1*" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                                        <TextBlock Grid.Column="0" x:Name="weatherForecastCol0MaxTemp" Text="Max" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                        <TextBlock Grid.Column="0" x:Name="weatherForecastCol0MaxTemp" Text="Max" Classes="weatherForecastText"/>
                                         <Rectangle Grid.Column="1" Width="1.5" Height="15" Fill="#CCCCCC" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2.5"/>
-                                        <TextBlock Grid.Column="2" x:Name="weatherForecastCol0MinTemp" Text="Min" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                        <TextBlock Grid.Column="2" x:Name="weatherForecastCol0MinTemp" Text="Min" Classes="weatherForecastText"/>
                                     </Grid>
                                 </StackPanel>
                             </Border>
@@ -64,9 +64,9 @@
                                     <Image x:Name="futureWeatherCol1Image" Source="/Assets/Images/clear-day.png" Width="50" Height="50" Margin="0 15" HorizontalAlignment="Center" />
 
                                     <Grid ColumnDefinitions="1*, Auto, 1*" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                                        <TextBlock Grid.Column="0" x:Name="weatherForecastCol1MaxTemp" Text="Max" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                        <TextBlock Grid.Column="0" x:Name="weatherForecastCol1MaxTemp" Text="Max" Classes="weatherForecastText"/>
                                         <Rectangle Grid.Column="1" Width="1.5" Height="15" Fill="#CCCCCC" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2.5"/>
-                                        <TextBlock Grid.Column="2" x:Name="weatherForecastCol1MinTemp" Text="Min" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                        <TextBlock Grid.Column="2" x:Name="weatherForecastCol1MinTemp" Text="Min" Classes="weatherForecastText"/>
                                     </Grid>
                                 </StackPanel>
                             </Border>
@@ -79,9 +79,9 @@
                                     <Image x:Name="futureWeatherCol2Image" Source="/Assets/Images/clear-day.png" Width="50" Height="50" Margin="0 15" HorizontalAlignment="Center" />
 
                                     <Grid ColumnDefinitions="1*, Auto, 1*" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                                        <TextBlock Grid.Column="0" x:Name="weatherForecastCol2MaxTemp" Text="Max" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                        <TextBlock Grid.Column="0" x:Name="weatherForecastCol2MaxTemp" Text="Max" Classes="weatherForecastText"/>
                                         <Rectangle Grid.Column="1" Width="1.5" Height="15" Fill="#CCCCCC" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2.5"/>
-                                        <TextBlock Grid.Column="2" x:Name="weatherForecastCol2MinTemp" Text="Min" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                        <TextBlock Grid.Column="2" x:Name="weatherForecastCol2MinTemp" Text="Min" Classes="weatherForecastText"/>
                                     </Grid>
                                 </StackPanel>
                             </Border>
@@ -94,9 +94,9 @@
                                     <Image x:Name="futureWeatherCol3Image" Source="/Assets/Images/clear-day.png" Width="50" Height="50" Margin="0 15" HorizontalAlignment="Center" />
 
                                     <Grid ColumnDefinitions="1*, Auto, 1*" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                                        <TextBlock Grid.Column="0" x:Name="weatherForecastCol3MaxTemp" Text="Max" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                        <TextBlock Grid.Column="0" x:Name="weatherForecastCol3MaxTemp" Text="Max" Classes="weatherForecastText"/>
                                         <Rectangle Grid.Column="1" Width="1.5" Height="15" Fill="#CCCCCC" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2.5"/>
-                                        <TextBlock Grid.Column="2" x:Name="weatherForecastCol3MinTemp" Text="Min" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                        <TextBlock Grid.Column="2" x:Name="weatherForecastCol3MinTemp" Text="Min" Classes="weatherForecastText"/>
                                     </Grid>
                                 </StackPanel>
                             </Border>
