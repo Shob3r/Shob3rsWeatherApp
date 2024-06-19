@@ -1,26 +1,10 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
-    <Style Selector="TextBlock.primaryText">
-        <Setter Property="Foreground" Value="White" />
-        <Setter Property="FontFamily" Value="{StaticResource Inter}" />
-    </Style>
-
-    <Style Selector="TextBlock.mainHeader">
-        <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="FontSize" Value="40" />
-    </Style>
-
     <Style Selector="Button.menuButton">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="Margin" Value="5 3" />
-    </Style>
-
-    <Style Selector="TextBlock.menuItemText">
-        <Setter Property="Margin" Value="10" />
-        <Setter Property="HorizontalAlignment" Value="Right" />
-        <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
     <Style Selector="TextBlock.temperature">
@@ -62,15 +46,6 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Padding" Value="10 15" />
         <Setter Property="FontSize" Value="35" />
-    </Style>
-
-    <Style Selector="Rectangle.FutureForecastRect">
-        <Setter Property="Margin" Value="15" />
-        <Setter Property="Width" Value="125" />
-        <Setter Property="Height" Value="150" />
-        <Setter Property="Fill" Value="#292929" />
-        <Setter Property="RadiusX" Value="10" />
-        <Setter Property="RadiusY" Value="15" />
     </Style>
     
     <Style Selector="Border.futureForecastElement">
@@ -138,5 +113,4 @@
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
-
 </Styles>
