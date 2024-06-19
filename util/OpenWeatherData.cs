@@ -13,19 +13,19 @@ public class OpenWeatherData
     
     public int tempNow, feelsLike, minimumTemp, maximumTemp;
     public float airPressure, windSpeed, humidity;
-    public string? weatherDescription, detailedWeatherDescription, weatherOutlook;
+    public string weatherDescription, detailedWeatherDescription, weatherOutlook;
     
     public readonly List<string> futureTemperatures = [];
     public readonly List<string> futureWeatherDescriptions = [];
 
     public OpenWeatherData()
     {
-        var currentCulture = CultureInfo.CurrentCulture;
+        CultureInfo currentCulture = CultureInfo.CurrentCulture;
         isUserAmerican = currentCulture.Name.Equals("en_US", StringComparison.InvariantCultureIgnoreCase);
         tempUnit = isUserAmerican ? "F" : "C";
     }
 
-    public virtual async Task updateWeatherData()
+    public async Task updateWeatherData()
     {
         JsonParser weatherParser = new JsonParser(await HttpUtils.getHttpContent($"https://api.openweathermap.org/data/3.0/onecall?lat={LocationInformation.latitude}&lon={LocationInformation.longitude}&exclude=minutely,hourly&units={getMeasurementSystem()}&appid={Env.openWeatherKey}"));
         
@@ -73,7 +73,7 @@ public class OpenWeatherData
         return isUserAmerican ? input : (float)Math.Round(input * 3.6f, 1); // Round to the nearest tenth
     }
 
-    protected int roundTemp(float temperatureBeforeRounding)
+    private int roundTemp(float temperatureBeforeRounding)
     {
         // Convert the value that OpenWeatherMap provides (which contains decimal places) into an integer, while rounding up or down to the nearest number before converting
         return (int)Math.Round(temperatureBeforeRounding);

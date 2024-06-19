@@ -29,14 +29,17 @@ public static class LocationInformation
 
         if (callCount == 0)
         {
-            // Prevent IPData from calling more than once and eating through the daily api call limit
-            callCount++;
+            // Prevents IPData from calling more than once and eating through the daily api call limit
             IpInfo fullIpInformation = await client.Lookup(publicIpAddress);
             currentCity = fullIpInformation.City;
+            
             latitude = (float)fullIpInformation.Latitude!;
             longitude = (float)fullIpInformation.Longitude!;
+            
             countryOfResidence = fullIpInformation.CountryCode;
             fullCountryName = fullIpInformation.CountryName;
+            
+            callCount++;
         }
     }
 }
