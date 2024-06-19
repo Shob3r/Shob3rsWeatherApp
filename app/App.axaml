@@ -5,10 +5,10 @@
     <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.Styles>
-        <FluentTheme />
+        <FluentTheme/>
     </Application.Styles>
 
     <Application.Resources>
-        <FontFamily x:Key="Inter">avares://Shob3rsWeatherApp/Assets/Fonts/Inter/#Inter</FontFamily>
+        <FontFamily x:Key="Inter">avares://Shob3rsWeatherApp/Assets/Inter/#Inter</FontFamily>
     </Application.Resources>
 </Application>
