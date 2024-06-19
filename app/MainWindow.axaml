@@ -3,7 +3,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ic="using:FluentIcons.Avalonia"
-        xmlns:vlc="clr-namespace:LibVLCSharp.Avalonia;assembly=LibVLCSharp.Avalonia"
         mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="750"
         x:Class="Shob3rsWeatherApp.MainWindow"
         x:CompileBindings="True"
@@ -21,7 +20,7 @@
     <ScrollViewer>
         <Panel>
             <Grid x:Name="weatherHereContent">
-                <Button Classes="menuButton" Click="refreshWeatherButton" HorizontalAlignment="Right"
+                <Button Classes="refreshWeatherButton" Click="refreshWeatherButton" HorizontalAlignment="Right"
                         VerticalAlignment="Top"
                         Background="Black">
                     <Grid ColumnDefinitions="Auto, Auto">

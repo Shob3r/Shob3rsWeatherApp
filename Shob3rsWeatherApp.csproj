@@ -17,7 +17,6 @@
         <PackageReference Include="Avalonia.Native" Version="11.1.0-rc1"/>
         <PackageReference Include="Avalonia.Remote.Protocol" Version="11.1.0-rc1"/>
         <PackageReference Include="Avalonia.Skia" Version="11.1.0-rc1"/>
-        <PackageReference Include="Avalonia.Svg" Version="11.1.0-rc1"/>
         <PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.0-rc1"/>
         <PackageReference Include="Avalonia.Fonts.Inter" Version="11.1.0-rc1"/>
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
@@ -32,7 +31,6 @@
         <PackageReference Include="HarfBuzzSharp.NativeAssets.WebAssembly" Version="8.3.0-preview.3.1"/>
         <PackageReference Include="HarfBuzzSharp.NativeAssets.Win32" Version="8.3.0-preview.3.1"/>
         <PackageReference Include="IpData" Version="2.0.1"/>
-        <PackageReference Include="LibVLCSharp.Avalonia" Version="3.8.5" />
         <PackageReference Include="Microsoft.NETCore.Platforms" Version="8.0.0-preview.7.23375.6"/>
         <PackageReference Include="Microsoft.NETCore.Targets" Version="6.0.0-preview.4.21253.7"/>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>

@@ -89,7 +89,7 @@ public class OpenWeatherData
         return (float)Math.Round(pressure * 0.001f, 2); // Round to nearest hundredth
     }
 
-    protected string getMeasurementSystem()
+    private string getMeasurementSystem()
     {
         return isUserAmerican ? "imperial" : "metric";
     }

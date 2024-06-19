@@ -6,12 +6,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 
-namespace Shob3rsWeatherApp;
 
+namespace Shob3rsWeatherApp;
+// ReSharper disable NotAccessedField.Local
 public partial class MainWindow : Window
 {
     private MainWindowUtils mainWindowUtils;
@@ -19,6 +19,8 @@ public partial class MainWindow : Window
     private readonly TextInfo textInfo = new CultureInfo("en-CA", false).TextInfo;
 
     private Task setContentTask;
+    
+    #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
     public MainWindow()
     {
         InitializeComponent();
@@ -50,7 +52,8 @@ public partial class MainWindow : Window
     {
         weatherRightNow.Text = $"{currentWeather.tempNow}\u00b0{currentWeather.tempUnit}";
         weatherImage.Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{mainWindowUtils.getWeatherImageName(currentWeather.weatherDescription)}.png")));
-        if (currentWeather.detailedWeatherDescription != null) weatherDescription.Text = textInfo.ToTitleCase(currentWeather.detailedWeatherDescription);
+        weatherDescription.Text = textInfo.ToTitleCase(currentWeather.detailedWeatherDescription);
+        
         todaysWeather.Text = currentWeather.weatherOutlook;
     }
 
@@ -59,13 +62,12 @@ public partial class MainWindow : Window
         List<TextBlock> futureWeatherDate = [futureWeatherCol0Date, futureWeatherCol1Date, futureWeatherCol2Date, futureWeatherCol3Date];
         List<TextBlock> futureMaxTemp = [weatherForecastCol0MaxTemp, weatherForecastCol1MaxTemp, weatherForecastCol2MaxTemp, weatherForecastCol3MaxTemp];
         List <TextBlock> futureMinTemp = [weatherForecastCol0MinTemp, weatherForecastCol1MinTemp, weatherForecastCol2MinTemp, weatherForecastCol3MinTemp];
-        
         List<Image> futureWeatherImage = [futureWeatherCol0Image, futureWeatherCol1Image, futureWeatherCol2Image, futureWeatherCol3Image];
         
         for (int i = 0; i < 4; i++)
         {
             futureWeatherDate[i].Text = i == 0 ? "Tomorrow" : mainWindowUtils.getFutureDayName(i + 1);
-            futureWeatherImage[i].Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{mainWindowUtils.getWeatherImageName(currentWeather.futureWeatherDescriptions!.ElementAt(i))}.png")));
+            futureWeatherImage[i].Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{mainWindowUtils.getWeatherImageName(currentWeather.futureWeatherDescriptions.ElementAt(i))}.png")));
             futureMaxTemp[i].Text = $"{currentWeather.futureHighs.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
             futureMinTemp[i].Text = $"{currentWeather.futureLows.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
         }
@@ -75,22 +77,16 @@ public partial class MainWindow : Window
     {
         // Day completion Widget
         dayProgressBar.Value = mainWindowUtils.calculatePercentageOfDayPassed();
-        
         // Barometric Pressure Widget
         barPressure.Text = $"{currentWeather.airPressure.ToString(CultureInfo.CurrentCulture)} bar";
-        
         // Humidity Segment Widget
         humidity.Text = $"{currentWeather.humidity}%";
-        
         // Wind speed Widget
         windSpeed.Text = $"{currentWeather.windSpeed} {mainWindowUtils.getSpeedUnits()}";
-        
         // Temp Lows Widget
         tempLows.Text = $"{currentWeather.minimumTemp}\u00b0{currentWeather.tempUnit}";
-        
         // Temp Highs Widget
         tempHighs.Text = $"{currentWeather.maximumTemp}\u00b0{currentWeather.tempUnit}";
-        
         // Currently Feels like Widget
         feelsLike.Text = $"{currentWeather.feelsLike}\u00b0{currentWeather.tempUnit}";
     }

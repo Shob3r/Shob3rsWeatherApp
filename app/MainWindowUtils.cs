@@ -2,7 +2,7 @@ using System;
 
 namespace Shob3rsWeatherApp;
 
-public class MainWindowUtils(OpenWeatherData currentWeather) // futureForecast not used for now but may be needed in the future
+public class MainWindowUtils(OpenWeatherData currentWeather)
 {
     public string getWeatherImageName(string inputWeatherDescription)
     {
@@ -62,6 +62,7 @@ public class MainWindowUtils(OpenWeatherData currentWeather) // futureForecast n
         // The only thing generated with ChatGPT in this whole project
         DateTime now = DateTime.Now;
         const double totalSecondsInDay = 24 * 60 * 60;
+        
         double secondsElapsedToday = (now - now.Date).TotalSeconds;
         double percentageCompleted = secondsElapsedToday / totalSecondsInDay * 100;
         return percentageCompleted;
