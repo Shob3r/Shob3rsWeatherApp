@@ -15,7 +15,8 @@ public class OpenWeatherData
     public float airPressure, windSpeed, humidity;
     public string weatherDescription, detailedWeatherDescription, weatherOutlook;
     
-    public readonly List<string> futureTemperatures = [];
+    public readonly List<string> futureHighs = [];
+    public readonly List<string> futureLows = [];
     public readonly List<string> futureWeatherDescriptions = [];
 
     public OpenWeatherData()
@@ -61,7 +62,9 @@ public class OpenWeatherData
     {
         for (int i = 0; i < 4; i++)
         {
-            futureTemperatures.Add(roundTemp(weatherParser.getDataByTag<float>($"daily[{i}].temp.max")).ToString());
+            futureHighs.Add(roundTemp(weatherParser.getDataByTag<float>($"daily[{i}].temp.max")).ToString());
+            futureLows.Add(roundTemp(weatherParser.getDataByTag<float>($"daily[{i}].temp.min")).ToString());
+            
             futureWeatherDescriptions.Add(weatherParser.getDataByTag<string>($"daily[{i}].weather[0].main"));
         }
     }

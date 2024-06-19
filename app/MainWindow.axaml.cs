@@ -57,14 +57,17 @@ public partial class MainWindow : Window
     private void setForecastContent()
     {
         List<TextBlock> futureWeatherDate = [futureWeatherCol0Date, futureWeatherCol1Date, futureWeatherCol2Date, futureWeatherCol3Date];
-        List<TextBlock> futureWeatherTemp = [futureWeatherCol0Temp, futureWeatherCol1Temp, futureWeatherCol2Temp, futureWeatherCol3Temp];
+        List<TextBlock> futureMaxTemp = [weatherForecastCol0MaxTemp, weatherForecastCol1MaxTemp, weatherForecastCol2MaxTemp, weatherForecastCol3MaxTemp];
+        List <TextBlock> futureMinTemp = [weatherForecastCol0MinTemp, weatherForecastCol1MinTemp, weatherForecastCol2MinTemp, weatherForecastCol3MinTemp];
+        
         List<Image> futureWeatherImage = [futureWeatherCol0Image, futureWeatherCol1Image, futureWeatherCol2Image, futureWeatherCol3Image];
         
         for (int i = 0; i < 4; i++)
         {
             futureWeatherDate[i].Text = i == 0 ? "Tomorrow" : mainWindowUtils.getFutureDayName(i + 1);
             futureWeatherImage[i].Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{mainWindowUtils.getWeatherImageName(currentWeather.futureWeatherDescriptions!.ElementAt(i))}.png")));
-            futureWeatherTemp[i].Text = $"{currentWeather.futureTemperatures.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
+            futureMaxTemp[i].Text = $"{currentWeather.futureHighs.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
+            futureMinTemp[i].Text = $"{currentWeather.futureLows.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
         }
     }
 

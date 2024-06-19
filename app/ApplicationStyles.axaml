@@ -72,6 +72,13 @@
         <Setter Property="RadiusX" Value="10" />
         <Setter Property="RadiusY" Value="15" />
     </Style>
+    
+    <Style Selector="Border.futureForecastElement">
+        <Setter Property="Width" Value="125"/>
+        <Setter Property="Height" Value="150"/>
+        <Setter Property="Background" Value="#292929"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
 
     <Style Selector="Border.WeatherWidgetConfig">
         <Setter Property="Height" Value="250" />

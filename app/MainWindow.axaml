@@ -42,57 +42,69 @@
                     <TextBlock x:Name="weatherDescription" Classes="weatherDescription" Text="Weather Description" />
                     <TextBlock x:Name="todaysWeather" Classes="weatherOutlook" Text="Today's weather" />
 
-                    <Grid VerticalAlignment="Bottom" HorizontalAlignment="Center"
-                          ColumnDefinitions="Auto, Auto, Auto, Auto" Margin="25">
-                        <Panel Grid.Column="0">
-                            <Rectangle Classes="FutureForecastRect" />
-                            <StackPanel VerticalAlignment="Center">
-                                <TextBlock x:Name="futureWeatherCol0Date" Text="Tomorrow" HorizontalAlignment="Center" />
-                                <Image x:Name="futureWeatherCol0Image" Source="/Assets/Images/clear-day.png"
-                                       Width="50" Height="50" Margin="15" />
-                                <TextBlock x:Name="futureWeatherCol0Temp" Text="Temp Value"
-                                           HorizontalAlignment="Center" />
-                            </StackPanel>
+                    <Grid VerticalAlignment="Bottom" HorizontalAlignment="Center" ColumnDefinitions="25*, 25*, 25*, 25*" Margin="25">
+                        <Panel Grid.Column="0" HorizontalAlignment="Center" Margin="10 0">
+                            <Border Classes="futureForecastElement">
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock x:Name="futureWeatherCol0Date" Text="Tomorrow" HorizontalAlignment="Center" />
+                                    <Image x:Name="futureWeatherCol0Image" Source="/Assets/Images/clear-day.png" Width="50" Height="50" Margin="0 15" HorizontalAlignment="Center" />
+
+                                    <Grid ColumnDefinitions="1*, Auto, 1*" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                                        <TextBlock Grid.Column="0" x:Name="weatherForecastCol0MaxTemp" Text="Max" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                        <Rectangle Grid.Column="1" Width="1.5" Height="15" Fill="#CCCCCC" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2.5"/>
+                                        <TextBlock Grid.Column="2" x:Name="weatherForecastCol0MinTemp" Text="Min" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
                         </Panel>
 
-                        <Panel Grid.Column="1">
-                            <Rectangle Classes="FutureForecastRect" />
-                            <StackPanel VerticalAlignment="Center">
-                                <TextBlock x:Name="futureWeatherCol1Date" Text="Tomorrow" HorizontalAlignment="Center" />
-                                <Image x:Name="futureWeatherCol1Image" Source="/Assets/Images/clear-day.png"
-                                       Width="50" Height="50" Margin="15" />
-                                <TextBlock x:Name="futureWeatherCol1Temp" Text="Temp Value"
-                                           HorizontalAlignment="Center" />
-                            </StackPanel>
+                        <Panel Grid.Column="1" HorizontalAlignment="Center" Margin="10 0">
+                            <Border Classes="futureForecastElement">
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock x:Name="futureWeatherCol1Date" Text="Tomorrow" HorizontalAlignment="Center" />
+                                    <Image x:Name="futureWeatherCol1Image" Source="/Assets/Images/clear-day.png" Width="50" Height="50" Margin="0 15" HorizontalAlignment="Center" />
+
+                                    <Grid ColumnDefinitions="1*, Auto, 1*" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                                        <TextBlock Grid.Column="0" x:Name="weatherForecastCol1MaxTemp" Text="Max" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                        <Rectangle Grid.Column="1" Width="1.5" Height="15" Fill="#CCCCCC" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2.5"/>
+                                        <TextBlock Grid.Column="2" x:Name="weatherForecastCol1MinTemp" Text="Min" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
                         </Panel>
 
-                        <Panel Grid.Column="2">
-                            <Rectangle Classes="FutureForecastRect" />
-                            <StackPanel VerticalAlignment="Center">
-                                <TextBlock x:Name="futureWeatherCol2Date" Text="Tomorrow" HorizontalAlignment="Center" />
-                                <Image x:Name="futureWeatherCol2Image" Source="/Assets/Images/clear-day.png"
-                                       Width="50" Height="50" Margin="15" />
-                                <TextBlock x:Name="futureWeatherCol2Temp" Text="Temp Value"
-                                           HorizontalAlignment="Center" />
-                            </StackPanel>
+                        <Panel Grid.Column="2" HorizontalAlignment="Center" Margin="10 0">
+                            <Border Classes="futureForecastElement">
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock x:Name="futureWeatherCol2Date" Text="Tomorrow" HorizontalAlignment="Center" />
+                                    <Image x:Name="futureWeatherCol2Image" Source="/Assets/Images/clear-day.png" Width="50" Height="50" Margin="0 15" HorizontalAlignment="Center" />
+
+                                    <Grid ColumnDefinitions="1*, Auto, 1*" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                                        <TextBlock Grid.Column="0" x:Name="weatherForecastCol2MaxTemp" Text="Max" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                        <Rectangle Grid.Column="1" Width="1.5" Height="15" Fill="#CCCCCC" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2.5"/>
+                                        <TextBlock Grid.Column="2" x:Name="weatherForecastCol2MinTemp" Text="Min" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
                         </Panel>
 
-                        <Panel Grid.Column="3">
-                            <Rectangle Classes="FutureForecastRect" />
-                            <StackPanel VerticalAlignment="Center">
-                                <TextBlock x:Name="futureWeatherCol3Date" Text="Tomorrow" HorizontalAlignment="Center" />
-                                <Image x:Name="futureWeatherCol3Image" Source="/Assets/Images/clear-day.png"
-                                       Width="50" Height="50" Margin="15" />
-                                <TextBlock x:Name="futureWeatherCol3Temp" Text="Temp Value"
-                                           HorizontalAlignment="Center" />
-                            </StackPanel>
+                        <Panel Grid.Column="3" HorizontalAlignment="Center" Margin="10 0">
+                            <Border Classes="futureForecastElement">
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock x:Name="futureWeatherCol3Date" Text="Tomorrow" HorizontalAlignment="Center" />
+                                    <Image x:Name="futureWeatherCol3Image" Source="/Assets/Images/clear-day.png" Width="50" Height="50" Margin="0 15" HorizontalAlignment="Center" />
+
+                                    <Grid ColumnDefinitions="1*, Auto, 1*" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                                        <TextBlock Grid.Column="0" x:Name="weatherForecastCol3MaxTemp" Text="Max" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                        <Rectangle Grid.Column="1" Width="1.5" Height="15" Fill="#CCCCCC" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2.5"/>
+                                        <TextBlock Grid.Column="2" x:Name="weatherForecastCol3MinTemp" Text="Min" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
                         </Panel>
                     </Grid>
 
-                    <Border Background="#151515" BorderThickness="2"
-                            CornerRadius="3"
-                            Padding="10"
-                            Margin="10">
+                    <Border Background="#151515" BorderThickness="2" CornerRadius="3" Padding="10" Margin="10">
                         <StackPanel>
                             <Grid ColumnDefinitions="50*, 25*, 25*">
                                 <Border Background="#242424" Classes="WeatherWidgetConfig"
@@ -181,7 +193,7 @@
                         <Border Grid.Column="1" CornerRadius="10" Background="#1f1f1f" Height="70" VerticalAlignment="Center" Padding="15">
                             <Grid ColumnDefinitions="Auto, Auto, Auto">
                                 <TextBlock Grid.Column="0" Text="v1.1.0" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" FontFamily="{StaticResource Inter}" Foreground="#cccccc" FontSize="17"/>
-                                <TextBlock Grid.Column="1" Text="©Shob3r 2024" VerticalAlignment="Center" HorizontalAlignment="Right" TextAlignment="Center" Margin="75 0" FontFamily="{StaticResource Inter}" Foreground="#cccccc" FontSize="17"/>
+                                <TextBlock Grid.Column="1" Text="©Shob3r 2024" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Margin="75 0" FontFamily="{StaticResource Inter}" Foreground="#cccccc" FontSize="17"/>
                                 <Button Grid.Column="2" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right" Click="openGithub">
                                     <Image Source="/Assets/Images/GithubLogo.png" Width="35" Height="35"/>
                                 </Button>
