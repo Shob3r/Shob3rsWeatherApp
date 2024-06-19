@@ -2,7 +2,7 @@ using System;
 
 namespace Shob3rsWeatherApp;
 
-public class MainWindowUtils(OpenWeatherData currentWeather, OpenWeatherFutureForecasting futureForecast) // futureForecast not used for now but may be needed in the future
+public class MainWindowUtils(OpenWeatherData currentWeather) // futureForecast not used for now but may be needed in the future
 {
     public string getWeatherImageName(string inputWeatherDescription)
     {

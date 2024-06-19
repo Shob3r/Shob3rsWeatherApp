@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
 using Shob3rsWeatherApp.Util;
@@ -14,6 +15,8 @@ public class OpenWeatherData
     public float airPressure, windSpeed, humidity;
     public string? weatherDescription, detailedWeatherDescription, weatherOutlook;
     
+    public readonly List<string> futureTemperatures = [];
+    public readonly List<string> futureWeatherDescriptions = [];
 
     public OpenWeatherData()
     {
@@ -27,6 +30,7 @@ public class OpenWeatherData
         JsonParser weatherParser = new JsonParser(await HttpUtils.getHttpContent($"https://api.openweathermap.org/data/3.0/onecall?lat={LocationInformation.latitude}&lon={LocationInformation.longitude}&exclude=minutely,hourly&units={getMeasurementSystem()}&appid={Env.openWeatherKey}"));
         
         updateWeatherDescriptions(weatherParser);
+        updateWeatherForecasts(weatherParser);
         updateTempData(weatherParser);
         updateMiscData(weatherParser);
     }
@@ -51,6 +55,15 @@ public class OpenWeatherData
         airPressure = convertAirPressure(weatherParser.getDataByTag<int>("current.pressure"));
         humidity = weatherParser.getDataByTag<float>("current.humidity");
         windSpeed = convertSpeed(weatherParser.getDataByTag<float>("current.wind_speed"));
+    }
+
+    private void updateWeatherForecasts(JsonParser weatherParser)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            futureTemperatures.Add(roundTemp(weatherParser.getDataByTag<float>($"daily[{i}].temp.max")).ToString());
+            futureWeatherDescriptions.Add(weatherParser.getDataByTag<string>($"daily[{i}].weather[0].main"));
+        }
     }
     
     private float convertSpeed(float input)

@@ -16,7 +16,6 @@ public partial class MainWindow : Window
 {
     private MainWindowUtils mainWindowUtils;
     private readonly OpenWeatherData currentWeather = new OpenWeatherData();
-    private readonly OpenWeatherFutureForecasting futureForecast = new OpenWeatherFutureForecasting();
     private readonly TextInfo textInfo = new CultureInfo("en-CA", false).TextInfo;
 
     private Task setContentTask;
@@ -30,9 +29,8 @@ public partial class MainWindow : Window
     {
         // Create a text formatter, so I can use ToTileCase() when I need to, then wait for the classes to set their data, so this method can execute properly
         await LocationInformation.setLocationData();
-        await futureForecast.updateWeatherData();
         await currentWeather.updateWeatherData();
-        mainWindowUtils = new MainWindowUtils(currentWeather, futureForecast);
+        mainWindowUtils = new MainWindowUtils(currentWeather);
 
         setGreetingContent();
         setCurrentWeatherContent();
@@ -65,8 +63,8 @@ public partial class MainWindow : Window
         for (int i = 0; i < 4; i++)
         {
             futureWeatherDate[i].Text = i == 0 ? "Tomorrow" : mainWindowUtils.getFutureDayName(i + 1);
-            futureWeatherImage[i].Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{mainWindowUtils.getWeatherImageName(futureForecast.futureWeatherDescriptions!.ElementAt(i))}.png")));
-            futureWeatherTemp[i].Text = $"{futureForecast.futureTemperatures.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
+            futureWeatherImage[i].Source = new Bitmap(AssetLoader.Open(new Uri($"avares://Shob3rsWeatherApp/Assets/Images/{mainWindowUtils.getWeatherImageName(currentWeather.futureWeatherDescriptions!.ElementAt(i))}.png")));
+            futureWeatherTemp[i].Text = $"{currentWeather.futureTemperatures.ElementAt(i)}\u00b0{currentWeather.tempUnit}";
         }
     }
 
