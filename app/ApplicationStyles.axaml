@@ -122,4 +122,13 @@
         <Setter Property="TextAlignment" Value="Center"/>
         <Setter Property="Margin" Value="5"></Setter>
     </Style>
+    
+    <Style Selector="Rectangle.forecastSeparator">
+        <Setter Property="Width" Value="1.5"/>
+        <Setter Property="Height" Value="15"/>
+        <Setter Property="Fill" Value="#CCCCCC"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="2.5"/>
+    </Style>
 </Styles>

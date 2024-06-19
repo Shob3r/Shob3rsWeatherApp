@@ -50,7 +50,7 @@
 
                                     <Grid ColumnDefinitions="1*, Auto, 1*" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                                         <TextBlock Grid.Column="0" x:Name="weatherForecastCol0MaxTemp" Text="Max" Classes="weatherForecastText"/>
-                                        <Rectangle Grid.Column="1" Width="1.5" Height="15" Fill="#CCCCCC" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2.5"/>
+                                        <Rectangle Grid.Column="1" Classes="forecastSeparator"/>
                                         <TextBlock Grid.Column="2" x:Name="weatherForecastCol0MinTemp" Text="Min" Classes="weatherForecastText"/>
                                     </Grid>
                                 </StackPanel>
@@ -65,7 +65,7 @@
 
                                     <Grid ColumnDefinitions="1*, Auto, 1*" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                                         <TextBlock Grid.Column="0" x:Name="weatherForecastCol1MaxTemp" Text="Max" Classes="weatherForecastText"/>
-                                        <Rectangle Grid.Column="1" Width="1.5" Height="15" Fill="#CCCCCC" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2.5"/>
+                                        <Rectangle Grid.Column="1" Classes="forecastSeparator"/>
                                         <TextBlock Grid.Column="2" x:Name="weatherForecastCol1MinTemp" Text="Min" Classes="weatherForecastText"/>
                                     </Grid>
                                 </StackPanel>
@@ -80,7 +80,7 @@
 
                                     <Grid ColumnDefinitions="1*, Auto, 1*" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                                         <TextBlock Grid.Column="0" x:Name="weatherForecastCol2MaxTemp" Text="Max" Classes="weatherForecastText"/>
-                                        <Rectangle Grid.Column="1" Width="1.5" Height="15" Fill="#CCCCCC" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2.5"/>
+                                        <Rectangle Grid.Column="1" Classes="forecastSeparator"/>
                                         <TextBlock Grid.Column="2" x:Name="weatherForecastCol2MinTemp" Text="Min" Classes="weatherForecastText"/>
                                     </Grid>
                                 </StackPanel>
@@ -95,7 +95,7 @@
 
                                     <Grid ColumnDefinitions="1*, Auto, 1*" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                                         <TextBlock Grid.Column="0" x:Name="weatherForecastCol3MaxTemp" Text="Max" Classes="weatherForecastText"/>
-                                        <Rectangle Grid.Column="1" Width="1.5" Height="15" Fill="#CCCCCC" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2.5"/>
+                                        <Rectangle Grid.Column="1" Classes="forecastSeparator"/>
                                         <TextBlock Grid.Column="2" x:Name="weatherForecastCol3MinTemp" Text="Min" Classes="weatherForecastText"/>
                                     </Grid>
                                 </StackPanel>
