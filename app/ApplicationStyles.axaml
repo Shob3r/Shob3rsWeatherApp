@@ -117,6 +117,7 @@
     <Style Selector="TextBlock.weatherForecastText">
         <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
         <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="400"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="TextAlignment" Value="Center"/>
@@ -130,5 +131,15 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="2.5"/>
+        <Setter Property="RadiusX" Value="5"/>
+    </Style>
+    
+    <Style Selector="TextBlock.creditsText">
+        <Setter Property="FontFamily" Value="{StaticResource Inter}"/>
+        <Setter Property="Foreground" Value="#CCCCCC"/>
+        <Setter Property="FontSize" Value="17"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="TextAlignment" Value="Center"/>
     </Style>
 </Styles>

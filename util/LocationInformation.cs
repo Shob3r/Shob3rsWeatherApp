@@ -9,7 +9,8 @@ namespace Shob3rsWeatherApp;
 public static class LocationInformation
 {
     public static float latitude, longitude;
-    public static string currentCity = "", countryOfResidence = "", fullCountryName = "", publicIpAddress = "";
+    public static string currentCity = "", countryOfResidence = "", fullCountryName = "";
+    private static string publicIpAddress = "";
 
     private static readonly IpDataClient client = new (Env.ipDataKey);
     private static int callCount;
@@ -18,7 +19,7 @@ public static class LocationInformation
     {
         try
         {
-            publicIpAddress = Task.Run(() => HttpUtils.getHttpContent("https://api.ipify.org")).Result; // This website is a life-saver
+            publicIpAddress = Task.Run(() => HttpUtils.getHttpContent("https://api.ipify.org")).Result; 
         }
         catch (Exception e)
         {

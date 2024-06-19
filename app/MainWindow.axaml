@@ -7,7 +7,7 @@
         x:Class="Shob3rsWeatherApp.MainWindow"
         x:CompileBindings="True"
         Title="Shob3r's Weather App"
-        Background="#0d0d0d"
+        Background="#191919"
         MinWidth="1350"
         MinHeight="850"
         Icon="/Assets/Images/appIcon.png"
@@ -186,19 +186,19 @@
                                     </StackPanel>
                                 </Border>
                             </Grid>
+                            <Grid ColumnDefinitions="33*, 34*, 33*" HorizontalAlignment="Center">
+                                <Border Grid.Column="1" CornerRadius="10" Background="#1f1f1f" Height="70" VerticalAlignment="Center" Padding="15">
+                                    <Grid ColumnDefinitions="Auto, Auto, Auto">
+                                        <TextBlock Grid.Column="0" Text="v1.2.0" Classes="creditsText"/>
+                                        <TextBlock Grid.Column="1" Text="©Shob3r 2024" Classes="creditsText" Margin="75 0"/>
+                                        <Button Grid.Column="2" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right" Click="openGithub">
+                                            <Image Source="/Assets/Images/GithubLogo.png" Width="35" Height="35"/>
+                                        </Button>
+                                    </Grid>
+                                </Border>
+                            </Grid>
                         </StackPanel>
                     </Border>
-                    <Grid ColumnDefinitions="33*, 34*, 33*" HorizontalAlignment="Center">
-                        <Border Grid.Column="1" CornerRadius="10" Background="#1f1f1f" Height="70" VerticalAlignment="Center" Padding="15">
-                            <Grid ColumnDefinitions="Auto, Auto, Auto">
-                                <TextBlock Grid.Column="0" Text="v1.1.0" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" FontFamily="{StaticResource Inter}" Foreground="#cccccc" FontSize="17"/>
-                                <TextBlock Grid.Column="1" Text="©Shob3r 2024" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" Margin="75 0" FontFamily="{StaticResource Inter}" Foreground="#cccccc" FontSize="17"/>
-                                <Button Grid.Column="2" Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Right" Click="openGithub">
-                                    <Image Source="/Assets/Images/GithubLogo.png" Width="35" Height="35"/>
-                                </Button>
-                            </Grid>
-                        </Border>
-                    </Grid>
                 </StackPanel>
             </Grid>
         </Panel>

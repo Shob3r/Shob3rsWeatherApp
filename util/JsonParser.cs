@@ -8,11 +8,11 @@ public class JsonParser(string contents)
     // Stole this code from a different C# project I am working on
     private readonly JObject parsedFileContents = JObject.Parse(contents);
 
-    public T getDataByTag<T>(string tagName, bool enableDebug = false)
+    public T getDataByTag<T>(string tagName, bool enableLogging = false)
     {
         if (doesTagExist(tagName))
         {
-            if (enableDebug) Console.WriteLine("Found tag " + tagName);
+            if (enableLogging) Console.WriteLine("Found tag " + tagName);
 
             var token = parsedFileContents.SelectToken(tagName) ?? throw new InvalidOperationException();
             if (token.Type != JTokenType.Null)

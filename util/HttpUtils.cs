@@ -15,9 +15,7 @@ public static class HttpUtils
         {
             HttpResponseMessage response = await httpClient.GetAsync(url);
             response.EnsureSuccessStatusCode();
-            string content = await response.Content.ReadAsStringAsync();
-
-            return content;
+            return await response.Content.ReadAsStringAsync();
         }
         catch (HttpRequestException e)
         {

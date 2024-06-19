@@ -99,10 +99,6 @@ public partial class MainWindow : Window
 
     private void openGithub(object? sender, RoutedEventArgs e)
     {
-        Process.Start(new ProcessStartInfo
-        {
-            FileName = "https://github.com/Shob3r/Shob3rsWeatherApp",
-            UseShellExecute = true
-        });
+        Process.Start(new ProcessStartInfo { FileName = "https://github.com/Shob3r/Shob3rsWeatherApp", UseShellExecute = true });
     }
 }
