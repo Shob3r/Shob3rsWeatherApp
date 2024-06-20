@@ -3,7 +3,7 @@
 <p><i>A simple weather app I created so I could learn AvaloniaUI for a final project in my programming class</i></p>
 
 # Requirements to run
-To run this application, you must have the [.NET 8 Runtime](https://download.visualstudio.microsoft.com/download/pr/76e5dbb2-6ae3-4629-9a84-527f8feb709c/09002599b32d5d01dc3aa5dcdffcc984/windowsdesktop-runtime-8.0.6-win-x64.exe) (Or higher)
+To run this application, you must have the [.NET 8 Runtime](https://download.visualstudio.microsoft.com/download/pr/76e5dbb2-6ae3-4629-9a84-527f8feb709c/09002599b32d5d01dc3aa5dcdffcc984/windowsdesktop-runtime-8.0.6-win-x64.exe) (Or higher) installed on your system
 
 # Run from source
 
